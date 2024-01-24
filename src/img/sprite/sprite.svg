@@ -68,9 +68,11 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M8 8l16 16"></path>
 </symbol>
 
-<symbol id="icon-burger" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 18.333h-24"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 13h-24"></path>
+<symbol id="icon-burger" >
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 32 16" fill="none">
+  <path d="M28 10.3333H4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 5H4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 </symbol>
 
 </defs>
