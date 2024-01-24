@@ -5,23 +5,14 @@
   |============================
 */
 @import url('./reset.css');
+@import url('./global.css');
 @import url('./header.css');
-@import url('./home.css');
+@import url('./hero.css');
+@import url('./exercises.css');
+@import url('./quote.css');
+@import url('./about-sport.css');
 @import url('./favorites.css');
 @import url('./footer.css');
-@import url('./modal.css');
-
-:root {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color: #242424;
-  background-color: #F6F6F6;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+@import url('./modal-exercise.css');
+@import url('./modal-rating.css');
+@import url('./modal-subscribe.css');
