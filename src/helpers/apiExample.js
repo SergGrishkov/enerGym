@@ -7,26 +7,26 @@ const exercise = await exerciseCntrl.init();
 const quote = await exercise.getQuote();
 console.log(quote.json());
 
-const exercise1 = await exerciseCntrl.getExersiseById(
+const exercise1 = await exerciseCntrl.getExerciseById(
   '64f389465ae26083f39b17b3'
 );
-console.log(exercise1);
+console.log(exercise1.json());
 
 const ratingEx = await exerciseCntrl.addRating('64f389465ae26083f39b17b3', {
   rate: 5,
   email: 'test@gmail4.com',
   review: 'My best exercise',
 });
-console.log(ratingEx);
+console.log(ratingEx.json());
 
-const exercise2 = await exerciseCntrl.getExersiseById(
+const exercise2 = await exerciseCntrl.getExerciseById(
   '64f389465ae26083f39b17b3'
 );
-console.log(exercise2);
+console.log(exercise2.json());
 
 const params = {
   bodypart: 'back',
-  muscles: 'lats',
+  muscles: 'chest',
   equipment: 'barbell',
   keyword: 'pull',
   page: 1,
@@ -42,7 +42,7 @@ const paramsSub = {
   equipment: 'barbell',
   keyword: 'pull',
   page: 1,
-  limit: 10,
+  limit: 100,
 };
 
 const listExSub = await exerciseCntrl.getListExercisesBySubspecies(paramsSub);
