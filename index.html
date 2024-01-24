@@ -16,13 +16,100 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
     rel="stylesheet">
   <script type="module" crossorigin src="/enerGym/commonHelpers.js"></script>
-  <link rel="stylesheet" href="/enerGym/assets/index-c3806679.css">
+  <link rel="stylesheet" href="/enerGym/assets/index-bef48155.css">
 </head>
 
 <body class="container">
   <header class="header">
-    <h1>Header</h1>
+  <div class="navbar">
+    <a class="header-logo" href="./index.html">energy.flow</a>
+
+    <!-- navigation -->
+    <nav class="header-nav">
+      <ul class="header-menu list">
+        <li class="header-menu-item header-active-btn">
+          <a class="header-menu-link link" href="./index.html"
+            ><span class="header-active-link">Home</span></a
+          >
+        </li>
+        <li class="header-menu-item">
+          <a class="header-menu-link link" href="./favorites.html">Favorites</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- social-list -->
+    <ul class="header-social-list list">
+      <li class="header-social-list-item">
+        <a
+          class="header-social-link link"
+          href="https://www.facebook.com/goITclub/"
+          target="_blank"
+        >
+          <svg
+            class="header-social-icon"
+            width="28"
+            height="28"
+            aria-label="facebook icon"
+          >
+            <use href="../img/sprite/sprite.svg#icon-facebook"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="header-social-list-item">
+        <a
+          class="header-social-link link"
+          href="https://www.instagram.com/goitclub/"
+          target="_blank"
+        >
+          <svg
+            class="header-social-icon"
+            width="28"
+            height="28"
+            aria-label="instagram icon"
+          >
+            <use href="../img/sprite/sprite.svg#icon-instagram"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="header-social-list-item">
+        <a
+          class="header-social-link link"
+          href="https://www.youtube.com/c/GoIT"
+          target="_blank"
+        >
+          <svg
+            class="header-social-icon"
+            width="28"
+            height="28"
+            aria-label="youtube icon"
+          >
+            <use href="../img/sprite/sprite.svg#icon-youtube"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+
+    <!-- mobile-menu -->
+    <div class="open-mobile-menu">
+      <button
+        class="open-mobile-menu-btn js-open-menu"
+        type="button"
+        data-modal-open
+      >
+        <svg
+          class="open-mobile-menu-icon"
+          width="32"
+          height="16"
+          aria-label="mobile menu open icon"
+        >
+          <use href="../img/sprite/sprite.svg#icon-burger"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
 </header>
+
   <section class="hero">
     <h2>Hero</h2>
 </section>
