@@ -1,0 +1,50 @@
+.favorites-quote-block {
+    width: 335px;
+    height: 272px;
+    border-radius: 30px;
+background: #7E847F;
+}
+.favorites-img {
+    width: 335px;
+    height: 272px;
+    border-radius: 30px;
+    background-image: url(../img/sprite/favorites-main/favorites-mobile.jpg);
+    background-repeat: no-repeat; 
+
+}
+
+.favorites-info-block {
+    width: 335px;
+    height: 272px;
+    background-color: #fff;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .favorites-info-content {
+
+} */
+
+.favorites-info-title {
+    color: #1B1B1B;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: "DM Sans";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1; /* 100% */
+    margin-bottom: 6px;
+}
+
+.favorites-info-text {
+color: rgba(27, 27, 27, 0.60);
+font-family: "DM Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 1.29; /* 128.571% */
+}
+.favorites-info-icon {
+margin-bottom: 15px;
+}
