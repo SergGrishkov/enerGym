@@ -14,18 +14,14 @@
 }
 
 .container {
-    display: flex;
     width: 1440px;
     padding: 16px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 16px;
     margin: 0 auto;
 }
 
 section {
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 767px) {
@@ -43,6 +39,10 @@ section {
         padding-left: 32px;
         padding-right: 32px;
         width: 768px;
+    }
+
+    section {
+        margin-bottom: 16px;
     }
 }
 
