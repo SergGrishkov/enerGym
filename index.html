@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/enerGym/ener-gym.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EnerGYM</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/enerGym/commonHelpers.js"></script>
+    <link rel="stylesheet" href="/enerGym/assets/index-ae0b7497.css">
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/enerGym/ener-gym.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EnerGYM</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
-    integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
-    rel="stylesheet">
-  <script type="module" crossorigin src="/enerGym/commonHelpers.js"></script>
-  <link rel="stylesheet" href="/enerGym/assets/index-bef48155.css">
-</head>
-
-<body class="container">
-  <header class="header">
+  <body class="container">
+    <header class="header">
   <div class="navbar">
     <a class="header-logo" href="./index.html">energy.flow</a>
 
@@ -110,19 +114,82 @@
   </div>
 </header>
 
-  <section class="hero">
+    <section class="hero">
     <h2>Hero</h2>
 </section>
-  <section class="quote">
+    <section class="quote">
     <h2>Quote</h2>
 </section>
-  <section class="exercises">
+    <section class="home-filters" id="filters">
+  <h2 class="home-filters-title">Exercises</h2>
+  <div class="filters-box">
+    <button class="filters-list-item active">Muscles</button>
+    <button class="filters-list-item">Body parts</button>
+    <button class="filters-list-item">Equipment</button>
+  </div>
+  <div class="filters-cards-container">
+    <ul class="cards-list active" id="muscles">
+      <li class="cards-list-item">
+        <h3 class="card-title">Abductors</h3>
+        <p class="card-subtitle">Muscles</p>
+      </li>
+      <li class="cards-list-item">
+        <h3 class="card-title">Abductors</h3>
+        <p class="card-subtitle">Muscles</p>
+      </li>
+      <li class="cards-list-item">
+        <h3 class="card-title">Abductors</h3>
+        <p class="card-subtitle">Muscles</p>
+      </li>
+      <li class="cards-list-item">
+        <h3 class="card-title">Abductors</h3>
+        <p class="card-subtitle">Muscles</p>
+      </li>
+      <li class="cards-list-item">
+        <h3 class="card-title">Abductors</h3>
+        <p class="card-subtitle">Muscles</p>
+      </li>
+      <li class="cards-list-item">
+        <h3 class="card-title">Abductors</h3>
+        <p class="card-subtitle">Muscles</p>
+      </li>
+      <li class="cards-list-item">
+        <h3 class="card-title">Abductors</h3>
+        <p class="card-subtitle">Muscles</p>
+      </li>
+      <li class="cards-list-item">
+        <h3 class="card-title">Abductors</h3>
+        <p class="card-subtitle">Muscles</p>
+      </li>
+    </ul>
+    <!-- <ul class="cards-list" id="bodyParts">
+      <li class="cards-list-item">
+        <h3 class="card-title">Abductors</h3>
+        <p class="card-subtitle">Muscles</p>
+      </li>
+    </ul> -->
+    <!-- <ul class="cards-list" id="Equipment">
+      <li class="cards-list-item">
+        <h3 class="card-title">Abductors</h3>
+        <p class="card-subtitle">Muscles</p>
+      </li>
+    </ul> -->
+  </div>
+  <div class="filters-pagination">
+    <ul class="pagination-list">
+      <li class="pagination-element active" value="1">1</li>
+      <li class="pagination-element" value="2">2</li>
+    </ul>
+  </div>
+</section>
+
+    <section class="exercises">
     <h2>Exercises</h2>
 </section>
-  <section class="favorites">
+    <section class="favorites">
     <h2>Favorites</h2>
 </section>
-  <section class="about-sport">
+    <section class="about-sport">
     <div class="image-about-sport">
         <img src="/enerGym/assets/rectangle-mobile-7d63fe5c.jpg" alt="Sport women" srcset="/enerGym/assets/rectangle-desktop-98590cbf.jpg 400w, /enerGym/assets/rectangle-desktop@2x-fab53a19.jpg 800w, /enerGym/assets/rectangle-tablet-7b7db178.jpg 342px, /enerGym/assets/rectangle-tablet@2x-29f10970.jpg 684w, /enerGym/assets/rectangle-mobile-7d63fe5c.jpg 335px, /enerGym/assets/rectangle-mobile@2x-aaacbc56.jpg 670w">
     </div>
@@ -135,22 +202,20 @@
         <p>The World Health Organization recommends at least 150 minutes of moderate-intensity aerobic physical activity throughout the week for adults aged 18-64. However, what happens if we adjust that number to 110 minutes every day?</p>
     </div>
 </section>
-  <footer class="footer">
+    <footer class="footer">
     <h2>Footer</h2>
 </footer>
-  <div class="modal-exercise">
+    <div class="modal-exercise">
     <h3>Modal exercise</h3>
 </div>
-  <div class="modal-rating">
+    <div class="modal-rating">
     <h3>Modal ratinge</h3>
 </div>
-  <div class="modal-subscribe">
+    <div class="modal-subscribe">
     <h3>Modal subscribe</h3>
 </div>
 
-
-  
-  
-</body>
-
+    
+    
+  </body>
 </html>
