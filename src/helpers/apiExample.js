@@ -1,16 +1,16 @@
-import { ExercisesController } from '../api/controllers/ExercisesController';
+// import { ExercisesController } from '../api/controllers/ExercisesController';
 // import { firstLetterToUpper } from './utils';
 
-import {
-  addExerciseToFavorite,
-  storageKeys,
-  removeExerciseFromFavoriteById,
-  getQuote,
-  isExerciseInFavorite,
-} from './locatStorage';
+// import {
+//   addExerciseToFavorite,
+//   storageKeys,
+//   removeExerciseFromFavoriteById,
+//   getQuote,
+//   isExerciseInFavorite,
+// } from './locatStorage';
 
-let exerciseCntrl = new ExercisesController();
-let exercise = await exerciseCntrl.init();
+// let exerciseCntrl = new ExercisesController();
+// let exercise = await exerciseCntrl.init();
 
 // const quote = await exercise.getQuote();
 // // const q = Object.assign(quote.json());
