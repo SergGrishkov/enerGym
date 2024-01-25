@@ -2,6 +2,33 @@
   width: 100%;
 }
 
+.hero-container {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-container {
+    width: 736px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-container {
+    width: 1408px;
+  }
+}
+
 .image-hero-girl {
   flex-shrink: 0;
   border-radius: 30px;
