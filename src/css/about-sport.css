@@ -1,5 +1,83 @@
 .about-sport {
-    background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.image-about-sport {
+    display: flex;
     width: 100%;
-    height: 100px;
+    height: 269px;
+    border-radius: 30px;
+
+}
+
+.block-about-sport {
+    display: flex;
+    width: 100%;
+    height: 269px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    padding-top: 40px;
+    padding-left: 20px;
+    background-color: #1B1B1B;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.icon-container-about-sport {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(246, 246, 246, 0.10);
+    ;
+    border-radius: 50%;
+
+}
+
+.icon-about-sport {
+    margin: 6px;
+    width: 20px;
+    height: 20px;
+    fill: #f6f6f6;
+}
+
+.text-about-sport {
+    /* padding: 20px; */
+    margin-left: 18px;
+    color: rgba(246, 246, 246, 0.60);
+
+}
+
+.title-about-sport {
+
+    color: #f6f6f6;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: "DM Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    /* 140% */
+}
+
+.subtitle-about-sport {
+
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    /* 128.571% */
+}
+
+.content-about-sport {
+    margin-top: 14px;
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    /* 128.571% */
 }
