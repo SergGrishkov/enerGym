@@ -16,7 +16,7 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
     rel="stylesheet" />
   <script type="module" crossorigin src="/enerGym/commonHelpers.js"></script>
-  <link rel="stylesheet" href="/enerGym/assets/index-7a4e97d8.css">
+  <link rel="stylesheet" href="/enerGym/assets/index-7f4659d4.css">
 </head>
 
 <body>
@@ -151,8 +151,32 @@
 
 </section>
     <section class="quote">
-    <h2>Quote</h2>
+   <div class="quote-container container">
+
+      <div class="quote-block"> 
+        <div class="quote-svg">
+            <svg class="quote-man-icon" width="34" height="32" aria-label="icon-quote-man">
+            <use href="/enerGym/assets/sprite-dc3e5fee.svg#icon-quote-man"></use></svg> 
+
+            <!-- <h2 class="quote-title">Quote of the day</h2> -->
+
+        <svg class="quote-icon" width="28" height="28" aria-label="icon-quote">
+          <use href="/enerGym/assets/sprite-dc3e5fee.svg#icon-quote"></use></svg>
+        </div>
+
+        <h2 class="quote-title">Quote of the day</h2>
+          <p id="quote-text"></p>
+          <h3 class="quote-author"></h3>
+      </div>
+
+      <div class="quote-img-container">
+        <div class="quote-img">
+        </div>
+
+   </div>
+   <script src="../js/quote.js"></script>
 </section>
+
     <section class="home-filters" id="filters">
   <h2 class="home-filters-title">Exercises</h2>
   <div class="filters-box">
@@ -244,42 +268,36 @@
         </div>
 </section>
     
-<div class="favorites-container">
+<section class="favorites-box">
+  <div class="favorites-container container">
     <div class="favorites-quote-block">
-        <!-- <svg
-    class=""
-    width=""
-    height=""
-    aria-label="">
-    <use href=""></use>
-  </svg>
-  <svg
-    class=""
-    width=""
-    height=""
-    aria-label=""
-  >
-    <use href=""></use>
-  </svg> -->
-        <h2 class="favorites-quote-title"></h2>
+      <svg class="favorites-quote-man-icon" width="34" height="32" aria-label="icon-quote-man">
+        <use href="/enerGym/assets/sprite-dc3e5fee.svg#icon-quote-man"></use></svg> 
+      <svg class="favorites-quote-icon" width="28" height="28" aria-label="icon-quote">
+        <use href="/enerGym/assets/sprite-dc3e5fee.svg#icon-quote"></use></svg>
+        <h2 class="favorites-quote-title">Quote of the day</h2>
         <p></p>
         <h3 class="favorites-quote-author"></h3>
     </div>
 
 
-    <div class="favorites-img">
+    <div class="favorites-info-container">
+      <div class="favorites-img">
+      </div>
+  
+      <div class="favorites-info-block" >
+          <div class="favorites-info-content">
+               <svg class="favorites-info-icon" width="20" height="20" aria-label="icon-dumbbell">
+                <use href="/enerGym/assets/sprite-dc3e5fee.svg#icon-dumbbell"></use></svg>
+              <h2 class="favorites-info-title">110 min</h2>
+              <p class="favorites-info-text">Daily norm of sports</p>
+          </div>
+      </div>
     </div>
+    
+</div> 
+</section>
 
-    <div class="favorites-info-block" >
-        <div class="favorites-info-content">
-             <svg class="favorites-info-icon" width="20" height="20" aria-label="icon-dumbbell">
-              <use href="/enerGym/assets/sprite-dc3e5fee.svg#icon-dumbbell"></use></svg>
-            <h2 class="favorites-info-title">110 min</h2>
-            <p class="favorites-info-text">Daily norm of sports</p>
-        </div>
-    </div>
-
-</div>
   </main>
 
   <footer class="footer">
