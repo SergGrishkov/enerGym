@@ -1,3 +1,48 @@
-<div class="modal-rating">
-    <h3>Modal ratinge</h3>
+<div class="modal-rating is-open">
+    <div class="modal">
+        <button class="close-btn" type="button">
+            <svg class="close-btn-icon" width="24" height="24" aria-label="modal close icon">
+                <use href="../img/sprite/sprite.svg#icon-modal-close"></use>
+            </svg>
+        </button>
+        <h3 class="rating-title">Rating</h3>
+        <form action="#" class="rating-form">
+            <div class="rating">
+                <div class="rating-value">0.0</div>
+
+                <div class="rating-body">
+                    <svg class="modal-star-icon" width="24" height="24" aria-label="modal star icon">
+                        <use href="../img/sprite/sprite.svg#icon-exercises-star"></use>
+                    </svg>
+                    <svg class="modal-star-icon" width="24" height="24" aria-label="modal star icon">
+                        <use href="../img/sprite/sprite.svg#icon-exercises-star"></use>
+                    </svg>
+                    <svg class="modal-star-icon" width="24" height="24" aria-label="modal star icon">
+                        <use href="../img/sprite/sprite.svg#icon-exercises-star"></use>
+                    </svg>
+                    <svg class="modal-star-icon" width="24" height="24" aria-label="modal star icon">
+                        <use href="../img/sprite/sprite.svg#icon-exercises-star"></use>
+                    </svg>
+                    <svg class="modal-star-icon" width="24" height="24" aria-label="modal star icon">
+                        <use href="../img/sprite/sprite.svg#icon-exercises-star"></use>
+                    </svg>
+                    <div class="rating-activ"></div>
+                    <div class="rating-items">
+                        <input type="radio" class="rating-item" value="1" name="rating">
+                        <input type="radio" class="rating-item" value="2" name="rating">
+                        <input type="radio" class="rating-item" value="3" name="rating">
+                        <input type="radio" class="rating-item" value="4" name="rating">
+                        <input type="radio" class="rating-item" value="5" name="rating">
+                    </div>
+                </div>
+            </div>
+            <label for="email"></label>
+            <input type="email" class="email" placeholder="Email" name="email"
+                pattern="^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}" required>
+            <label for="comment"></label>
+            <textarea class="textarea" placeholder="Your comment" name="comment" required></textarea>
+            <button class="rating-button" type="submit"> Send</button>
+        </form>
+
+    </div>
 </div>
