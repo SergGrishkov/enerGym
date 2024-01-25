@@ -9,11 +9,14 @@ h2 {
 }
 
 .exercises {
-  background-color: #e8e8e8;
-  border-radius: 30px;
-  max-width: 335px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.body-parts-container {
+  background-color: #e8e8e8;
+  border-radius: 30px;
+  width: 335px;
 }
 
 .exercises-btn {
