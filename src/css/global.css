@@ -14,31 +14,16 @@
 }
 
 .container {
-    width: 1440px;
-    padding: 16px;
+    width: 335px;
+    padding-left: 20px;
+    padding-right: 20px;
     margin: 0 auto;
 }
 
-section {
-    margin: 0 auto;
-    margin-bottom: 20px;
-}
-
-@media screen and (max-width: 767px) {
-
-    .container {
-        padding-left: 20px;
-        padding-right: 20px;
-        max-width: 375px;
-    }
-}
 
 @media screen and (min-width: 768px) {
-
     .container {
-        padding-left: 32px;
-        padding-right: 32px;
-        width: 768px;
+        width: 736px;
     }
 
     section {
@@ -47,10 +32,7 @@ section {
 }
 
 @media screen and (min-width: 1280px) {
-
     .container {
-        padding-left: 16px;
-        padding-right: 16px;
-        width: 1440px;
+        max-width: 1408px;
     }
 }
