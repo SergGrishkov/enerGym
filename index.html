@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/enerGym/ener-gym.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EnerGYM</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/enerGym/commonHelpers.js"></script>
+    <link rel="stylesheet" href="/enerGym/assets/index-208676fe.css">
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/enerGym/ener-gym.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EnerGYM</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
-    integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
-    rel="stylesheet" />
-  <script type="module" crossorigin src="/enerGym/commonHelpers.js"></script>
-  <link rel="stylesheet" href="/enerGym/assets/index-b12b827c.css">
-</head>
-
-<body>
-  <header class="header">
+  <body>
+    <header class="header">
   <div class="navbar">
     <a class="header-logo" href="./index.html">energy.flow</a>
 
     <!-- navigation -->
     <nav class="header-nav">
       <ul class="header-menu list">
-        <li class="header-menu-item header-active-btn">
+        <li class="header-menu-item">
           <a class="header-menu-link link" href="./index.html"
             ><span class="header-active-link">Home</span></a
           >
@@ -92,11 +96,7 @@
 
     <!-- mobile-menu -->
     <div class="open-mobile-menu">
-      <button
-        class="open-mobile-menu-btn js-open-menu"
-        type="button"
-        data-modal-open
-      >
+      <button class="open-mobile-menu-btn js-open-menu" type="button">
         <svg
           class="open-mobile-menu-icon"
           width="32"
@@ -110,8 +110,8 @@
   </div>
 </header>
 
-  <main>
-    <section class="hero" id="hero">
+    <main>
+      <section class="hero" id="hero">
     <div class="hero-container">
         <div class="static">
             <img class="image-hero-girl" srcset="./img/hero/girl-desktop.jpg 704w,
@@ -150,7 +150,7 @@
     </div>
 
 </section>
-    <section class="quote">
+      <section class="quote">
    <div class="quote-container container">
 
       <div class="quote-block"> 
@@ -177,7 +177,7 @@
    <script src="../js/quote.js"></script>
 </section>
 
-    <section class="home-filters" id="filters">
+      <section class="home-filters" id="filters">
   <h2 class="home-filters-title">Exercises</h2>
   <div class="filters-box">
     <button class="filters-list-item active">Muscles</button>
@@ -240,7 +240,7 @@
   </div>
 </section>
 
-    <section class="exercises" id="filtres">
+      <section class="exercises" id="filtres">
   <div class="container">
     <h2>Exercises</h2>
     <div class="buttons">
@@ -400,10 +400,10 @@
   </div>
 </section>
 
-    <section class="favorites">
+      <section class="favorites">
     <h2>Favorites</h2>
 </section>
-    <section class="about-sport">
+      <section class="about-sport">
     <div class="image-about-sport">
         <img src="/enerGym/assets/rectangle-mobile-7d63fe5c.jpg" alt="Sport women" srcset="/enerGym/assets/rectangle-desktop-98590cbf.jpg 400w, /enerGym/assets/rectangle-desktop@2x-fab53a19.jpg 800w, /enerGym/assets/rectangle-tablet-7b7db178.jpg 342px, /enerGym/assets/rectangle-tablet@2x-29f10970.jpg 684w, /enerGym/assets/rectangle-mobile-7d63fe5c.jpg 335px, /enerGym/assets/rectangle-mobile@2x-aaacbc56.jpg 670w">
     </div>
@@ -424,7 +424,7 @@
                 happens if we adjust that number to 110 minutes every day?</p>
         </div>
 </section>
-    
+      
 <section class="favorites-box">
   <div class="favorites-container container">
     <div class="favorites-quote-block">
@@ -455,15 +455,98 @@
 </div> 
 </section>
 
-  </main>
+    </main>
 
-  <footer class="footer">
+    <footer class="footer">
     <h2>Footer</h2>
 </footer>
-  <div class="modal-exercise">
+    <div class="mobile-menu js-menu">
+  <div class="mobile-menu-header">
+    <a class="mobile-menu-logo" href="./index.html">energy.flow</a>
+
+    <button class="mobile-menu-close-button js-close-menu" type="button">
+      <svg
+        class="mobile-close-icon"
+        aria-label="mobile menu close icon"
+        width="20"
+        height="20"
+      >
+        <use href="/enerGym/assets/sprite-dc3e5fee.svg#icon-close-menu"></use>
+      </svg>
+    </button>
+  </div>
+
+  <div class="mobile-menu-content">
+    <nav class="mobile-menu-nav">
+      <ul class="mobile-menu-list list">
+        <li class="mobile-menu-item">
+          <a class="mobile-menu-link link" href="./index.html"
+            ><span class="mobile-active-link">Home</span></a
+          >
+        </li>
+        <li class="mobile-menu-item">
+          <a class="mobile-menu-link link" href="./favorites.html">Favorites</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <ul class="mobile-menu-social-list list">
+    <li class="mobile-menu-social-list-item">
+      <a
+        class="mobile-menu-social-link link"
+        href="https://www.facebook.com/goITclub/"
+        target="_blank"
+      >
+        <svg
+          class="mobile-menu-social-icon"
+          width="25"
+          height="25"
+          aria-label="facebook icon"
+        >
+          <use href="/enerGym/assets/sprite-dc3e5fee.svg#icon-facebook"></use>
+        </svg>
+      </a>
+    </li>
+    <li class="mobile-menu-social-list-item">
+      <a
+        class="mobile-menu-social-link link"
+        href="https://www.instagram.com/goitclub/"
+        target="_blank"
+      >
+        <svg
+          class="mobile-menu-social-icon"
+          width="25"
+          height="25"
+          aria-label="instagram icon"
+        >
+          <use href="/enerGym/assets/sprite-dc3e5fee.svg#icon-instagram"></use>
+        </svg>
+      </a>
+    </li>
+    <li class="mobile-menu-social-list-item">
+      <a
+        class="mobile-menu-social-link link"
+        href="https://www.youtube.com/c/GoIT"
+        target="_blank"
+      >
+        <svg
+          class="mobile-menu-social-icon"
+          width="25"
+          height="25"
+          aria-label="youtube icon"
+        >
+          <use href="/enerGym/assets/sprite-dc3e5fee.svg#icon-youtube"></use>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+    <div class="modal-exercise">
     <h3>Modal exercise</h3>
 </div>
-  <div class="modal-rating is-open">
+    <div class="modal-rating is-open">
     <div class="modal">
         <button class="close-btn" type="button">
             <svg class="close-btn-icon" width="24" height="24" aria-label="modal close icon">
@@ -511,7 +594,7 @@
 
     </div>
 </div>
-  <div id="confirmationModal" class="modal-subscribe">
+    <div id="confirmationModal" class="modal-subscribe">
   <div class="subscribe-modal-content">
     <p>
       Thank you for subscribing! You will receive notifications about new
@@ -522,8 +605,8 @@
 </div>
 
 
-  
-  
-</body>
-
+    
+    
+    
+  </body>
 </html>
