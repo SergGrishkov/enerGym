@@ -149,6 +149,14 @@
   align-items: center;
 }
 
+.rating-num {
+  color: #1b1b1b;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 .star-icon {
   display: block;
   fill: #eea10c;
@@ -188,6 +196,7 @@
   gap: 16px;
   margin-top: 25px;
   margin-bottom: 18px;
+  align-items: center;
 }
 
 .training-name {
