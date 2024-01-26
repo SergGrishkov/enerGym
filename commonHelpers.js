@@ -1,0 +1,2 @@
+import"./assets/mobile-menu-967b5cd1.js";import"./assets/vendor-0fffa566.js";document.addEventListener("DOMContentLoaded",s=>{let i=window.location.pathname;const l=i==="/"?"index.html":i.split("/").pop();function n(o){document.querySelectorAll(o).forEach(e=>{let t=e.getAttribute("href");t.includes(l)&&(t.includes("index.html")?e.classList.add("active-home"):t.includes("favorites.html")&&e.classList.add("active-favorites"))})}n(".header-menu-link"),n(".mobile-menu-link")});
+//# sourceMappingURL=commonHelpers.js.map

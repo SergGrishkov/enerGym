@@ -15,9 +15,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
         rel="stylesheet" />
-  <script type="module" crossorigin src="/enerGym/assets/vendor-0fffa566.js"></script>
-  <script type="module" crossorigin src="/enerGym/assets/mobile-menu-bcb73d7c.js"></script>
-  <link rel="stylesheet" href="/enerGym/assets/mobile-menu-2bb86a62.css">
+  <script type="module" crossorigin src="/enerGym/commonHelpers.js"></script>
+  <link rel="modulepreload" crossorigin href="/enerGym/assets/vendor-0fffa566.js">
+  <link rel="modulepreload" crossorigin href="/enerGym/assets/mobile-menu-967b5cd1.js">
+  <link rel="stylesheet" href="/enerGym/assets/mobile-menu-358b7f7b.css">
 </head>
 
 <body>
@@ -29,9 +30,7 @@
     <nav class="header-nav">
       <ul class="header-menu list">
         <li class="header-menu-item">
-          <a class="header-menu-link link" href="./index.html"
-            ><span class="header-active-link">Home</span></a
-          >
+          <a class="header-menu-link link" href="./index.html">Home</a>
         </li>
         <li class="header-menu-item">
           <a class="header-menu-link link" href="./favorites.html">Favorites</a>
@@ -218,12 +217,10 @@
     <nav class="mobile-menu-nav">
       <ul class="mobile-menu-list list">
         <li class="mobile-menu-item">
-          <a class="mobile-menu-link link" href="./index.html"
-            ><span class="mobile-active-link">Home</span></a
-          >
+          <a class="header-menu-link link" href="./index.html">Home</a>
         </li>
         <li class="mobile-menu-item">
-          <a class="mobile-menu-link link" href="./favorites.html">Favorites</a>
+          <a class="header-menu-link link" href="./favorites.html">Favorites</a>
         </li>
       </ul>
     </nav>
