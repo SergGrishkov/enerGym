@@ -1,7 +1,6 @@
 .about-sport {
     display: flex;
     flex-direction: column;
-
 }
 
 .image-about-sport {
@@ -9,19 +8,41 @@
     width: 100%;
     height: 269px;
     border-radius: 30px;
+}
 
+@media screen and (min-width: 768px) {
+    .image-about-sport {
+        height: 302px;
+        border-radius: 50px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .about-sport {
+        flex-direction: row;
+    }
 }
 
 .block-about-sport {
     display: flex;
     width: 100%;
     height: 269px;
-    margin-bottom: 10px;
     border-radius: 30px;
     padding-top: 40px;
     padding-left: 20px;
+    padding-bottom: 40px;
     background-color: #1B1B1B;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+    .block-about-sport {
+        height: 302px;
+        border-radius: 50px;
+        padding-top: 64px;
+        padding-left: 64px;
+        padding-bottom: 64px;
+    }
 }
 
 .icon-container-about-sport {
@@ -33,7 +54,6 @@
     background-color: rgba(246, 246, 246, 0.10);
     ;
     border-radius: 50%;
-
 }
 
 .icon-about-sport {
@@ -44,14 +64,17 @@
 }
 
 .text-about-sport {
-    /* padding: 20px; */
     margin-left: 18px;
     color: rgba(246, 246, 246, 0.60);
+}
 
+@media screen and (min-width: 1280px) {
+    .text-about-sport {
+        margin-left: 24px;
+    }
 }
 
 .title-about-sport {
-
     color: #f6f6f6;
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: "DM Sans";
@@ -59,25 +82,40 @@
     font-style: normal;
     font-weight: 500;
     line-height: 28px;
-    /* 140% */
+}
+
+@media screen and (min-width: 768px) {
+    .title-about-sport {
+        font-size: 24px;
+        line-height: 32px;
+    }
 }
 
 .subtitle-about-sport {
-
     font-family: "DM Sans";
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 18px;
-    /* 128.571% */
 }
 
 .content-about-sport {
+    width: 245px;
+    height: 127px;
     margin-top: 14px;
     font-family: "DM Sans";
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 18px;
-    /* 128.571% */
+}
+
+@media screen and (min-width: 768px) {
+    .content-about-sport {
+        width: 526px;
+        height: 97px;
+        margin-top: 25px;
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
