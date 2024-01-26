@@ -1,4 +1,19 @@
 /* MOBILE */
+.favorites-img {
+  width: 335px;
+  height: 272px;
+  border-radius: 30px;
+  background-image: url(../img/favorites-main/favorites-mobile.png);
+  background-repeat: no-repeat;
+}
+@media screen and (min-resolution: 192dpi) and (min-width: 375px),
+  screen and (min-resolution: 2dppx) and (min-width: 375px),
+  screen and (min-device-pixel-ratio: 2) and (min-width: 375px) {
+  .favorites-img {
+    background-image: url(../img/favorites-main/favorites-mobile@2.png);
+    background-size: 335px;
+  }
+}
 
 .favorites-container-header {
   max-width: 1440px;
@@ -75,13 +90,6 @@ font-size: 16px;
 font-weight: 500;
 }
 
-.favorites-img {
-    width: 335px;
-    height: 272px;
-    border-radius: 30px;
-    background-image: url(../img/favorites-main/favorites-mobile.png);
-    background-repeat: no-repeat;
-}
         
         .favorites-info-block {
         width: 335px;
@@ -116,17 +124,16 @@ font-weight: 500;
         margin-bottom: 15px;
         }       
 
-
-/* @media screen and (min-resolution: 192dpi) and (min-width: 375px),
-  screen and (min-resolution: 2dppx) and (min-width: 375px),
-  screen and (min-device-pixel-ratio: 2) and (min-width: 375px) {
-  .favorites-img {
-    background-image: url(../img/favorites-main/favorites-mobile@2.png);
-  }
-} */
-
 /* TABLET */
 @media screen and (min-width: 768px) {
+
+.favorites-img {
+    width: 368px;
+    height: 302px;
+    border-radius: 50px;
+    background-image: url(../img/favorites-main/favorites-tablet.png);
+  }
+
   .favorites-quote-block {
 width: 736px;
 height: 302px; 
@@ -151,12 +158,7 @@ margin-top: 64px;
 .favorites-man-container {
   margin-top: 64px;
 }
-  .favorites-img {
-    width: 368px;
-    height: 302px;
-    border-radius: 50px;
-    background-image: url(../img/favorites-main/favorites-tablet.png);
-  }
+  
 .favorites-main-box {
   display:flex;
   width: 736px;
@@ -180,15 +182,14 @@ margin-top: 64px;
 
   }
 }
-
-/* @media screen and (min-resolution: 192dpi) and (min-width: 768px),
+@media screen and (min-resolution: 192dpi) and (min-width: 768px),
   screen and (min-resolution: 2dppx) and (min-width: 768px),
   screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
   .favorites-img {
     background-image: url(../img/favorites-main/favorites-tablet@2.png);
+    background-size: 368px;
   }
-} */
-
+}
 
 /* DESKTOP */
 @media screen and (min-width: 1440px) {
@@ -207,5 +208,12 @@ margin-top: 64px;
 
   .favorites-info-block {
     width: 352px;
+  }
+}
+@media screen and (min-resolution: 192dpi) and (min-width: 1280px),
+  screen and (min-resolution: 2dppx) and (min-width: 1280px),
+  screen and (min-device-pixel-ratio: 2) and (min-width: 1280px) {
+  .favorites-img {
+    background-image: url(../img/favorites-main/favorites-desktop@2.png);
   }
 }
