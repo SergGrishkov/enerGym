@@ -1,159 +1,293 @@
 <section class="exercises" id="filtres">
-  <div class="container">
-    <h2>Exercises</h2>
-    <div class="buttons">
-      <button class="exercises-btn" type="button">Muscles</button>
-      <button class="exercises-btn active" type="button">Body parts</button>
-      <button class="exercises-btn" type="button">Equipment</button>
-    </div>
-    <div class="input-container">
-      <span class="icon-span">
+  <div class="body-parts-container container">
+    <h2 class="header-exercises">Exercises</h2>
+    <div class="filter-items">
+      <div class="buttons">
+        <button class="exercises-btn" type="button">Muscles</button>
+        <button class="exercises-btn active" type="button">Body parts</button>
+        <button class="exercises-btn" type="button">Equipment</button>
+      </div>
+      <div class="input-container">
+        <input class="search" type="text" placeholder="Search" />
         <svg class="search-icon" width="14" height="14">
-          <use href="/src/img/sprite/sprite.svg#icon-exercises-search"></use>
+          <use href="./img/sprite/sprite.svg#icon-exercises-search"></use>
         </svg>
-      </span>
-      <input class="search" type="text" placeholder="Search" />
+      </div>
     </div>
     <div class="workout-plan">
       <ul class="workout-list" id="body-parts">
         <li class="list-item">
-          <div>
-            <p class="workout-bubble">Workout</p>
-            <p class="rating"></p>
-            <button class="start">Start</button>
-            <svg class="arrow" width="14" height="14">
-              <use
-                href="/src/img/sprite/sprite.svg#icon-exercises-
-            arrow"
-              ></use>
-            </svg>
+          <div class="workout-and-icons">
+            <div class="workout-container">
+              <p class="workout-bubble">Workout</p>
+              <div class="star-cont">
+                <p class="rating">4.0</p>
+                <svg class="star-icon" width="18" height="18">
+                  <use
+                    href="./img/sprite/sprite.svg#icon-modal-rating-star"
+                  ></use>
+                </svg>
+              </div>
+            </div>
+            <div class="start-cont">
+              <p class="start">Start</p>
+              <svg class="arrow" width="14" height="14">
+                <use href="./img/sprite/sprite.svg#icon-exercises-arrow"></use>
+              </svg>
+            </div>
           </div>
           <div class="training-title">
-            <svg class="arrow" width="24" height="24">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-man"></use>
+            <svg class="icon-man" width="24" height="24">
+              <use href="./img/sprite/sprite.svg#icon-exercises-man"></use>
             </svg>
-            <p class="training-name"></p>
+            <p class="training-name">Air bike</p>
           </div>
-          <p>Burned calories:</p>
-          <p>Body part:</p>
-          <p>Target:</p>
+          <div class="indicators-cont">
+            <p class="indicators">
+              Burned calories: <span class="indicators-item">312 / 3 min</span>
+            </p>
+            <p class="indicators">
+              Body part: <span class="indicators-item">Waist</span>
+            </p>
+            <p class="indicators">
+              Target: <span class="indicators-item">Abs</span>
+            </p>
+          </div>
         </li>
         <li class="list-item">
-          <div>
-            <p class="workout-bubble">Workout</p>
-            <p class="rating"></p>
-            <button class="start">Start</button>
-            <svg class="arrow" width="14" height="14">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-arrow"></use>
-            </svg>
+          <div class="workout-and-icons">
+            <div class="workout-container">
+              <p class="workout-bubble">Workout</p>
+              <div class="star-cont">
+                <p class="rating">5.0</p>
+                <svg class="star-icon" width="18" height="18">
+                  <use
+                    href="./img/sprite/sprite.svg#icon-modal-rating-star"
+                  ></use>
+                </svg>
+              </div>
+            </div>
+            <div class="start-cont">
+              <p class="start">Start</p>
+              <svg class="arrow" width="14" height="14">
+                <use href="./img/sprite/sprite.svg#icon-exercises-arrow"></use>
+              </svg>
+            </div>
           </div>
           <div class="training-title">
-            <svg class="arrow" width="24" height="24">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-man"></use>
+            <svg class="icon-man" width="24" height="24">
+              <use href="./img/sprite/sprite.svg#icon-exercises-man"></use>
             </svg>
-            <p class="training-name"></p>
+            <p class="training-name">3/4 sit-up</p>
           </div>
-          <p>Burned calories:</p>
-          <p>Body part:</p>
-          <p>Target:</p>
+          <div class="indicators-cont">
+            <p class="indicators">
+              Burned calories: <span class="indicators-item">220 / 3 min</span>
+            </p>
+            <p class="indicators">
+              Body part: <span class="indicators-item">Waist</span>
+            </p>
+            <p class="indicators">
+              Target: <span class="indicators-item">Abs</span>
+            </p>
+          </div>
         </li>
         <li class="list-item">
-          <div>
-            <p class="workout-bubble">Workout</p>
-            <p class="rating"></p>
-            <button class="start">Start</button>
-            <svg class="arrow" width="14" height="14">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-arrow"></use>
-            </svg>
+          <div class="workout-and-icons">
+            <div class="workout-container">
+              <p class="workout-bubble">Workout</p>
+              <div class="star-cont">
+                <p class="rating">5.0</p>
+                <svg class="star-icon" width="18" height="18">
+                  <use
+                    href="./img/sprite/sprite.svg#icon-modal-rating-star"
+                  ></use>
+                </svg>
+              </div>
+            </div>
+            <div class="start-cont">
+              <p class="start">Start</p>
+              <svg class="arrow" width="14" height="14">
+                <use href="./img/sprite/sprite.svg#icon-exercises-arrow"></use>
+              </svg>
+            </div>
           </div>
           <div class="training-title">
-            <svg class="arrow" width="24" height="24">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-man"></use>
+            <svg class="icon-man" width="24" height="24">
+              <use href="./img/sprite/sprite.svg#icon-exercises-man"></use>
             </svg>
-            <p class="training-name"></p>
+            <p class="training-name">45° side ben</p>
           </div>
-          <p>Burned calories:</p>
-          <p>Body part:</p>
-          <p>Target:</p>
+          <div class="indicators-cont">
+            <p class="indicators">
+              Burned calories: <span class="indicators-item">323 / 3 min</span>
+            </p>
+            <p class="indicators">
+              Body part: <span class="indicators-item">Waist</span>
+            </p>
+            <p class="indicators">
+              Target: <span class="indicators-item">Abs</span>
+            </p>
+          </div>
         </li>
         <li class="list-item">
-          <div>
-            <p class="workout-bubble">Workout</p>
-            <p class="rating"></p>
-            <button class="start">Start</button>
-            <svg class="arrow" width="14" height="14">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-arrow"></use>
-            </svg>
+          <div class="workout-and-icons">
+            <div class="workout-container">
+              <p class="workout-bubble">Workout</p>
+              <div class="star-cont">
+                <p class="rating">4.0</p>
+                <svg class="star-icon" width="18" height="18">
+                  <use
+                    href="./img/sprite/sprite.svg#icon-modal-rating-star"
+                  ></use>
+                </svg>
+              </div>
+            </div>
+            <div class="start-cont">
+              <p class="start">Start</p>
+              <svg class="arrow" width="14" height="14">
+                <use href="./img/sprite/sprite.svg#icon-exercises-arrow"></use>
+              </svg>
+            </div>
           </div>
           <div class="training-title">
-            <svg class="arrow" width="24" height="24">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-man"></use>
+            <svg class="icon-man" width="24" height="24">
+              <use href="./img/sprite/sprite.svg#icon-exercises-man"></use>
             </svg>
-            <p class="training-name"></p>
+            <p class="training-name">Barbell reverse preacher curl</p>
           </div>
-          <p>Burned calories:</p>
-          <p>Body part:</p>
-          <p>Target:</p>
+          <div class="indicators-cont">
+            <p class="indicators">
+              Burned calories: <span class="indicators-item">153 / 3 min</span>
+            </p>
+            <p class="indicators">
+              Body part: <span class="indicators-item">Waist</span>
+            </p>
+            <p class="indicators">
+              Target: <span class="indicators-item">Biceps</span>
+            </p>
+          </div>
         </li>
         <li class="list-item">
-          <div>
-            <p class="workout-bubble">Workout</p>
-            <p class="rating"></p>
-            <button class="start">Start</button>
-            <svg class="arrow" width="14" height="14">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-arrow"></use>
-            </svg>
+          <div class="workout-and-icons">
+            <div class="workout-container">
+              <p class="workout-bubble">Workout</p>
+              <div class="star-cont">
+                <p class="rating">3.0</p>
+                <svg class="star-icon" width="18" height="18">
+                  <use
+                    href="./img/sprite/sprite.svg#icon-modal-rating-star"
+                  ></use>
+                </svg>
+              </div>
+            </div>
+            <div class="start-cont">
+              <p class="start">Start</p>
+              <svg class="arrow" width="14" height="14">
+                <use href="./img/sprite/sprite.svg#icon-exercises-arrow"></use>
+              </svg>
+            </div>
           </div>
           <div class="training-title">
-            <svg class="arrow" width="24" height="24">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-man"></use>
+            <svg class="icon-man" width="24" height="24">
+              <use href="./img/sprite/sprite.svg#icon-exercises-man"></use>
             </svg>
-            <p>Barbell rollerout</p>
+            <p class="training-name">Barbell rollerout</p>
           </div>
-          <p class="training-name"></p>
-          <p>Body part:</p>
-          <p>Target:</p>
+          <div class="indicators-cont">
+            <p class="indicators">
+              Burned calories: <span class="indicators-item">87 / 3 min</span>
+            </p>
+            <p class="indicators">
+              Body part: <span class="indicators-item">Waist</span>
+            </p>
+            <p class="indicators">
+              Target: <span class="indicators-item">Abs</span>
+            </p>
+          </div>
         </li>
         <li class="list-item">
-          <div>
-            <p class="workout-bubble">Workout</p>
-            <p class="rating"></p>
-            <button class="start">Start</button>
-            <svg class="arrow" width="14" height="14">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-arrow"></use>
-            </svg>
+          <div class="workout-and-icons">
+            <div class="workout-container">
+              <p class="workout-bubble">Workout</p>
+              <div class="star-cont">
+                <p class="rating">5.0</p>
+                <svg class="star-icon" width="18" height="18">
+                  <use
+                    href="./img/sprite/sprite.svg#icon-modal-rating-star"
+                  ></use>
+                </svg>
+              </div>
+            </div>
+            <div class="start-cont">
+              <p class="start">Start</p>
+              <svg class="arrow" width="14" height="14">
+                <use href="./img/sprite/sprite.svg#icon-exercises-arrow"></use>
+              </svg>
+            </div>
           </div>
           <div class="training-title">
-            <svg class="arrow" width="24" height="24">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-man"></use>
+            <svg class="icon-man" width="24" height="24">
+              <use href="./img/sprite/sprite.svg#icon-exercises-man"></use>
             </svg>
-            <p class="training-name"></p>
+            <p class="training-name">Barbell rollerout</p>
           </div>
-          <p>Burned calories:</p>
-          <p>Body part:</p>
-          <p>Target:</p>
+          <div class="indicators-cont">
+            <p class="indicators">
+              Burned calories: <span class="indicators-item">87 / 3 min</span>
+            </p>
+            <p class="indicators">
+              Body part: <span class="indicators-item">Waist</span>
+            </p>
+            <p class="indicators">
+              Target: <span class="indicators-item">Abs</span>
+            </p>
+          </div>
         </li>
         <li class="list-item">
-          <div>
-            <p class="workout-bubble">Workout</p>
-            <p class="rating"></p>
-            <button class="start">Start</button>
-            <svg class="arrow" width="14" height="14">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-arrow"></use>
-            </svg>
+          <div class="workout-and-icons">
+            <div class="workout-container">
+              <p class="workout-bubble">Workout</p>
+              <div class="star-cont">
+                <p class="rating">3.0</p>
+                <svg class="star-icon" width="18" height="18">
+                  <use
+                    href="./img/sprite/sprite.svg#icon-modal-rating-star"
+                  ></use>
+                </svg>
+              </div>
+            </div>
+            <div class="start-cont">
+              <p class="start">Start</p>
+              <svg class="arrow" width="14" height="14">
+                <use href="./img/sprite/sprite.svg#icon-exercises-arrow"></use>
+              </svg>
+            </div>
           </div>
           <div class="training-title">
-            <svg class="arrow" width="24" height="24">
-              <use href="/src/img/sprite/sprite.svg#icon-exercises-man"></use>
+            <svg class="icon-man" width="24" height="24">
+              <use href="./img/sprite/sprite.svg#icon-exercises-man"></use>
             </svg>
-            <p class="training-name"></p>
+            <p class="training-name">Barbell side split squat v. 2</p>
           </div>
-          <p>Burned calories:</p>
-          <p>Body part:</p>
-          <p>Target:</p>
+          <div class="indicators-cont">
+            <p class="indicators">
+              Burned calories: <span class="indicators-item">60 / 3 min</span>
+            </p>
+            <p class="indicators">
+              Body part: <span class="indicators-item">Waist</span>
+            </p>
+            <p class="indicators">
+              Target: <span class="indicators-item">Quads</span>
+            </p>
+          </div>
         </li>
       </ul>
-      <div class="nums"></div>
+      <ul class="pages">
+        <li class="page-num active-item">1</li>
+        <li class="page-num">2</li>
+        <li class="page-num">3</li>
+      </ul>
     </div>
   </div>
 </section>
