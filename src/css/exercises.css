@@ -8,15 +8,18 @@ h2 {
   margin-bottom: 20px;
 }
 
-.exercises {
+/* .exercises {
+  margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 20px;
-}
+} */
 
 .body-parts-container {
   background-color: #e8e8e8;
   border-radius: 30px;
   width: 335px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .exercises-btn {
@@ -63,6 +66,8 @@ h2 {
 
 .input-container {
   max-width: 295px;
+  margin-bottom: 40px;
+  position: relative;
 }
 
 .search {
@@ -79,16 +84,16 @@ h2 {
   border-radius: 30px;
   background-color: #f6f6f6;
   border: none;
-  position: relative;
   width: 100%;
-  margin-bottom: 40px;
 }
 
-.icon-span {
+.search-icon {
   position: absolute;
+  right: 16px;
   top: 50%;
-  right: 10px;
+  fill: #1b1b1b;
   transform: translateY(-50%);
+  display: block;
 }
 
 .workout-list {
@@ -101,7 +106,7 @@ h2 {
   border-radius: 15px;
   background-color: #fff;
   width: 295px;
-  height: 165px;
+  padding: 16px;
 }
 
 .workout-bubble {
@@ -120,4 +125,24 @@ h2 {
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
+}
+
+.workout-container {
+  display: flex;
+  gap: 16px;
+}
+
+.start {
+  color: #1b1b1b;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 0.78;
+  border: none;
+  background-color: #fff;
+}
+
+.star-icon {
+  display: block;
+  fill: #eea10c;
 }
