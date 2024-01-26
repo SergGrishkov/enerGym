@@ -1,10 +1,16 @@
-<div id="confirmationModal" class="modal-subscribe">
+<div id="confirmationModal" class="modal-subscribe is-open">
   <div class="subscribe-modal-content">
     <div class="modal-subscribe-icon-container">
-      <svg class="modal-subscribe-icon" width="28" height="28" aria-label="icon-quote">
-        <use href="./img/sprite/sprite.svg#icon-quote"></use></svg>
+      <svg
+        class="modal-subscribe-icon"
+        width="28"
+        height="28"
+        aria-label="icon-quote"
+      >
+        <use href="./img/sprite/sprite.svg#icon-quote"></use>
+      </svg>
     </div>
-    <button class="close-btn" type="button">
+    <button class="close-btn" type="button" onclick="closeSubscribeModal()">
       <svg
         class="close-btn-icon"
         width="24"
@@ -15,13 +21,13 @@
       </svg>
     </button>
     <p class="modal-subscribe-text">Thank you for subscribing!</p>
-    <p class="modal-subscribe-text-span">
+    <p class="modal-subscribe-text-span" id="modalSubscribeText">
       You will receive notifications about new exercises.
     </p>
     <button
       class="modal-subscribe-close-button"
       type="button"
-      onclick="closeConfirmationModal()"
+      onclick="closeSubscribeModal()"
     >
       Close
     </button>

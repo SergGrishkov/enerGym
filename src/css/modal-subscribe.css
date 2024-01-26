@@ -1,5 +1,5 @@
 .modal-subscribe {
-  /* display: none; */
+  display: block;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -8,6 +8,18 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 250ms linear, visbility 250ms linear;
+}
+
+.modal-subscribe.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 .close-btn {
   display: flex;
@@ -44,12 +56,9 @@
 }
 
 .modal-subscribe-close-button {
-  display: flex;
-  width: 295px;
-  padding: 12px 131px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+  display: block;
+  width: 100%;
+  padding: 12px 12px;
   border: none;
   border-radius: 30px;
   background: #7e847f;
@@ -66,11 +75,7 @@
   color: rgba(27, 27, 27, 0.6);
   font-family: 'DM Sans';
   font-size: 20px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 24px;
-  margin-top: 10px;
-  margin-bottom: 20px;
 }
 .modal-subscribe-text-span {
   text-align: center;
@@ -95,5 +100,17 @@
   left: 5px;
   width: 42px;
   height: 42px;
- 
+}
+
+@media screen and (min-width: 768px) {
+  .subscribe-modal-content {
+    width: 450px;
+    min-height: 250px;
+    padding: 50px;
+  }
+
+  .close-btn {
+    width: 28px;
+    height: 28px;
+  }
 }
