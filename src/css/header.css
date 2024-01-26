@@ -1,7 +1,3 @@
-.header {
-  width: 100%;
-}
-
 @media screen and (max-width: 767px) {
   .header {
     padding: 20px 20px 0 20px;
@@ -47,21 +43,17 @@
     padding: 16px 32px 0 32px;
   }
 
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .header-logo {
     font-size: 28px;
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.02em;
-    margin-right: 81px;
-  }
-
-  .navbar {
-    display: flex;
-    align-items: center;
-  }
-
-  .header-nav {
-    margin-right: auto;
   }
 
   .header-menu {
@@ -71,21 +63,18 @@
     padding: 8px 16px;
     width: 211px;
     border-radius: 60px;
-    background: #7e847f;
+    background-color: #7e847f;
   }
 
-  .header-active-btn {
+  .header-active-link {
     display: flex;
     padding: 6px 26px;
     justify-content: center;
     align-items: center;
 
+    color: #1b1b1b;
     border-radius: 30px;
     background-color: #ffffff;
-  }
-
-  .header-active-link {
-    color: #1b1b1b;
   }
 
   .header-menu-link {
@@ -127,9 +116,8 @@
 @media screen and (min-width: 1280px) {
   .header {
     padding: 24px 48px 0 48px;
-  }
-
-  .header-logo {
+    max-width: 1440px;
     margin-right: auto;
+    margin-left: auto;
   }
 }
