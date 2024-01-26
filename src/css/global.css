@@ -1,38 +1,47 @@
 :root {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
 
-    color: #242424;
-    background-color: #F6F6F6;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
+  color: #242424;
+  background-color: #f6f6f6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 .container {
-    width: 335px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 0 auto;
+  width: 335px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+section {
+  margin-bottom: 20px;
 }
 
-
 @media screen and (min-width: 768px) {
-    .container {
-        width: 736px;
-    }
+  .container {
+    width: 736px;
+  }
 
-    section {
-        margin-bottom: 16px;
-    }
+  section {
+    margin-bottom: 16px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .container {
-        max-width: 1408px;
-    }
+  .container {
+    width: 1248px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1408px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
 }
