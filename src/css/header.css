@@ -59,16 +59,25 @@
   .header-menu {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 16px;
     padding: 8px 16px;
     width: 211px;
+    height: 52px;
     border-radius: 60px;
     background-color: #7e847f;
   }
 
-  .header-active-link {
+  .header-menu-link {
+    color: #f6f6f6;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .active-home,
+  .active-favorites {
     display: flex;
-    padding: 6px 26px;
     justify-content: center;
     align-items: center;
 
@@ -77,11 +86,12 @@
     background-color: #ffffff;
   }
 
-  .header-menu-link {
-    color: #f6f6f6;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
+  .active-home {
+    padding: 6px 26px;
+  }
+
+  .active-favorites {
+    padding: 6px 14px;
   }
 
   .header-social-list {
