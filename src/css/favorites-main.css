@@ -159,6 +159,7 @@ margin-top: 64px;
   }
 .favorites-main-box {
   display:flex;
+  width: 736px;
 }
 
 
