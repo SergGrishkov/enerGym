@@ -1,5 +1,45 @@
 .modal-subscribe {
-    background-color: burlywood;
-    width: 100%;
-    height: 100px;
+  /* display: none; */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
+.close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 24px;
+  height: 24px;
+  line-height: 0;
+  border: none;
+  background-color: #f6f6f6;
+  padding: 0;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-btn-icon {
+  stroke: #1b1b1b;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.subscribe-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 335px;
+    min-height: 180px;
+    padding: 40px 20px;
+    border-radius: 20px;
+    background: #f6f6f6;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
