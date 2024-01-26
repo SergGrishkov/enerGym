@@ -30,9 +30,10 @@ export function removeExerciseFromFavoriteById(
   let lStorage = JSON.parse(localStorage.getItem(storageKey));
 
   if (lStorage.length > 0) {
-    const indexExercise = lStorage.map(l => l._id).indexOf(exerciseId);
-    lStorage.splice(indexExercise, 1);
-    localStorage.setItem(storageKey, JSON.stringify(lStorage));
+    let updArray = lStorage.filter(s => {
+      return s._id !== exerciseId;
+    });
+    localStorage.setItem(storageKey, JSON.stringify(updArray));
     if (lStorage.length === 0) {
       localStorage.removeItem(storageKey);
     }
@@ -47,8 +48,10 @@ export function isExerciseInFavorite(
 
   let lStorage = JSON.parse(localStorage.getItem(storageKey));
   if (lStorage.length > 0) {
-    const indexExercise = lStorage.map(l => l._id).indexOf(exerciseId);
-    return indexExercise >= 0 ? true : false;
+    const isExercise = lStorage.filter(s => {
+      return s._id === exerciseId;
+    });
+    return isExercise.length > 0 ? true : false;
   } else {
     return false;
   }

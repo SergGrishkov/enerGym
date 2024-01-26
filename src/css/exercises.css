@@ -130,7 +130,7 @@
 
 .workout-and-icons {
   display: flex;
-  gap: 79px;
+  justify-content: space-between;
 }
 
 .start {
@@ -149,6 +149,14 @@
   align-items: center;
 }
 
+.rating-num {
+  color: #1b1b1b;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 .star-icon {
   display: block;
   fill: #eea10c;
@@ -163,11 +171,24 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  justify-content: center;
+}
+
+.arrow-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  position: relative;
+  background-color: #ffffff;
+  border: none;
 }
 
 .arrow {
   stroke: #1b1b1b;
   display: block;
+  position: absolute;
 }
 
 .training-title {
@@ -175,6 +196,15 @@
   gap: 16px;
   margin-top: 25px;
   margin-bottom: 18px;
+  align-items: center;
+}
+
+.training-name {
+  color: #1b1b1b;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
 }
 
 .indicators-cont {
@@ -268,7 +298,7 @@
   }
 
   .search-icon {
-    transform: translateY(-100%);
+    transform: translateY(-50%);
   }
 
   .workout-list {
@@ -281,6 +311,11 @@
 
   .list-item {
     width: 313px;
+  }
+
+  .training-name {
+    font-size: 24px;
+    line-height: 1.5;
   }
 }
 
