@@ -6,10 +6,15 @@ const modalCloseButton = document.querySelector(
 
 const footerForm = document.querySelector('.footer-form');
 
+const modalSubscribeTextElement = document.getElementById('modalSubscribeText');
+
 // -----close modal-----
+
 
 function closeSubscribeModal() {
   confirmationModal.classList.remove('is-open');
+  const newTextStart = 'You will receive notifications about new exercises.';
+  modalSubscribeTextElement.textContent = newTextStart;
 }
 
 closeModalBtn.addEventListener('click', closeSubscribeModal);
@@ -29,10 +34,22 @@ window.addEventListener('click', function (event) {
   }
 });
 
+
 // -----open modal-----
 
 function openSubscribeModal() {
   confirmationModal.classList.add('is-open');
+}
+
+
+function changeTextSubscribeModal() {
+  if (modalSubscribeTextElement) {
+    const newText = 'You are already subscribed';
+
+    modalSubscribeTextElement.textContent = newText;
+  } else {
+    console.error('Element with id "modalSubscribeText" not found.');
+  }
 }
 
 // ----post----
@@ -52,13 +69,16 @@ footerForm.addEventListener('submit', function (event) {
   })
     .then(response => {
       if (response.ok) {
+        emailInput.value = '';
         openSubscribeModal();
       } else {
         console.error(
           'An error occurred when sending a request to the server:',
           response.statusText
         );
-        alert('You are already subscribed');
+        changeTextSubscribeModal();
+        emailInput.value = '';
+        openSubscribeModal();
       }
     })
     .catch(error => {
@@ -66,4 +86,4 @@ footerForm.addEventListener('submit', function (event) {
       alert('An error occurred while executing the request');
     });
 });
-//To be cont))
+
