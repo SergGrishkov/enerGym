@@ -1,41 +1,24 @@
-// import { getQuote } from '../helpers/locatStorage.js'; 
-
-// async function updateQuoteOfTheDay() {
-//   const quoteContainer = document.querySelector('.favorites-info-container');
-//   const quoteTextElement = document.getElementById('favorites-text');
-//   const authorElement = document.querySelector('.favorites-author');
-
-//   try {
-//     const { author, quote } = await getQuote();
-
-//     quoteTextElement.textContent = quote;
-//     authorElement.textContent = `${author}`;
-
-//   } catch (error) {
-//     console.error('Error fetching or updating the quote:', error);
-//   }
-// }
-
-// updateQuoteOfTheDay();
 
 import { getQuote } from '../helpers/locatStorage.js';
+const quoteContainerEl = document.querySelector('.favorites-info-container');
 
-async function updateQuoteOfTheDay() {
-  const quoteContainer = document.querySelector('.favorites-info-container');
-  const quoteTextElement = document.getElementById('favorites-text');
-  const authorElement = document.querySelector('.favorites-author');
-
+document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const { author, quote } = await getQuote();
-
-    quoteTextElement.textContent = quote;
-    authorElement.textContent = `${author}`;
-
+    await getQuote();
+    quoteContainerEl.insertAdjacentHTML(
+      'beforeend',
+      await renderFavoriteQuote()
+    );
   } catch (error) {
     console.error('Error fetching or updating the quote:', error);
   }
+});
+
+async function renderFavoriteQuote() {
+  const { author, quote } = await getQuote();
+  return `
+  <p id="favorites-text">${quote}</p>
+  <h3 class="favorites-author">${author}</h3>
+  `;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  updateQuoteOfTheDay();
-});
