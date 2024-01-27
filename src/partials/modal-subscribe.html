@@ -1,4 +1,4 @@
-<div id="confirmationModal" class="modal-subscribe is-open">
+<div id="confirmationModal" class="modal-subscribe">
   <div class="subscribe-modal-content">
     <div class="modal-subscribe-icon-container">
       <svg
@@ -10,8 +10,8 @@
         <use href="./img/sprite/sprite.svg#icon-quote"></use>
       </svg>
     </div>
-    <button class="close-btn" type="button" onclick="closeSubscribeModal()">
-      <svg
+    <button class="modal-subscribe-close-btn" type="button">
+      <svg 
         class="close-btn-icon"
         width="24"
         height="24"
@@ -24,12 +24,7 @@
     <p class="modal-subscribe-text-span" id="modalSubscribeText">
       You will receive notifications about new exercises.
     </p>
-    <button
-      class="modal-subscribe-close-button"
-      type="button"
-      onclick="closeSubscribeModal()"
-    >
-      Close
-    </button>
+    <button class="modal-subscribe-close-button" type="button">Close</button>
   </div>
 </div>
+<script type="module" src="./js/modal-subscribe.js"></script>
