@@ -1,9 +1,30 @@
-// example function for buttons with listener
+document
+  .getElementById('subscriptionForm')
+  .addEventListener('submit', function (event) {
+    event.preventDefault();
 
-// const buttonSubscribe = document.querySelector('.class');
+    const emailInput = document.getElementById('email');
+    const email = emailInput.value;
 
-// function clickButton() {
+    createSubscription({ email })
+      .then(response => {
+        console.log(response.json());
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  });
 
-// }
+async function createSubscription(data) {
+  const url = 'https://energyflow.b.goit.study/api/v1/subscription';
 
-// buttonSubscribe.addEventListener('click', clickButton);
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+  return response;
+}
