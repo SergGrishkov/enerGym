@@ -1,7 +1,9 @@
 .about-sport {
     max-width: 1440px;
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .image-about-sport {
