@@ -58,7 +58,7 @@
   margin-bottom: 20px;
 }
 
-.input-container {
+.form {
   margin-bottom: 40px;
   position: relative;
 }
@@ -276,7 +276,7 @@
     padding: 10px 20px;
   }
 
-  .input-container {
+  .form {
     margin-bottom: 0;
     width: 246px;
   }
