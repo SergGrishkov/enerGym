@@ -21,7 +21,7 @@
   visibility: visible;
   pointer-events: auto;
 }
-.close-btn {
+.modal-subscribe-close-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,7 +109,7 @@
     padding: 50px;
   }
 
-  .close-btn {
+  .modal-subscribe-close-btn {
     width: 28px;
     height: 28px;
   }
