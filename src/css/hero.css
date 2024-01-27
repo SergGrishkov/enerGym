@@ -8,8 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
+
   padding-top: 20px;
   padding-bottom: 20px;
   flex-direction: column;
@@ -74,7 +73,6 @@
   background: hsl(0, 0%, 100%);
   flex-direction: column;
   align-items: flex-start;
-  margin: 60px 20px 81px;
 }
 
 .title-container {
@@ -128,7 +126,7 @@
     padding-top: 16px;
     padding-bottom: 16px;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .static {
@@ -141,8 +139,27 @@
     height: 900px;
     flex-shrink: 0;
     border-radius: 50px 0px 50px 50px;
-    background: url(./img/hero/girl-mobile.jpg),
+    background: url(./img/hero/girl-tablet.jpg),
       lightgray -77.155px 246.761px / 209.216% 76.867% no-repeat, #e8e8e8;
+  }
+
+  .overlay-teg {
+    bottom: 64px;
+    left: 20px;
+  }
+
+  .hero-teg-list-container {
+    width: 196px;
+    gap: 8px;
+  }
+
+  .hero-teg-list {
+    gap: 8px;
+  }
+
+  .hero-teg {
+    font-size: 16px;
+    line-height: 24px; /* 116.667% */
   }
 
   .container-text {
@@ -151,10 +168,16 @@
     flex-shrink: 0;
     border-radius: 0px 50px 50px 50px;
     background: #fff;
+    display: flex;
+    align-items: center;
   }
 
   .title-container {
     width: 100%;
+    padding-top: 231px;
+    padding-right: 32px;
+    padding-bottom: 192px;
+    padding-left: 32px;
   }
 }
 
@@ -173,13 +196,16 @@
     width: 704px;
     height: 884px;
     border-radius: 50px 0px 50px 50px;
-    background: url(./img/hero/girl-mobile.jpg),
+    background: url(./img/hero/girl-desktop.jpg),
       lightgray 0.472px 110.245px / 94.27% 100.099% no-repeat, #e8e8e8;
   }
 
   .container-text {
-    width: 50%;
-    margin: 20px 0 20px;
+    width: 704px;
+    height: 884px;
+    flex-shrink: 0;
+    border-radius: 0px 50px 50px 50px;
+    background: #fff;
   }
 
   .title {
