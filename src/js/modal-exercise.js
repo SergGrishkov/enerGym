@@ -1,8 +1,9 @@
 // import { update } from 'lodash';
+
 import { ExercisesController } from '../api/controllers/ExercisesController.js'
-import {isExerciseInFavorite} from '../helpers/locatStorage.js'
-import {addExerciseToFavorite} from '../helpers/locatStorage.js'
-import {removeExerciseFromFavoriteById} from '../helpers/locatStorage.js'
+// import {isExerciseInFavorite} from '../helpers/locatStorage.js'
+// import {addExerciseToFavorite} from '../helpers/locatStorage.js'
+// import {removeExerciseFromFavoriteById} from '../helpers/locatStorage.js'
 
 //./api/controllers / ExercisesController.js'
 
@@ -11,7 +12,7 @@ const modalWindow = document.querySelector('.backdrop');
 const modalEl = document.querySelector('.js-modal-container');
 
 const closeBtn = document.querySelector('.close-btn');
-let inputExID = '64f389465ae26083f39b17a4' //64f389465ae26083f39b17a5 //64f389465ae26083f39b188e
+let inputExID = '64f389465ae26083f39b17a9' //64f389465ae26083f39b17a5 //64f389465ae26083f39b188e
 let exerciseID = '';//64f389465ae26083f39b189e
 let exercise = {};
 
@@ -28,7 +29,6 @@ async function fetchExerciseData(id) {
 }
  
 // fetchExerciseData(exerciseID)
-
 async function createMarkupModalEx(exerciseId) {
   try {
     const exercise = await fetchExerciseData(exerciseId);
@@ -61,73 +61,27 @@ if (exercise && isExerciseInFavorites(exercise, getFavoriteExercises())) {
       <div class="modal-ex-text-info">
         <div class="modal-ex-name-rating-container">
           <h2 class="title-modal-exercise">${exercise.name}</h2>
-          <div class="modal-ex-rating-container">
-            <p class="mod-ex-rating">${exercise.rating}</p>
-            <p class="mod-ex-rating-star">
-              <svg
-                class="modal-icon-star"
-                width="18"
-                height="18"
-                aria-label="modal star icon"
-              >
-                <use
-                  href="./img/sprite/sprite.svg#icon-modal-rating-star"
-                ></use>
-              </svg>
-            </p>
-            <p class="mod-ex-rating-star">
-              <svg
-                class="modal-icon-star"
-                width="18"
-                height="18"
-                aria-label="modal star icon"
-              >
-                <use
-                  href="./img/sprite/sprite.svg#icon-modal-rating-star"
-                ></use>
-              </svg>
-            </p>
-            <p class="mod-ex-rating-star">
-              <svg
-                class="modal-icon-star"
-                width="18"
-                height="18"
-                aria-label="modal star icon"
-              >
-                <use
-                  href="./img/sprite/sprite.svg#icon-modal-rating-star"
-                ></use>
-              </svg>
-            </p>
-            <p class="mod-ex-rating-star">
-              <svg
-                class="modal-icon-star"
-                width="18"
-                height="18"
-                aria-label="modal star icon"
-              >
-                <use
-                  href="./img/sprite/sprite.svg#icon-modal-rating-star"
-                ></use>
-              </svg>
-            </p>
-            <p class="mod-ex-rating-star">
-              <svg
-                class="modal-icon-star"
-                width="18"
-                height="18"
-                aria-label="modal star icon"
-              >
-                <use
-                  href="./img/sprite/sprite.svg#icon-modal-rating-star"
-                ></use>
-              </svg>
-            </p>
+          
+
+        <div class="rating">
+          <div class="rating-value">${exercise.rating}</div>
+          <div class="rating-body">
+            <div id="rating-active" class="rating-active"></div>
+              <div class="rating-items">
+                 <input type="radio" class="rating-item" value="1" name="rating">
+                 <input type="radio" class="rating-item" value="2" name="rating">
+                 <input type="radio" class="rating-item" value="3" name="rating">
+                 <input type="radio" class="rating-item" value="4" name="rating">
+                 <input type="radio" class="rating-item" value="5" name="rating">
+              </div>
           </div>
         </div>
+          
+          
+         
 
         <div class="modal-ex-about-exercise-container">
-          <ul class="about-exercse-list">
+          <ul class="about-exercise-list">
         <li>
           <h3 class="title-description">Target</h3>
           <p class="value-description">${exercise.target}</p>
@@ -185,8 +139,32 @@ if (exercise && isExerciseInFavorites(exercise, getFavoriteExercises())) {
         </div>
       </div>`;
 
-  } catch (error) {
+    } catch (error) {
     console.error('Error fetching or creating markup:', error);
+  } finally {
+    let ratingActive, ratingValue; // оголошуємо тут
+
+  const rating = document.querySelector('.rating');
+  if (rating) {
+    initRating();
+  }
+
+  function initRating() {
+    initRatingVars();
+    setRatingActiveWidth();
+  }
+
+  function initRatingVars() {
+    ratingActive = document.querySelector('#rating-active');
+    ratingValue = document.querySelector('.rating-value');
+    console.log("value", ratingValue.innerHTML);
+  }
+
+  function setRatingActiveWidth() {
+    console.log(ratingValue.innerHTML);
+    const ratingActiveWidth = ratingValue.innerHTML / 0.05;
+    ratingActive.style.width = `${ratingActiveWidth}%`;
+  }
   }
   
 }
@@ -287,3 +265,66 @@ function updateButtonUI(isFavorite) {
     updatedAddFavBtn.innerHTML = `<button class="ex-modal-btn add-favorite" type="button">${textBtn}<p class="btn-icon-add-remove-favorite js-add-remove-btn"><svg class="modal-icon-favorite" width="18" height="18" aria-label="modal favorite icon"><use href='${urlIcon}'></use></svg></p></button>`;
 }
   
+
+// const ratings = document.querySelectorAll('.rating');
+// if (ratings.length > 0) {
+//   initRatings();
+// }
+
+//   function initRatings() {
+//     let ratingActive, ratingValue;
+//     for (let index = 0; index < ratings.length; index++) {
+//       const rating = ratings[index];
+//       initRating(rating);
+//     }
+
+//     function initRating(rating) {
+//       initRatingVars(rating);
+//       setRatingActiveWidth();
+//     }
+    
+    
+//   function initRatingVars(rating) {
+//     ratingActive = rating.querySelector('#rating-active');
+//     console.log("value", ratingValue.innerHTML);
+//     ratingValue =  rating.querySelector('.rating-value');
+//   }
+
+//     function setRatingActiveWidth(index = ratingValue.innerHTML) {
+//     console.log(ratingValue.innerHTML);
+//     const ratingActiveWidth = index / 0.05;
+//     ratingActive.style.width = `${ratingActiveWidth}%`;
+
+//   }
+// }
+
+
+
+
+ let ratingActive, ratingValue; // оголошуємо тут
+
+  const rating = document.querySelector('.rating');
+  if (rating) {
+    initRating();
+  }
+
+  function initRating() {
+    initRatingVars();
+    setRatingActiveWidth();
+  }
+
+  function initRatingVars() {
+    ratingActive = document.querySelector('#rating-active');
+    ratingValue = document.querySelector('.rating-value');
+    console.log("value", ratingValue.innerHTML);
+  }
+
+  function setRatingActiveWidth() {
+    console.log(ratingValue.innerHTML);
+    const ratingActiveWidth = ratingValue.innerHTML / 0.05;
+    ratingActive.style.width = `${ratingActiveWidth}%`;
+  }
+
+
+
+
