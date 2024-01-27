@@ -25,7 +25,7 @@
   width: 335px;
   flex-shrink: 0;
   border-radius: 30px;
-  background: url(./img/hero/girl-mobile.jpg) no-repeat,
+  background: url('../img/hero/girl-mobile.jpg') no-repeat,
     lightgray -9.01px 54.435px / 81.557% 97.596% no-repeat, #e8e8e8;
 }
 
@@ -139,7 +139,7 @@
     height: 900px;
     flex-shrink: 0;
     border-radius: 50px 0px 50px 50px;
-    background: url(./img/hero/girl-tablet.jpg),
+    background: url('../img/hero/girl-tablet.jpg'),
       lightgray -77.155px 246.761px / 209.216% 76.867% no-repeat, #e8e8e8;
   }
 
@@ -195,7 +195,7 @@
     width: 704px;
     height: 884px;
     border-radius: 50px 0px 50px 50px;
-    background: url(./img/hero/girl-desktop.jpg),
+    background: url('../img/hero/girl-desktop.jpg'),
       lightgray 0.472px 110.245px / 94.27% 100.099% no-repeat, #e8e8e8;
   }
 
