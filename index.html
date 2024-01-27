@@ -21,8 +21,8 @@
     />
     <script type="module" crossorigin src="/enerGym/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/enerGym/assets/vendor-0fffa566.js">
-    <link rel="modulepreload" crossorigin href="/enerGym/assets/quote-fabf5f7a.js">
-    <link rel="stylesheet" href="/enerGym/assets/quote-e6638b8e.css">
+    <link rel="modulepreload" crossorigin href="/enerGym/assets/quote-89129620.js">
+    <link rel="stylesheet" href="/enerGym/assets/quote-db472452.css">
   </head>
 
   <body>
@@ -56,7 +56,7 @@
             height="28"
             aria-label="facebook icon"
           >
-            <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-facebook"></use>
+            <use href="/enerGym/assets/sprite-b81046ef.svg#icon-facebook"></use>
           </svg>
         </a>
       </li>
@@ -72,7 +72,7 @@
             height="28"
             aria-label="instagram icon"
           >
-            <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-instagram"></use>
+            <use href="/enerGym/assets/sprite-b81046ef.svg#icon-instagram"></use>
           </svg>
         </a>
       </li>
@@ -88,7 +88,7 @@
             height="28"
             aria-label="youtube icon"
           >
-            <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-youtube"></use>
+            <use href="/enerGym/assets/sprite-b81046ef.svg#icon-youtube"></use>
           </svg>
         </a>
       </li>
@@ -103,7 +103,7 @@
           height="16"
           aria-label="mobile menu open icon"
         >
-          <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-burger"></use>
+          <use href="/enerGym/assets/sprite-b81046ef.svg#icon-burger"></use>
         </svg>
       </button>
     </div>
@@ -158,7 +158,7 @@
 
       <div class="quote-man-container">
         <svg class="quote-man-icon" width="18" height="20" aria-label="icon-man-quote">
-          <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-man-quote"></use>
+          <use href="/enerGym/assets/sprite-b81046ef.svg#icon-man-quote"></use>
         </svg>
       </div>
 
@@ -168,7 +168,7 @@
 
       <div class="quote-icon-container">
         <svg class="quote-icon" width="28" height="28" aria-label="icon-quote">
-          <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-quote"></use>
+          <use href="/enerGym/assets/sprite-b81046ef.svg#icon-quote"></use>
         </svg>
       </div>
     </div>
@@ -223,7 +223,7 @@
       <form class="form">
         <input class="search" type="text" placeholder="Search" />
         <svg class="search-icon" width="18" height="18">
-          <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-exercises-search"></use>
+          <use href="/enerGym/assets/sprite-b81046ef.svg#icon-exercises-search"></use>
         </svg>
       </form>
     </div>
@@ -237,7 +237,7 @@
                 <p class="rating-num">4.0</p>
                 <svg class="star-icon" width="18" height="18">
                   <use
-                    href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-modal-rating-star"
+                    href="/enerGym/assets/sprite-b81046ef.svg#icon-modal-rating-star"
                   ></use>
                 </svg>
               </div>
@@ -247,7 +247,7 @@
                 Start
                 <svg class="arrow" width="14" height="14">
                   <use
-                    href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-exercises-arrow"
+                    href="/enerGym/assets/sprite-b81046ef.svg#icon-exercises-arrow"
                   ></use>
                 </svg>
               </button>
@@ -255,7 +255,7 @@
           </div>
           <div class="training-title">
             <svg class="icon-man" width="24" height="24">
-              <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-exercises-man"></use>
+              <use href="/enerGym/assets/sprite-b81046ef.svg#icon-exercises-man"></use>
             </svg>
             <p class="training-name">Air bike</p>
           </div>
@@ -540,7 +540,7 @@
             <div class="icon-container-about-sport">
                 <div class="icon-about-sport">
                     <svg width="20" height="20" aria-label="icon-dumbbell">
-                        <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-dumbbell"></use>
+                        <use href="/enerGym/assets/sprite-b81046ef.svg#icon-dumbbell"></use>
                     </svg>
                 </div>
             </div>
@@ -569,7 +569,7 @@
             target="_blank"
           >
             <svg class="footer-social-icon" width="20" height="20">
-              <use href="../img/sprite/sprite.svg#icon-facebook"></use>
+              <use href="/enerGym/assets/sprite-b81046ef.svg#icon-facebook"></use>
             </svg>
           </a>
         </li>
@@ -580,7 +580,7 @@
             target="_blank"
           >
             <svg class="footer-social-icon" width="20" height="20">
-              <use href="../img/sprite/sprite.svg#icon-instagram"></use>
+              <use href="/enerGym/assets/sprite-b81046ef.svg#icon-instagram"></use>
             </svg>
           </a>
         </li>
@@ -591,7 +591,7 @@
             target="_blank"
           >
             <svg class="footer-social-icon" width="20" height="20">
-              <use href="../img/sprite/sprite.svg#icon-youtube"></use>
+              <use href="/enerGym/assets/sprite-b81046ef.svg#icon-youtube"></use>
             </svg>
           </a>
         </li>
@@ -605,10 +605,11 @@
       <p class="footer-subscription-title">
         Subscribe and learn about new exercises!
       </p>
-      <form class="footer-form">
-        <label class="footer-label" aria-label="email">
+      <form id="subscriptionForm" class="footer-form">
+        <label for="email" class="footer-label" aria-label="email">
           <input
             type="email"
+            id="email"
             name="footer-email"
             class="footer-input"
             placeholder="Email"
@@ -628,8 +629,21 @@
 
     <div class="back-to-top is-hidden">
   <button class="back-to-top-button">
-    <svg class="back-to-top-svg" width="24" height="24" viewBox="0 0 24 24">
-      <use href="../img/sprite/sprite.svg#icon-back-to-top"></use>
+    <svg
+      class="back-to-top-svg mobile"
+      width="13"
+      height="13"
+      viewBox="0 0 13 13"
+    >
+      <use href="../img/sprite/sprite.svg#icon-mobile-back-to-top"></use>
+    </svg>
+    <svg
+      class="back-to-top-svg pc-tablet"
+      width="33"
+      height="33"
+      viewBox="0 0 33 33"
+    >
+      <use href="../img/sprite/sprite.svg#icon-pc-back-to-top"></use>
     </svg>
   </button>
 </div>
@@ -645,7 +659,7 @@
         width="20"
         height="20"
       >
-        <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-close-menu"></use>
+        <use href="/enerGym/assets/sprite-b81046ef.svg#icon-close-menu"></use>
       </svg>
     </button>
   </div>
@@ -676,7 +690,7 @@
           height="25"
           aria-label="facebook icon"
         >
-          <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-facebook"></use>
+          <use href="/enerGym/assets/sprite-b81046ef.svg#icon-facebook"></use>
         </svg>
       </a>
     </li>
@@ -692,7 +706,7 @@
           height="25"
           aria-label="instagram icon"
         >
-          <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-instagram"></use>
+          <use href="/enerGym/assets/sprite-b81046ef.svg#icon-instagram"></use>
         </svg>
       </a>
     </li>
@@ -708,7 +722,7 @@
           height="25"
           aria-label="youtube icon"
         >
-          <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-youtube"></use>
+          <use href="/enerGym/assets/sprite-b81046ef.svg#icon-youtube"></use>
         </svg>
       </a>
     </li>
@@ -724,7 +738,7 @@
         height="24"
         aria-label="modal close icon"
       >
-        <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-modal-close"></use>
+        <use href="/enerGym/assets/sprite-b81046ef.svg#icon-modal-close"></use>
       </svg>
     </button>
 
@@ -984,7 +998,7 @@
         height="28"
         aria-label="icon-quote"
       >
-        <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-quote"></use>
+        <use href="/enerGym/assets/sprite-b81046ef.svg#icon-quote"></use>
       </svg>
     </div>
     <button class="modal-subscribe-close-btn" type="button">
@@ -994,7 +1008,7 @@
         height="24"
         aria-label="modal close icon"
       >
-        <use href="/enerGym/assets/sprite-8fbe3f3e.svg#icon-modal-close"></use>
+        <use href="/enerGym/assets/sprite-b81046ef.svg#icon-modal-close"></use>
       </svg>
     </button>
     <p class="modal-subscribe-text">Thank you for subscribing!</p>
