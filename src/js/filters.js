@@ -1,50 +1,64 @@
-// example function for buttons with listener
-
-// const button = document.querySelector('.class');
-
-// function clickButton() {
-
-// }
-
-// button.addEventListener('click', clickButton);
-
 import { firstLetterToUpper } from '../helpers/utils';
 const filtersBox = document.querySelector('.filters-box');
 const cardsContainer = document.getElementById('cards-list');
 const defaultFilterButton = filtersBox.querySelector('.filters-list-item');
 const defaultFilter = defaultFilterButton.dataset.filter;
-const defaultApiUrl = `https://energyflow.b.goit.study/api/filters?filter=${defaultFilter}&page=1&limit=8`;
 
-document.addEventListener('DOMContentLoaded', async () => {
+const screenWidth = window.innerWidth;
+
+let limit;
+limitPerScreenWidth(screenWidth);
+
+const defaultApiUrl = `https://energyflow.b.goit.study/api/filters?filter=${defaultFilter}&page=1&limit=${limit}`;
+
+function limitPerScreenWidth(screenWidth) {
+  if (screenWidth < 768) {
+    // Мобільний
+    limit = 8;
+  } else if (screenWidth >= 768 && screenWidth < 1024) {
+    // Планшет
+    limit = 12;
+  } else {
+    // Десктоп
+    limit = 12;
+  }
+  return limit;
+}
+
+async function fetchDefaultApiUrl() {
   try {
     const response = await fetch(defaultApiUrl);
     const data = await response.json();
 
     if (data.results && data.results.length > 0) {
-      renderCards(cardsContainer, data.results);
+      cardsContainer.innerHTML = renderCards(data.results);
     } else {
       console.error('No exercises found.');
     }
   } catch (error) {
     console.error('Error fetching exercises:', error);
   }
-});
-filtersBox.addEventListener('click', async event => {
-  if (event.target.classList.contains('filters-list-item')) {
-    filtersBox.querySelectorAll('.filters-list-item').forEach(button => {
-      button.classList.remove('active_item');
-    });
-    event.target.classList.add('active_item');
+}
 
+function togleActiveBtnClass(event) {
+  filtersBox.querySelectorAll('.filters-list-item').forEach(button => {
+    button.classList.remove('active_item');
+  });
+  event.target.classList.add('active_item');
+}
+
+async function fetchDynamicApiUrl(event) {
+  if (event.target.classList.contains('filters-list-item')) {
+    togleActiveBtnClass(event);
     const filter = event.target.dataset.filter;
-    const apiUrl = `https://energyflow.b.goit.study/api/filters?filter=${filter}&page=1&limit=8`;
+    const apiUrl = `https://energyflow.b.goit.study/api/filters?filter=${filter}&page=1&limit=${limit}`;
 
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
 
       if (data.results && data.results.length > 0) {
-        renderCards(cardsContainer, data.results);
+        cardsContainer.innerHTML = renderCards(data.results);
       } else {
         console.error('No exercises found.');
       }
@@ -52,10 +66,10 @@ filtersBox.addEventListener('click', async event => {
       console.error('Error fetching exercises:', error);
     }
   }
-});
+}
 
-function renderCards(container, exercises) {
-  const html = exercises.reduce(
+function renderCards(exercises) {
+  return exercises.reduce(
     (html, card) =>
       html +
       `<li class="cards-list-item" style="background:linear-gradient(
@@ -69,5 +83,7 @@ function renderCards(container, exercises) {
     </li>`,
     ''
   );
-  container.innerHTML = html;
 }
+
+document.addEventListener('DOMContentLoaded', fetchDefaultApiUrl);
+filtersBox.addEventListener('click', fetchDynamicApiUrl);

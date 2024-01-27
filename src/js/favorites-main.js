@@ -1,3 +1,4 @@
+
 import { getQuote } from '../helpers/locatStorage.js';
 const quoteContainerEl = document.querySelector('.favorites-info-container');
 
@@ -20,3 +21,4 @@ async function renderFavoriteQuote() {
   <h3 class="favorites-author">${author}</h3>
   `;
 }
+
