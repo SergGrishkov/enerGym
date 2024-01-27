@@ -16,7 +16,6 @@ limitPerScreenWidth(screenWidth);
 // contr
 
 let exerciseCntrl = new ExercisesController();
-let cardsFilterResp = await exerciseCntrl.init();
 
 const filterParams = {
   filter: defaultFilter,
@@ -25,6 +24,7 @@ const filterParams = {
 };
 
 async function fetchDefaultApiUrl() {
+  let cardsFilterResp = await exerciseCntrl.init();
   try {
     const response = await cardsFilterResp.getListExercises(filterParams);
     const data = await response.json();
@@ -100,6 +100,7 @@ async function fetchDynamicApiUrl(event) {
     const filter = event.target.dataset.filter;
     // const apiUrl = `https://energyflow.b.goit.study/api/filters?filter=${filter}&page=1&limit=${limit}`;
     filterParams.filter = filter;
+    let cardsFilterResp = await exerciseCntrl.init();
 
     try {
       const response = await cardsFilterResp.getListExercises(filterParams);
