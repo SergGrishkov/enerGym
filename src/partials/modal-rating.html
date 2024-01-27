@@ -1,15 +1,15 @@
-<div class="modal-rating is-open">
+<div class="modal-rating  js-modal">
     <div class="modal">
-        <button class="close-btn" type="button">
+        <button class="modal-close-btn js-close" type="button">
             <svg class="close-btn-icon" aria-label="modal close icon">
-                <use href="../img/sprite/sprite.svg#icon-modal-close"></use>
+                <use href="./img/sprite/sprite.svg#icon-modal-close"></use>
             </svg>
         </button>
-        <h3 class="rating-title">Rating</h3>
+        <h3 class="mrating-title">Rating</h3>
         <form action="#" class="rating-form">
-            <div class="rating">
-                <div class="rating-value">0.0</div>
 
+            <div class="mrating rating-set">
+                <div class="rating-value" name="value">0.0</div>
                 <div class="rating-body">
                     <svg class="modal-star-icon" width="24" height="24" aria-label="modal star icon">
                         <use href="./img/sprite/sprite.svg#icon-exercises-star"></use>
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="rating-items">
-                        <input type="radio" class="rating-item" value="1" name="rating">
+                        <input type="radio" class="rating-item" value="1" name="rating" required>
                         <input type="radio" class="rating-item" value="2" name="rating">
                         <input type="radio" class="rating-item" value="3" name="rating">
                         <input type="radio" class="rating-item" value="4" name="rating">
@@ -54,9 +54,9 @@
                 </div>
 
             </div>
-            <div>
 
-            </div>
+            <p class="message"> Such email already exists</p>
+
             <label for="email"></label>
             <input type="email" class="email" placeholder="Email" id="email" name="email"
                 pattern="^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}" required>
