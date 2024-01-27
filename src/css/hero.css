@@ -188,8 +188,6 @@
   }
 
   .title-container {
-    width: 100%;
-    margin: 225px 32px 241px;
   }
 
   .image-hero-girl {
@@ -206,12 +204,22 @@
     flex-shrink: 0;
     border-radius: 0px 50px 50px 50px;
     background: #fff;
+    display: flex;
+    align-items: center;
   }
 
   .title {
     font-size: 120px;
     line-height: 115px;
     letter-spacing: -2.4px;
+  }
+
+  .title-container {
+    width: 100%;
+    padding-top: 225px;
+    padding-right: 32px;
+    padding-bottom: 241px;
+    padding-left: 32px;
   }
 
   .another-color-text {
