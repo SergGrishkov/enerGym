@@ -188,6 +188,7 @@
   }
 
   .title-container {
+    width: 640px; /* Змінено ширину title-container */
   }
 
   .image-hero-girl {
