@@ -8,7 +8,6 @@ const footerForm = document.querySelector('.footer-form');
 
 // -----close modal-----
 
-
 function closeSubscribeModal() {
   confirmationModal.classList.remove('is-open');
 }
@@ -30,15 +29,11 @@ window.addEventListener('click', function (event) {
   }
 });
 
-
 // -----open modal-----
-=======
-
 
 function openSubscribeModal() {
   confirmationModal.classList.add('is-open');
 }
-
 
 // ----post----
 
@@ -72,4 +67,3 @@ footerForm.addEventListener('submit', function (event) {
     });
 });
 //To be cont))
-
