@@ -65,3 +65,4 @@ footerForm.addEventListener('submit', function (event) {
       alert('An error occurred while executing the request');
     });
 });
+//To be cont))
