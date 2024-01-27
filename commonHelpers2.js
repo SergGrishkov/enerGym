@@ -1,4 +1,4 @@
-import{E as w,f as L}from"./assets/quote-d0d22d6c.js";import"./assets/vendor-0fffa566.js";const g=document.querySelector(".backdrop"),c=document.querySelector(".js-modal-container");document.querySelector(".close-btn");let S="64f389465ae26083f39b17a4",l="",o={},k=new w;async function f(e){return l=e,await(await k.getExerciseById(l)).json()}async function $(e){try{const t=await f(e),s=c.querySelector(".js-add-remove-btn");let i="",r="";t&&x(t,b())?(i="./img/sprite/sprite.svg#icon-remove-favorites",r="Remove from favorites"):(i="./img/sprite/sprite.svg#icon-add-favorites",r="Add to favorites"),c.innerHTML=`<div
+import{E as k,f as M}from"./assets/quote-4a12272a.js";import"./assets/vendor-0fffa566.js";const f=document.querySelector(".backdrop"),l=document.querySelector(".js-modal-container");document.querySelector(".close-btn");let A="64f389465ae26083f39b17a9",d="",o={},T=new k;async function p(e){return d=e,await(await T.getExerciseById(d)).json()}async function B(e){try{const t=await p(e),i=l.querySelector(".js-add-remove-btn");let r="",n="";t&&x(t,h())?(r="./img/sprite/sprite.svg#icon-remove-favorites",n="Remove from favorites"):(r="./img/sprite/sprite.svg#icon-add-favorites",n="Add to favorites"),l.innerHTML=`<div
         class="modal-ex-img-container"
         style="
           background: linear-gradient(
@@ -15,73 +15,27 @@ import{E as w,f as L}from"./assets/quote-d0d22d6c.js";import"./assets/vendor-0ff
       <div class="modal-ex-text-info">
         <div class="modal-ex-name-rating-container">
           <h2 class="title-modal-exercise">${t.name}</h2>
-          <div class="modal-ex-rating-container">
-            <p class="mod-ex-rating">${t.rating}</p>
-            <p class="mod-ex-rating-star">
-              <svg
-                class="modal-icon-star"
-                width="18"
-                height="18"
-                aria-label="modal star icon"
-              >
-                <use
-                  href="./img/sprite/sprite.svg#icon-modal-rating-star"
-                ></use>
-              </svg>
-            </p>
-            <p class="mod-ex-rating-star">
-              <svg
-                class="modal-icon-star"
-                width="18"
-                height="18"
-                aria-label="modal star icon"
-              >
-                <use
-                  href="./img/sprite/sprite.svg#icon-modal-rating-star"
-                ></use>
-              </svg>
-            </p>
-            <p class="mod-ex-rating-star">
-              <svg
-                class="modal-icon-star"
-                width="18"
-                height="18"
-                aria-label="modal star icon"
-              >
-                <use
-                  href="./img/sprite/sprite.svg#icon-modal-rating-star"
-                ></use>
-              </svg>
-            </p>
-            <p class="mod-ex-rating-star">
-              <svg
-                class="modal-icon-star"
-                width="18"
-                height="18"
-                aria-label="modal star icon"
-              >
-                <use
-                  href="./img/sprite/sprite.svg#icon-modal-rating-star"
-                ></use>
-              </svg>
-            </p>
-            <p class="mod-ex-rating-star">
-              <svg
-                class="modal-icon-star"
-                width="18"
-                height="18"
-                aria-label="modal star icon"
-              >
-                <use
-                  href="./img/sprite/sprite.svg#icon-modal-rating-star"
-                ></use>
-              </svg>
-            </p>
+          
+
+        <div class="rating">
+          <div class="rating-value">${t.rating}</div>
+          <div class="rating-body">
+            <div id="rating-active" class="rating-active"></div>
+              <div class="rating-items">
+                 <input type="radio" class="rating-item" value="1" name="rating">
+                 <input type="radio" class="rating-item" value="2" name="rating">
+                 <input type="radio" class="rating-item" value="3" name="rating">
+                 <input type="radio" class="rating-item" value="4" name="rating">
+                 <input type="radio" class="rating-item" value="5" name="rating">
+              </div>
           </div>
         </div>
+          
+          
+         
 
         <div class="modal-ex-about-exercise-container">
-          <ul class="about-exercse-list">
+          <ul class="about-exercise-list">
         <li>
           <h3 class="title-description">Target</h3>
           <p class="value-description">${t.target}</p>
@@ -115,7 +69,7 @@ import{E as w,f as L}from"./assets/quote-d0d22d6c.js";import"./assets/vendor-0ff
           <ul class="button ex-modal-btn-list">
             <li class="ex-modal-btn-list-item">
               <button class="ex-modal-btn add-favorite js-add-remove-btn" type="button">
-                ${r}
+                ${n}
                 <p class="btn-icon-add-remove-favorite">
                   <svg
                     class="modal-icon-favorite"
@@ -124,7 +78,7 @@ import{E as w,f as L}from"./assets/quote-d0d22d6c.js";import"./assets/vendor-0ff
                     aria-label="modal favorite icon"
                   >
                     <use
-                      href='${i}'
+                      href='${r}'
                     ></use>
                   </svg>
                 </p>
@@ -137,13 +91,13 @@ import{E as w,f as L}from"./assets/quote-d0d22d6c.js";import"./assets/vendor-0ff
             </li>
           </ul>
         </div>
-      </div>`}catch(t){console.error("Error fetching or creating markup:",t)}}$(S);function v(e){e.key==="Escape"&&(g.classList.remove("is-open"),window.removeEventListener("keydown",v))}window.addEventListener("keydown",v);function h(e){(e.target.classList.value==="modal-close-icon"||e.target.classList.value==="backdrop is-open")&&(g.classList.remove("is-open"),window.removeEventListener("click",h))}window.addEventListener("click",h);function b(){const e=localStorage.getItem("favoriteExercises");return e?JSON.parse(e):[]}function m(e){localStorage.setItem("favoriteExercises",JSON.stringify(e))}function x(e,t){return t.some(s=>s._id===e._id)}async function q(){try{o._id||(o=await f(l));const e=b();if(x(o,e)){const s=e.filter(i=>i._id!==o._id);m(s),p(!1),console.log("Exercise removed from favorites:",o)}else e.push(o),m(e),p(!0),console.log("Exercise added to favorites:",o)}catch(e){console.error("Error toggling favorites:",e)}}document.addEventListener("click",function(e){e.target.classList.contains("add-favorite")&&q()});function p(e){const t=e?"./img/sprite/sprite.svg#icon-remove-favorites":"./img/sprite/sprite.svg#icon-add-favorites",s=e?"Remove from favorites":"Add to favorites",i=c.querySelector(".js-add-remove-btn");console.log("isFavorite",e),i.innerHTML=`<button class="ex-modal-btn add-favorite" type="button">${s}<p class="btn-icon-add-remove-favorite js-add-remove-btn"><svg class="modal-icon-favorite" width="18" height="18" aria-label="modal favorite icon"><use href='${t}'></use></svg></p></button>`}const d=document.getElementById("confirmationModal"),B=document.querySelector(".modal-subscribe-close-btn"),M=document.querySelector(".modal-subscribe-close-button"),I=document.querySelector(".footer-form");function n(){d.classList.remove("is-open")}B.addEventListener("click",n);M.addEventListener("click",n);document.addEventListener("keydown",function(e){e.key==="Escape"&&n()});setTimeout(n,8e3);window.addEventListener("click",function(e){e.target===d&&n()});function A(){d.classList.add("is-open")}I.addEventListener("submit",function(e){e.preventDefault();const s=document.querySelector('[name="footer-email"]').value.trim();fetch("https://energyflow.b.goit.study/api/subscription",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:s})}).then(i=>{i.ok?A():(console.error("An error occurred when sending a request to the server:",i.statusText),alert("You are already subscribed"))}).catch(i=>{console.error("An error occurred while executing the request:",i),alert("An error occurred while executing the request")})});const u=document.querySelector(".filters-box"),y=document.getElementById("cards-list"),C=u.querySelector(".filters-list-item"),F=C.dataset.filter,T=window.innerWidth;let a;U(T);const j=`https://energyflow.b.goit.study/api/filters?filter=${F}&page=1&limit=${a}`;function U(e){return e<768?a=8:(e>=768&&e<1024,a=12),a}async function D(){try{const t=await(await fetch(j)).json();t.results&&t.results.length>0?y.innerHTML=E(t.results):console.error("No exercises found.")}catch(e){console.error("Error fetching exercises:",e)}}function O(e){u.querySelectorAll(".filters-list-item").forEach(t=>{t.classList.remove("active_item")}),e.target.classList.add("active_item")}async function _(e){if(e.target.classList.contains("filters-list-item")){O(e);const s=`https://energyflow.b.goit.study/api/filters?filter=${e.target.dataset.filter}&page=1&limit=${a}`;try{const r=await(await fetch(s)).json();r.results&&r.results.length>0?y.innerHTML=E(r.results):console.error("No exercises found.")}catch(i){console.error("Error fetching exercises:",i)}}}function E(e){return e.reduce((t,s)=>t+`<li class="cards-list-item" style="background:linear-gradient(
+      </div>`}catch(t){console.error("Error fetching or creating markup:",t)}finally{let n=function(){S(),q()},S=function(){t=document.querySelector("#rating-active"),i=document.querySelector(".rating-value"),console.log("value",i.innerHTML)},q=function(){console.log(i.innerHTML);const $=i.innerHTML/.05;t.style.width=`${$}%`},t,i;document.querySelector(".rating")&&n()}}B(A);function y(e){e.key==="Escape"&&(f.classList.remove("is-open"),window.removeEventListener("keydown",y))}window.addEventListener("keydown",y);function b(e){(e.target.classList.value==="modal-close-icon"||e.target.classList.value==="backdrop is-open")&&(f.classList.remove("is-open"),window.removeEventListener("click",b))}window.addEventListener("click",b);function h(){const e=localStorage.getItem("favoriteExercises");return e?JSON.parse(e):[]}function g(e){localStorage.setItem("favoriteExercises",JSON.stringify(e))}function x(e,t){return t.some(i=>i._id===e._id)}async function I(){try{o._id||(o=await p(d));const e=h();if(x(o,e)){const i=e.filter(r=>r._id!==o._id);g(i),v(!1),console.log("Exercise removed from favorites:",o)}else e.push(o),g(e),v(!0),console.log("Exercise added to favorites:",o)}catch(e){console.error("Error toggling favorites:",e)}}document.addEventListener("click",function(e){e.target.classList.contains("add-favorite")&&I()});function v(e){const t=e?"./img/sprite/sprite.svg#icon-remove-favorites":"./img/sprite/sprite.svg#icon-add-favorites",i=e?"Remove from favorites":"Add to favorites",r=l.querySelector(".js-add-remove-btn");console.log("isFavorite",e),r.innerHTML=`<button class="ex-modal-btn add-favorite" type="button">${i}<p class="btn-icon-add-remove-favorite js-add-remove-btn"><svg class="modal-icon-favorite" width="18" height="18" aria-label="modal favorite icon"><use href='${t}'></use></svg></p></button>`}let E,c;const C=document.querySelector(".rating");C&&F();function F(){H(),j()}function H(){E=document.querySelector("#rating-active"),c=document.querySelector(".rating-value"),console.log("value",c.innerHTML)}function j(){console.log(c.innerHTML);const e=c.innerHTML/.05;E.style.width=`${e}%`}const u=document.getElementById("confirmationModal"),R=document.querySelector(".modal-subscribe-close-btn"),U=document.querySelector(".modal-subscribe-close-button"),D=document.querySelector(".footer-form");function a(){u.classList.remove("is-open")}R.addEventListener("click",a);U.addEventListener("click",a);document.addEventListener("keydown",function(e){e.key==="Escape"&&a()});setTimeout(a,8e3);window.addEventListener("click",function(e){e.target===u&&a()});function O(){u.classList.add("is-open")}D.addEventListener("submit",function(e){e.preventDefault();const i=document.querySelector('[name="footer-email"]').value.trim();fetch("https://energyflow.b.goit.study/api/subscription",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:i})}).then(r=>{r.ok?O():(console.error("An error occurred when sending a request to the server:",r.statusText),alert("You are already subscribed"))}).catch(r=>{console.error("An error occurred while executing the request:",r),alert("An error occurred while executing the request")})});const m=document.querySelector(".filters-box"),w=document.getElementById("cards-list"),_=m.querySelector(".filters-list-item"),W=_.dataset.filter,N=window.innerWidth;let s;V(N);const P=`https://energyflow.b.goit.study/api/filters?filter=${W}&page=1&limit=${s}`;function V(e){return e<768?s=8:(e>=768&&e<1024,s=12),s}async function J(){try{const t=await(await fetch(P)).json();t.results&&t.results.length>0?w.innerHTML=L(t.results):console.error("No exercises found.")}catch(e){console.error("Error fetching exercises:",e)}}function z(e){m.querySelectorAll(".filters-list-item").forEach(t=>{t.classList.remove("active_item")}),e.target.classList.add("active_item")}async function G(e){if(e.target.classList.contains("filters-list-item")){z(e);const i=`https://energyflow.b.goit.study/api/filters?filter=${e.target.dataset.filter}&page=1&limit=${s}`;try{const n=await(await fetch(i)).json();n.results&&n.results.length>0?w.innerHTML=L(n.results):console.error("No exercises found.")}catch(r){console.error("Error fetching exercises:",r)}}}function L(e){return e.reduce((t,i)=>t+`<li class="cards-list-item" style="background:linear-gradient(
       0deg,
       rgba(16, 16, 16, 0.7) 0%,
       rgba(16, 16, 16, 0.7) 100%
-    ), url('${s.imgUrl}'),
+    ), url('${i.imgUrl}'),
     lightgray -16.825px -9.156px / 128.765% 116.922% no-repeat; background-size: cover;">
-      <h3 class="card-title">${L(s.name)}</h3>
-      <p class="card-subtitle">${s.filter}</p>
-    </li>`,"")}document.addEventListener("DOMContentLoaded",D);u.addEventListener("click",_);
+      <h3 class="card-title">${M(i.name)}</h3>
+      <p class="card-subtitle">${i.filter}</p>
+    </li>`,"")}document.addEventListener("DOMContentLoaded",J);m.addEventListener("click",G);
 //# sourceMappingURL=commonHelpers2.js.map
