@@ -3,49 +3,46 @@ const closeModalBtn = document.querySelector('.modal-subscribe-close-btn');
 const modalCloseButton = document.querySelector(
   '.modal-subscribe-close-button'
 );
-
 const footerForm = document.querySelector('.footer-form');
-
 const modalSubscribeTextElement = document.getElementById('modalSubscribeText');
 
-// -----close modal-----
+let isModalOpen = false;
 
+// -----close modal-----
 
 function closeSubscribeModal() {
   confirmationModal.classList.remove('is-open');
   const newTextStart = 'You will receive notifications about new exercises.';
   modalSubscribeTextElement.textContent = newTextStart;
+  isModalOpen = false;
 }
 
 closeModalBtn.addEventListener('click', closeSubscribeModal);
 modalCloseButton.addEventListener('click', closeSubscribeModal);
 
 document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape') {
+  if (isModalOpen && event.key === 'Escape') {
     closeSubscribeModal();
   }
 });
-
-setTimeout(closeSubscribeModal, 8000);
 
 window.addEventListener('click', function (event) {
-  if (event.target === confirmationModal) {
+  if (isModalOpen && event.target === confirmationModal) {
     closeSubscribeModal();
   }
 });
-
 
 // -----open modal-----
 
 function openSubscribeModal() {
   confirmationModal.classList.add('is-open');
+  isModalOpen = true;
+  setTimeout(closeSubscribeModal, 8000);
 }
-
 
 function changeTextSubscribeModal() {
   if (modalSubscribeTextElement) {
     const newText = 'You are already subscribed';
-
     modalSubscribeTextElement.textContent = newText;
   } else {
     console.error('Element with id "modalSubscribeText" not found.');
@@ -68,8 +65,8 @@ footerForm.addEventListener('submit', function (event) {
     body: JSON.stringify({ email: email }),
   })
     .then(response => {
+      emailInput.value = '';
       if (response.ok) {
-        emailInput.value = '';
         openSubscribeModal();
       } else {
         console.error(
@@ -77,7 +74,6 @@ footerForm.addEventListener('submit', function (event) {
           response.statusText
         );
         changeTextSubscribeModal();
-        emailInput.value = '';
         openSubscribeModal();
       }
     })
@@ -86,4 +82,3 @@ footerForm.addEventListener('submit', function (event) {
       alert('An error occurred while executing the request');
     });
 });
-
