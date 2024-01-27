@@ -78,7 +78,7 @@
   display: flex;
   gap: 2px;
 }
-.rating {
+.mod-ex-rating {
   color: #1b1b1b;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: 'DM Sans';
@@ -87,7 +87,7 @@
   line-height: 1.5; /* 150% */
 }
 
-.rating-star {
+.mod-ex-rating-star {
   line-height: 0;
 }
 
@@ -128,6 +128,11 @@
   font-weight: 500;
   line-height: 1.29; /* 128.571% */
 }
+
+.value-description::first-letter {
+  text-transform: uppercase;
+}
+
 .modal-ex-description-text-container {
 }
 .description-text {
