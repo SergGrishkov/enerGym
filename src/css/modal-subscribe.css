@@ -1,5 +1,5 @@
 .modal-subscribe {
-  /* display: none; */
+  display: block;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -8,8 +8,20 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 250ms linear, visbility 250ms linear;
 }
-.close-btn {
+
+.modal-subscribe.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.modal-subscribe-close-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,15 +43,74 @@
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .subscribe-modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    width: 335px;
-    min-height: 180px;
-    padding: 40px 20px;
-    border-radius: 20px;
-    background: #f6f6f6;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 335px;
+  min-height: 180px;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background: #f6f6f6;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-subscribe-close-button {
+  display: block;
+  width: 100%;
+  padding: 12px 12px;
+  border: none;
+  border-radius: 30px;
+  background: #7e847f;
+  color: #f6f6f6;
+  font-family: 'DM Sans';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.29;
+}
+
+.modal-subscribe-text {
+  text-align: center;
+  color: rgba(27, 27, 27, 0.6);
+  font-family: 'DM Sans';
+  font-size: 20px;
+  font-weight: 500;
+}
+.modal-subscribe-text-span {
+  text-align: center;
+  color: rgba(27, 27, 27, 0.6);
+  font-family: 'DM Sans';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.modal-subscribe-icon {
+  fill: #7e847f;
+}
+.modal-subscribe-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  width: 42px;
+  height: 42px;
+}
+
+@media screen and (min-width: 768px) {
+  .subscribe-modal-content {
+    width: 450px;
+    min-height: 250px;
+    padding: 50px;
   }
-  
+
+  .modal-subscribe-close-btn {
+    width: 28px;
+    height: 28px;
+  }
+}

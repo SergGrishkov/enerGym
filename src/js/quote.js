@@ -1,19 +1,32 @@
-import { getQuote } from '../helpers/locatStorage.js'; 
+import { getQuote } from '../helpers/locatStorage.js';
+const quoteContainerEl = document.querySelector('.favorites-info-container');
+const quoteInfoEl = document.querySelector('.quote-info-content');
 
-async function updateQuoteOfTheDay() {
-  const quoteContainer = document.querySelector('.quote-info-content');
-  const quoteTextElement = document.getElementById('quote-text');
-  const authorElement = document.querySelector('.quote-author');
-
-  try {
-    const { author, quote } = await getQuote();
-
-    quoteTextElement.textContent = quote;
-    authorElement.textContent = `${author}`;
-
-  } catch (error) {
-    console.error('Error fetching or updating the quote:', error);
+document.addEventListener('DOMContentLoaded', async () => {
+  if (quoteInfoEl) {
+    try {
+      await getQuote();
+      quoteInfoEl.insertAdjacentHTML('beforeend', await renderFavoriteQuote());
+    } catch (error) {
+      console.error('Error fetching or updating the quote:', error);
+    }
+  } else if (quoteContainerEl) {
+    try {
+      await getQuote();
+      quoteContainerEl.insertAdjacentHTML(
+        'beforeend',
+        await renderFavoriteQuote()
+      );
+    } catch (error) {
+      console.error('Error fetching or updating the quote:', error);
+    }
   }
-}
+});
 
-updateQuoteOfTheDay();
+async function renderFavoriteQuote() {
+  const { author, quote } = await getQuote();
+  return `
+  <p id="favorites-text">${quote}</p>
+  <h3 class="favorites-author">${author}</h3>
+  `;
+}

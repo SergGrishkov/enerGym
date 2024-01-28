@@ -17,3 +17,4 @@
 // }
 
 // buttonStart.addEventListener('click', clickButton);
+console.log('hello');
