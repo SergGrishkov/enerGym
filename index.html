@@ -21,8 +21,8 @@
     />
     <script type="module" crossorigin src="/enerGym/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/enerGym/assets/vendor-0fffa566.js">
-    <link rel="modulepreload" crossorigin href="/enerGym/assets/quote-a9a1cc94.js">
-    <link rel="stylesheet" href="/enerGym/assets/quote-a9aae0f9.css">
+    <link rel="modulepreload" crossorigin href="/enerGym/assets/quote-14f0c5c7.js">
+    <link rel="stylesheet" href="/enerGym/assets/quote-de0204d3.css">
   </head>
 
   <body>
@@ -111,45 +111,62 @@
 </header>
 
     <main>
-      <section class="hero" id="hero">
-    <div class="hero-container container">
-        <div class="static">
-            <!-- prettier-ignore -->
-            <img class="image-hero-girl" srcset="/enerGym/assets/girl-desktop-a3ca675d.jpg 704w, /enerGym/assets/girl-desktop@2x-7ec604d4.jpg 1408w, /enerGym/assets/girl-tablet-b2bead92.jpg 248w, /enerGym/assets/girl-tablet@2x-8374f72b.jpg 496w, /enerGym/assets/girl-mobile-3fb8ce75.jpg 335w, /enerGym/assets/girl-mobile@2x-0af6fcb9.jpg 670w" sizes="(min-width: 1280px) 704px, (min-width: 768px) 248px"
-                src="/enerGym/assets/girl-mobile-3fb8ce75.jpg" alt="hero-girl_img" />
-
-            <div class="overlay-teg">
-                <div class="hero-teg-list-container">
-                    <ul class="hero-teg-list">
-                        <li>
-                            <p class="hero-teg">#Sport</p>
-                        </li>
-                        <li>
-                            <p class="hero-teg">#Healthy</p>
-                        </li>
-                        <li>
-                            <p class="hero-teg">#Workout</p>
-                        </li>
-                        <li>
-                            <p class="hero-teg">#Diet</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
+      <section class="hero">
+  <div class="hero-container container">
+    <div class="hero-box">
+      <div class="static">
+        <div class="hero-bg-img"></div>
+        <div class="overlay-teg">
+          <ul class="hero-teg-list">
+            <li>
+              <p class="hero-teg">#Sport</p>
+            </li>
+            <li>
+              <p class="hero-teg">#Healthy</p>
+            </li>
+            <li>
+              <p class="hero-teg">#Workout</p>
+            </li>
+            <li>
+              <p class="hero-teg">#Diet</p>
+            </li>
+          </ul>
         </div>
-        <div class="container-text">
-            <div class="title-container">
-                <h1 class="title">Get<span class="another-color-text"> Body</span> in shape, Stay healthy</h1>
-                <p class="hero-text">Transform your physique and embrace a healthier lifestyle with our comprehensive
-                    fitness
-                    and nutrition support.</p>
-            </div>
-        </div>
+      </div>
 
+      <div class="title-container">
+        <h1 class="hero-title">
+          Get<span class="another-color-text"> Body</span> in shape, Stay
+          healthy
+        </h1>
+
+        <p id="hero-text"></p>
+
+        <!-- <p class="hero-text">
+          Transform your physique and embrace a healthier lifestyle with our
+          comprehensive fitness and nutrition support.
+        </p> -->
+      </div>
     </div>
-
+  </div>
 </section>
+
+<!-- <script>
+  let text =
+    'Transform your physique and embrace a healthier lifestyle with our comprehensive fitness and nutrition support.';
+  let i = 0;
+
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById('hero-text').innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 100);
+    }
+  }
+
+  typeWriter();
+</script> -->
+
       <section class="quote">
   <div class="quote-container container">
 
