@@ -4,18 +4,18 @@ import{f as r,g as o,i as n,r as c,E as l}from"./assets/quote-a9a1cc94.js";impor
                     <p class="favorite-label-workout">WORKOUT</p>
                     <button class="favorite-remove-btn">
                         <svg class="remove-favorites" width="16" height="16" aria-label="icon-bucket">
-                          <use xlink:href="/assets/sprite.svg#icon-remove-favorites"></use>
+                          <use xlink:href="./assets/sprite.svg#icon-remove-favorites"></use>
                         </svg>
                     </button>
                     <button class="favorite-start-btn">Start
                         <svg class="favorites-icon" width="14" height="14" aria-label="start-arrow">
-                            <use xlink:href="/assets/sprite.svg#icon-exercises-arrow"></use>
+                            <use xlink:href="./assets/sprite.svg#icon-exercises-arrow"></use>
                         </svg>
                     </button>
                 </div>
                 <div class="favorite-label-icon-run">
                     <svg class="favorite-icon-run" width="24" height="24" aria-label="icon-bucket">
-                        <use xlink:href="/assets/sprite.svg#icon-exercises-man"></use>
+                        <use xlink:href="./assets/sprite.svg#icon-exercises-man"></use>
                     </svg>
                     <p>${r(t.name)}</p>
                 </div>
