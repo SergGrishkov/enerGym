@@ -16,9 +16,10 @@
 }
 
 .favorites-container-header {
-  max-width: 1440px;
-  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
+
 .favorites-quote-icon {
 fill: #F6F6F6;
 }
@@ -57,7 +58,6 @@ width: 200px;
       border-radius: 30px;
       background: #7E847F;
       display: flex;
-      flex-direction: row;
       align-items: center;
       padding-left: 20px;
       padding-right: 20px;
@@ -126,6 +126,7 @@ font-weight: 500;
 
 /* TABLET */
 @media screen and (min-width: 768px) {
+  
 
 .favorites-img {
     width: 368px;
@@ -192,15 +193,16 @@ margin-top: 64px;
 }
 
 /* DESKTOP */
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
     .favorites-quote-block {
         width: 704px;
     } 
 
   .favorites-container-header {
     display: flex;
-  }
-
+    justify-content: center;
+  
+}
   .favorites-img {
     width: 352px;
     background-image: url(../img/favorites-main/favorites-desktop.png);

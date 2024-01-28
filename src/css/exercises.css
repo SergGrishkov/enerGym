@@ -207,6 +207,9 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .indicators-cont {
