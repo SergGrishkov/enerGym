@@ -1,5 +1,5 @@
-import{E as M,f as A}from"./assets/quote-38cb7248.js";import"./assets/vendor-0fffa566.js";const f=document.querySelector(".backdrop"),b=document.querySelector(".js-modal-container");document.querySelector(".close-btn");let R="64f389465ae26083f39b17a9",h="",r={},j=new M;async function B(e){return h=e,await(await j.getExerciseById(h)).json()}async function W(e){try{const i=await B(e),t=b.querySelector(".js-add-remove-btn");let n="",s="";i&&F(i,C())?(n="./img/sprite/sprite.svg#icon-remove-favorites",s="Remove from favorites"):(n="./img/sprite/sprite.svg#icon-add-favorites",s="Add to favorites"),b.innerHTML=`<div
-        class="modal-ex-img-container"
+import{E as M,f as A}from"./assets/quote-38cb7248.js";import"./assets/vendor-0fffa566.js";const f=document.querySelector(".backdrop"),b=document.querySelector(".js-modal-container");document.querySelector(".close-btn");let R="64f389465ae26083f39b17a9",h="",r={},j=new M;async function B(e){return h=e,await(await j.getExerciseById(h)).json()}async function W(e){try{const i=await B(e),t=b.querySelector(".js-add-remove-btn");let n="",s="";i&&F(i,C())?(n="../img/sprite/sprite.svg#icon-remove-favorites",s="Remove from favorites"):(n="../img/sprite/sprite.svg#icon-add-favorites",s="Add to favorites"),b.innerHTML=`
+    <div class="modal-ex-img-container"
         style="
           background: linear-gradient(
               0deg,
