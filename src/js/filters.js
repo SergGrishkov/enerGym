@@ -3,6 +3,7 @@ import { ExercisesController } from '../api/controllers/ExercisesController';
 import { getExerciseFromApi } from './exercises';
 import { renderPagination } from './pagination';
 
+export const inputSearch = document.querySelector('.search-container');
 const filtersBox = document.querySelector('.filters-box');
 export const cardsContainer = document.getElementById('cards-list');
 const defaultFilterButton = filtersBox.querySelector('.filters-list-item');

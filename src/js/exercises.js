@@ -1,15 +1,14 @@
 import { firstLetterToUpper } from '../helpers/utils';
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { cardsContainer } from './filters';
+import { inputSearch } from './filters';
 
-const formSearch = document.querySelector('.input-container');
-const exerciseList = document.querySelector('.workout-list');
+const formSearch = document.querySelector('.form');
 const modalWindow = document.querySelector('.modal-exercise');
 const screenWidth = window.innerWidth;
 
 // Запит на серв та параметри
 
-let exerciseCntrl = new ExercisesController();
 let filter;
 let name;
 let page = 1;
@@ -49,6 +48,7 @@ export async function getExerciseFromApi(filter, name) {
     if (responseJson.results) {
       const elems = responseJson.results;
       cardsContainer.innerHTML = renderExercises(elems);
+      inputSearch.insertAdjacentElement('beforeEnd', formSearch);
       //   console.log(responseJson);
     }
   } catch (error) {
@@ -60,7 +60,7 @@ function renderExercises(exercises) {
   return exercises.reduce(
     (html, exercise) =>
       html +
-      ` <li class="list-item" data-exerciseid="${exercise._id}">
+      `<li class="list-item" data-exerciseid="${exercise._id}">
           <div class="workout-and-icons">
             <div class="workout-container">
               <p class="workout-bubble">Workout</p>
@@ -106,16 +106,7 @@ function renderExercises(exercises) {
   );
 }
 
-// formSearch.addEventListener('submit', event => {
-//   event.preventDefault();
-// });
-
-// example function for buttons with listener
-
-// const button = document.querySelector('.class');
-
-// function clickButton() {
-
-// }
-
-// button.addEventListener('click', clickButton);
+formSearch.addEventListener('submit', event => {
+  event.preventDefault();
+  const inputValue = event.target.value.trim();
+});
