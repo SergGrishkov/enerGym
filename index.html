@@ -21,8 +21,8 @@
     />
     <script type="module" crossorigin src="/enerGym/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/enerGym/assets/vendor-0fffa566.js">
-    <link rel="modulepreload" crossorigin href="/enerGym/assets/quote-03e7a35c.js">
-    <link rel="stylesheet" href="/enerGym/assets/quote-fa2c82e8.css">
+    <link rel="modulepreload" crossorigin href="/enerGym/assets/quote-214a90d4.js">
+    <link rel="stylesheet" href="/enerGym/assets/quote-da3ff5d9.css">
   </head>
 
   <body>
@@ -181,21 +181,32 @@
 </section>
       <section class="home-filters" id="filters">
   <div class="container filters-container">
-    <h2 class="home-filters-title">Exercises</h2>
-    <div class="filters-box">
-      <button
-        class="filters-list-item active_item"
-        type="button"
-        data-filter="Muscles"
-      >
-        Muscles
-      </button>
-      <button class="filters-list-item" type="button" data-filter="Body parts">
-        Body parts
-      </button>
-      <button class="filters-list-item" type="button" data-filter="Equipment">
-        Equipment
-      </button>
+    <div class="title-filter-wrapper">
+      <h2 class="home-filters-title">Exercises</h2>
+      <span class="home-filters-title"></span>
+      <span class="home-filters-subtitle"></span>
+    </div>
+    <div class="filter-box-wrapper">
+      <div class="filters-box">
+        <button
+          class="filters-list-item active_item"
+          type="button"
+          data-filter="Muscles"
+        >
+          Muscles
+        </button>
+        <button
+          class="filters-list-item"
+          type="button"
+          data-filter="Body parts"
+        >
+          Body parts
+        </button>
+        <button class="filters-list-item" type="button" data-filter="Equipment">
+          Equipment
+        </button>
+      </div>
+      <div class="search-container"></div>
     </div>
     <div class="filters-cards-container">
       <ul class="cards-list" id="cards-list">
