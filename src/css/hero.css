@@ -30,7 +30,7 @@
   width: 335px;
   height: 387px;
   border-radius: 30px;
-  background-image: url(../../img/hero/girl-mobile.jpg);
+  background-image: url(../img/hero/girl-mobile.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -105,7 +105,7 @@
   screen and (min-resolution: 2dppx) and (max-width: 767px),
   screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
   .hero-bg-img {
-    background-image: url('../../img/hero/girl-mobile@2x.jpg');
+    background-image: url('../img/hero/girl-mobile@2x.jpg');
   }
 }
 
@@ -123,7 +123,7 @@
   }
 
   .hero-bg-img {
-    background-image: url(../../img/hero/girl-tablet.jpg);
+    background-image: url(../img/hero/girl-tablet.jpg);
     width: 248px;
     height: 900px;
     border-radius: 50px 0px 50px 50px;
@@ -135,7 +135,7 @@
     screen and (min-resolution: 2dppx) and (min-width: 768px),
     screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
     .hero-bg-img {
-      background-image: url('../../img/hero/girl-tablet@2x.jpg');
+      background-image: url('../img/hero/girl-tablet@2x.jpg');
     }
   }
 
@@ -194,7 +194,7 @@
   }
 
   .hero-bg-img {
-    background-image: url(../../img/hero/girl-desktop.jpg);
+    background-image: url(../img/hero/girl-desktop.jpg);
     width: 704px;
     height: 884px;
   }
@@ -205,7 +205,7 @@
     screen and (min-resolution: 2dppx) and (min-width: 1280px),
     screen and (min-device-pixel-ratio: 2) and (min-width: 1280px) {
     .hero-bg-img {
-      background-image: url('../../img/hero/girl-desktop@2x.jpg');
+      background-image: url('../img/hero/girl-desktop@2x.jpg');
     }
   }
 
