@@ -15,9 +15,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
         rel="stylesheet" />
-  <script type="module" crossorigin src="/enerGym/assets/vendor-0fffa566.js"></script>
-  <script type="module" crossorigin src="/enerGym/assets/quote-f44bd7d0.js"></script>
-  <link rel="stylesheet" href="/enerGym/assets/quote-f1db9b68.css">
+  <script type="module" crossorigin src="/enerGym/commonHelpers.js"></script>
+  <link rel="modulepreload" crossorigin href="/enerGym/assets/vendor-0fffa566.js">
+  <link rel="modulepreload" crossorigin href="/enerGym/assets/quote-a25d53fb.js">
+  <link rel="stylesheet" href="/enerGym/assets/quote-19e4298a.css">
 </head>
 
 <body>
@@ -156,21 +157,23 @@
                 <div class="favorites-container-content">
                     <h2>Favorites</h2>
                     <ul class="favorites-container-content-items">
-                        <li class="favorite-item" data-exerciseId="12123ssss">
+                        <!-- <li class="favorite-item" data-exerciseId="12123ssss">
                             <div class="favorite-label-drop-start">
                                 <p class="favorite-label-workout">WORKOUT</p>
-                                <svg class="remove-favorites" width="16" height="16" aria-label="icon-bucket">
-                                    <use href="/enerGym/assets/sprite-b81046ef.svg#icon-remove-favorites"></use>
-                                </svg>
+                                <button id="qawsed" class="favorite-remove-btn" name="button-bucket">
+                                    <svg class="remove-favorites" width="16" height="16" aria-label="icon-bucket">
+                                        <use href="./img/sprite/sprite.svg#icon-remove-favorites"></use>
+                                    </svg>
+                                </button>
                                 <button class="favorite-start-btn" href="https://www.instagram.com/goitclub/">Start
                                     <svg class="favorites-icon" width="14" height="14" aria-label="start-arrow">
-                                        <use href="/enerGym/assets/sprite-b81046ef.svg#icon-exercises-arrow"></use>
+                                        <use href="./img/sprite/sprite.svg#icon-exercises-arrow"></use>
                                     </svg>
                                 </button>
                             </div>
                             <div class="favorite-label-icon-run">
                                 <svg class="favorite-icon-run" width="24" height="24" aria-label="icon-bucket">
-                                    <use href="/enerGym/assets/sprite-b81046ef.svg#icon-exercises-man"></use>
+                                    <use href="./img/sprite/sprite.svg#icon-exercises-man"></use>
                                 </svg>
                                 <p>Air bike</p>
                             </div>
@@ -189,7 +192,7 @@
                         <li class="favorite-item"></li>
                         <li class="favorite-item"></li>
                         <li class="favorite-item"></li>
-                        <li class="favorite-item"></li>
+                        <li class="favorite-item"></li> -->
                     </ul>
                 </div>
             </div>
@@ -278,6 +281,7 @@
 </div>
 
 
+    
     
     
     
