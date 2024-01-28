@@ -60,7 +60,7 @@ function renderExercises(exercises) {
   return exercises.reduce(
     (html, exercise) =>
       html +
-      ` <li class="list-item">
+      ` <li class="list-item" data-exerciseid="${exercise._id}">
           <div class="workout-and-icons">
             <div class="workout-container">
               <p class="workout-bubble">Workout</p>
