@@ -154,8 +154,8 @@
   line-height: 0.83;
   letter-spacing: -0.02em;
 }
-.link:hover,
-.link:focus {
+.footer-link:hover,
+.footer-link:focus {
   animation: pulse 1s infinite;
   transition: 0.3s;
   color: #7e847f;
