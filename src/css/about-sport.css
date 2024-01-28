@@ -1,5 +1,5 @@
 .about-sport {
-    max-width: 1440px;
+    /* max-width: 1440px; */
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -33,6 +33,7 @@
     .about-sport-container {
         display: flex;
         flex-direction: row;
+
     }
 
     .image-about-sport {
