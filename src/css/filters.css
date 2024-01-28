@@ -185,6 +185,7 @@
 
 @media screen and (min-width: 1280px) {
   .cards-list {
+    max-width: 1312px;
     gap: 40px 20px;
   }
   .cards-list-item {
