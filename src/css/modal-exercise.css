@@ -290,6 +290,7 @@
 /* ============== STARS ======== */
 
 .modal-ex-rating-container {
+  margin-top: 10px;
   display: flex;
   align-items: flex-end;
   font-size: 26px;
