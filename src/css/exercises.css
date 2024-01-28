@@ -59,8 +59,21 @@
 }
 
 .form {
-  margin-bottom: 40px;
   position: relative;
+}
+
+.submit {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
 }
 
 .search {
@@ -82,7 +95,6 @@
 
 .search-icon {
   position: absolute;
-  right: 16px;
   top: 50%;
   transform: translateY(-50%);
   display: block;

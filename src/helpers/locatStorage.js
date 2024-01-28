@@ -27,17 +27,31 @@ export function removeExerciseFromFavoriteById(
 ) {
   if (!localStorage.getItem(storageKey)) return;
 
-  let lStorage = JSON.parse(localStorage.getItem(storageKey));
-
+  let lStorage = parseLocalStorageByKey(storageKey);
   if (lStorage.length > 0) {
     let updArray = lStorage.filter(s => {
       return s._id !== exerciseId;
     });
     localStorage.setItem(storageKey, JSON.stringify(updArray));
-    if (lStorage.length === 0) {
+    if (updArray.length === 0) {
       localStorage.removeItem(storageKey);
     }
   }
+}
+
+export function getFavoritCardsFromLocalStorage(
+  storageKey = storageKeys.FAVORITE_EXERCISE
+) {
+  return parseLocalStorageByKey(storageKey);
+}
+
+export function getFavoritCardFromLocalStorageById(
+  exerciseId,
+  storageKey = storageKeys.FAVORITE_EXERCISE
+) {
+  return parseLocalStorageByKey(storageKey).filter(c => {
+    return c._id === exerciseId;
+  })[0];
 }
 
 export function isExerciseInFavorite(
@@ -46,7 +60,7 @@ export function isExerciseInFavorite(
 ) {
   if (!localStorage.getItem(storageKey)) return false;
 
-  let lStorage = JSON.parse(localStorage.getItem(storageKey));
+  let lStorage = parseLocalStorageByKey(storageKey);
   if (lStorage.length > 0) {
     const isExercise = lStorage.filter(s => {
       return s._id === exerciseId;
@@ -82,5 +96,13 @@ export async function getQuote() {
       author,
       quote,
     };
+  }
+}
+
+function parseLocalStorageByKey(storageKey) {
+  try {
+    return JSON.parse(localStorage.getItem(storageKey));
+  } catch (error) {
+    console.error('Parsing Error');
   }
 }

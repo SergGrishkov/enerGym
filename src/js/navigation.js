@@ -1,7 +1,9 @@
+// Header //
+
 document.addEventListener('DOMContentLoaded', event => {
   let path = window.location.pathname;
   const page =
-    path === '/' || path === '/enerGym/' ? 'index.html' : path.split('/').pop();
+    path === '/index.html' || path === '/enerGym/index.html' ? 'index.html' : path.split('/').pop();
 
   function setActiveLink(selector) {
     let links = document.querySelectorAll(selector);
@@ -22,3 +24,19 @@ document.addEventListener('DOMContentLoaded', event => {
   setActiveLink('.header-menu-link');
   setActiveLink('.mobile-menu-link');
 });
+
+// Hero //
+
+let text =
+  'Transform your physique and embrace a healthier lifestyle with our comprehensive fitness and nutrition support.';
+let hero = 0;
+
+function typeWriter() {
+  if (hero && hero < text.length) {
+    document.getElementById('hero-text').innerHTML += text.charAt(hero);
+    hero++;
+    setTimeout(typeWriter, 100);
+  }
+}
+
+typeWriter();
