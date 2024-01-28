@@ -88,12 +88,17 @@ async function onPageClick(event) {
 
 // -------------
 // ---pagination
+
+// togleActive-----
+// ----------------
 function togleActiveBtnClass(event) {
   filtersBox.querySelectorAll('.filters-list-item').forEach(button => {
     button.classList.remove('active_item');
   });
   event.target.classList.add('active_item');
 }
+// ---------------
+// ----togleActive
 
 async function fetchDynamicApiUrl(event, source) {
   if (
@@ -120,6 +125,7 @@ async function fetchDynamicApiUrl(event, source) {
         filterParams.page
       );
       paginationList.innerHTML = paginationElements;
+      collectCardsAnimated();
     } else {
       console.error('No exercises found.');
     }
@@ -127,7 +133,24 @@ async function fetchDynamicApiUrl(event, source) {
     console.error('Error fetching exercises:', error);
   }
 }
+// animation-----
+function collectCardsAnimated() {
+  const cards = document.querySelectorAll('.cards-list-item');
 
+  // Спочатку приховуємо всі картки
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transition = 'opacity 0.5s ease-in'; // Додаємо анімацію з'явлення
+  });
+
+  // Показуємо картки з анімацією
+  cards.forEach((card, index) => {
+    setTimeout(() => {
+      card.style.opacity = '1';
+    }, index * 100); // Додайте затримку для кожної картки
+  });
+}
+// -----animation
 async function getExercisesByName(event) {
   const targetExercises = event.target.dataset.name;
   const selectedFilter = event.target.dataset.filter;

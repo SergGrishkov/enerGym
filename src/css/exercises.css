@@ -366,7 +366,7 @@
   }
 
   .list-item {
-    max-width: calc(33.3% - 14px);
+    width: calc(33.3% - 14px);
   }
   .training-name {
     max-width: 320px;
