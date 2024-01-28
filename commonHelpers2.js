@@ -9,7 +9,7 @@ import{E as M,f as q}from"./assets/quote-14f0c5c7.js";import"./assets/vendor-0ff
                     aria-label="modal favorite icon"
                   >
                     <use
-                      href='./assets/sprite.svg#icon-remove-favorites'
+                      href='./sprite.svg#icon-remove-favorites'
                     ></use>
                   </svg>
                 </p>
@@ -25,7 +25,7 @@ import{E as M,f as q}from"./assets/quote-14f0c5c7.js";import"./assets/vendor-0ff
                     aria-label="modal favorite icon"
                   >
                     <use
-                      href='./assets/sprite.svg#icon-add-favorites'
+                      href='./sprite.svg#icon-add-favorites'
                     ></use>
                   </svg>
                 </p>
