@@ -33,7 +33,7 @@ let hero = 0;
 
 function typeWriter() {
   if (hero < text.length) {
-    document.getElementById('hero-text')?.innerHTML += text.charAt(hero);
+    document.getElementById('hero-text').innerHTML += text.charAt(hero);
     hero++;
     setTimeout(typeWriter, 100);
   }
