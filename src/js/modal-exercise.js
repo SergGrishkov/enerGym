@@ -35,12 +35,47 @@ async function createMarkupModalEx(exerciseId) {
 
     let urlIconAddRemove = '';
     let textBtn = '';
+    let patternBtn;
     if (exercise && isExerciseInFavorites(exercise, getFavoriteExercises())) {
-      urlIconAddRemove = './assets/sprite.svg#icon-remove-favorites';
-      textBtn = 'Remove from favorites';
+      patternBtn = `
+      <button class="ex-modal-btn add-favorite js-add-remove-btn" type="button">
+                Remove from favorites
+                <p class="btn-icon-add-remove-favorite">
+                  <svg
+                    class="modal-icon-favorite"
+                    width="18"
+                    height="18"
+                    aria-label="modal favorite icon"
+                  >
+                    <use
+                      href='./img/sprite/sprite.svg#icon-remove-favorites'
+                    ></use>
+                  </svg>
+                </p>
+              </button>
+      `
+      // urlIconAddRemove = './img/sprite/sprite.svg#icon-remove-favorites';
+      // textBtn = 'Remove from favorites';
     } else {
-      urlIconAddRemove = './assets/sprite.svg#icon-add-favorites';
-      textBtn = 'Add to favorites';
+      patternBtn = `
+      <button class="ex-modal-btn add-favorite js-add-remove-btn" type="button">
+                'Add to favorites'
+                <p class="btn-icon-add-remove-favorite">
+                  <svg
+                    class="modal-icon-favorite"
+                    width="18"
+                    height="18"
+                    aria-label="modal favorite icon"
+                  >
+                    <use
+                      href='./img/sprite/sprite.svg#icon-add-favorites'
+                    ></use>
+                  </svg>
+                </p>
+              </button>
+      `
+      // urlIconAddRemove = './img/sprite/sprite.svg#icon-add-favorites';
+      // textBtn = 'Add to favorites';
     }
 
     modalEl.innerHTML = `
@@ -113,21 +148,7 @@ async function createMarkupModalEx(exerciseId) {
         <div class="ex-modal-btn-container">
           <ul class="button ex-modal-btn-list">
             <li class="ex-modal-btn-list-item">
-              <button class="ex-modal-btn add-favorite js-add-remove-btn" type="button">
-                ${textBtn}
-                <p class="btn-icon-add-remove-favorite">
-                  <svg
-                    class="modal-icon-favorite"
-                    width="18"
-                    height="18"
-                    aria-label="modal favorite icon"
-                  >
-                    <use
-                      href='${urlIconAddRemove}'
-                    ></use>
-                  </svg>
-                </p>
-              </button>
+              ${patternBtn}
             </li>
             <li class="ex-modal-btn-list-item">
               <button data-rating="${exercise._id}" class="ex-modal-btn rating-btn" type="button">
