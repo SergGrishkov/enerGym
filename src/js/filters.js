@@ -1,6 +1,7 @@
 import { firstLetterToUpper } from '../helpers/utils';
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { getExerciseFromApi } from './exercises';
+import { renderPagination } from './pagination';
 
 const filtersBox = document.querySelector('.filters-box');
 export const cardsContainer = document.getElementById('cards-list');
@@ -11,7 +12,7 @@ const paginationList = document.querySelector('.pagination-list');
 const screenWidth = window.innerWidth;
 
 let limit = null;
-let page = null;
+let page = 1;
 limitPerScreenWidth(screenWidth);
 
 // contr
@@ -32,7 +33,12 @@ async function fetchDefaultApiUrl() {
 
     if (data.results && data.results.length > 0) {
       cardsContainer.innerHTML = renderCards(data.results);
-      renderPagination(data.totalPages, 1);
+      paginationList.innerHTML = '';
+      let paginationElements = renderPagination(
+        data.totalPages,
+        filterParams.page
+      );
+      paginationList.innerHTML = paginationElements;
     } else {
       console.error('No exercises found.');
     }
@@ -54,25 +60,18 @@ function limitPerScreenWidth(screenWidth) {
   }
   return limit;
 }
+// pagination------
+// ----------------
 
-function renderPagination(totalPages, currentPage) {
-  paginationList.innerHTML = '';
-
-  const paginationElements = Array.from({ length: totalPages }).reduce(
-    (html, _, index) => {
-      const pageNumber = index + 1;
-      const isActive = pageNumber === currentPage ? 'active_pag_item' : '';
-      return (
-        html +
-        `<li class="pagination-element ${isActive}" value="${pageNumber}">${pageNumber}</li>`
-      );
-    },
-    ''
-  );
-
-  paginationList.innerHTML = paginationElements;
+function onPageClick(event) {
+  const pageNumber = parseInt(event.target.getAttribute('value'));
+  filterParams.page = pageNumber;
+  console.log(pageNumber);
+  fetchDynamicApiUrl(event);
 }
 
+// -------------
+// ---pagination
 function togleActiveBtnClass(event) {
   filtersBox.querySelectorAll('.filters-list-item').forEach(button => {
     button.classList.remove('active_item');
@@ -94,7 +93,12 @@ async function fetchDynamicApiUrl(event) {
 
       if (data.results && data.results.length > 0) {
         cardsContainer.innerHTML = renderCards(data.results);
-        renderPagination(data.totalPages, 1);
+        paginationList.innerHTML = '';
+        let paginationElements = renderPagination(
+          data.totalPages,
+          filterParams.page
+        );
+        paginationList.innerHTML = paginationElements;
       } else {
         console.error('No exercises found.');
       }
@@ -145,3 +149,4 @@ function renderCards(cards) {
 document.addEventListener('DOMContentLoaded', fetchDefaultApiUrl);
 filtersBox.addEventListener('click', fetchDynamicApiUrl);
 cardsContainer.addEventListener('click', getExercisesByName);
+paginationList.addEventListener('click', onPageClick);
