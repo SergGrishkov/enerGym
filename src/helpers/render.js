@@ -11,18 +11,18 @@ export function renderFavoriteCards(arrayCards) {
                     <p class="favorite-label-workout">WORKOUT</p>
                     <button class="favorite-remove-btn">
                         <svg class="remove-favorites" width="16" height="16" aria-label="icon-bucket">
-                          <use xlink:href="sprite.svg#icon-remove-favorites"></use>
+                          <use href="./img/sprite/sprite.svg#icon-remove-favorites"></use>
                         </svg>
                     </button>
                     <button class="favorite-start-btn">Start
                         <svg class="favorites-icon" width="14" height="14" aria-label="start-arrow">
-                            <use xlink:href="sprite.svg#icon-exercises-arrow"></use>
+                            <use href="./img/sprite/sprite.svg#icon-exercises-arrow"></use>
                         </svg>
                     </button>
                 </div>
                 <div class="favorite-label-icon-run">
                     <svg class="favorite-icon-run" width="24" height="24" aria-label="icon-bucket">
-                        <use xlink:href="sprite.svg#icon-exercises-man"></use>
+                        <use href="./img/sprite/sprite.svg#icon-exercises-man"></use>
                     </svg>
                     <p>${firstLetterToUpper(prev.name)}</p>
                 </div>
@@ -41,7 +41,7 @@ export function renderFavoriteCards(arrayCards) {
   } else {
     return `
     <div class="missing-cards">
-            <img src="./dumbbell@1x.png" alt="dumbbell">
+            <img src="./img/favorites/dumbbell@1x.png" alt="dumbbell">
             <p>It appears that you haven't added any exercises to your favorites yet. To get started, you can add
                 exercises that you
                 like to your favorites for easier access in the future.</p>
