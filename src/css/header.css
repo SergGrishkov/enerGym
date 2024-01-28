@@ -92,7 +92,7 @@
     background-color: #ffffff;
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.4s ease-in-out;
   }
 
   .header-menu-link:not(.active-home):not(.active-favorites):hover::after {
@@ -132,7 +132,7 @@
     border: 1px solid rgba(126, 132, 127, 0.2);
     fill: #7e847f;
     opacity: 0.8;
-    transition: fill 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    transition: 700ms, fill 400ms cubic-bezier(0.4, 0, 0.2, 1),
       border 400ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -140,6 +140,7 @@
   .header-social-link:focus {
     fill: #5f6560;
     border: 1px solid rgba(95, 101, 96, 0.2);
+    transform: scale(1.2);
   }
 
   .open-mobile-menu {

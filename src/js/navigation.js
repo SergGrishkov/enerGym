@@ -1,42 +1,42 @@
 // Header //
 
-document.addEventListener('DOMContentLoaded', event => {
-  let path = window.location.pathname;
+document.addEventListener('DOMContentLoaded', () => {
+  const path = window.location.pathname;
   const page =
-    path === '/index.html' || path === '/enerGym/index.html' ? 'index.html' : path.split('/').pop();
+    path === '/' || path === '/enerGym/' ? 'index.html' : path.split('/').pop();
 
-  function setActiveLink(selector) {
-    let links = document.querySelectorAll(selector);
+  const setActiveLink = selector => {
+    const links = document.querySelectorAll(selector);
 
     links.forEach(link => {
-      let href = link.getAttribute('href');
+      const href = link.getAttribute('href');
 
       if (href.includes(page)) {
-        if (href.includes('index.html')) {
-          link.classList.add('active-home');
-        } else if (href.includes('favorites.html')) {
-          link.classList.add('active-favorites');
-        }
+        const activeClass = href.includes('index.html')
+          ? 'active-home'
+          : 'active-favorites';
+        link.classList.add(activeClass);
       }
     });
-  }
+  };
 
-  setActiveLink('.header-menu-link');
-  setActiveLink('.mobile-menu-link');
+  ['header-menu-link', 'mobile-menu-link'].forEach(selector =>
+    setActiveLink(`.${selector}`)
+  );
 });
 
 // Hero //
 
-let text =
+const text =
   'Transform your physique and embrace a healthier lifestyle with our comprehensive fitness and nutrition support.';
-let hero = 0;
+let i = 0;
 
 function typeWriter() {
-  if (hero && hero < text.length) {
-    document.getElementById('hero-text').innerHTML += text.charAt(hero);
-    hero++;
-    setTimeout(typeWriter, 100);
+  if (i < text.length) {
+    document.getElementById('hero-text').innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
   }
 }
 
-typeWriter();
+document.addEventListener('DOMContentLoaded', typeWriter);

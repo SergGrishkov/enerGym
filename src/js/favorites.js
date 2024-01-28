@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 const handleRemoveExercise = listFavorites.addEventListener(
   'click',
   async e => {
-    // e.preventDefault();
 
     if (
       e.target.ariaLabel !== 'icon-bucket' &&
@@ -39,7 +38,6 @@ const handleRemoveExercise = listFavorites.addEventListener(
       e.target.ariaLabel === 'icon-bucket' ||
       e.target.className === 'favorite-remove-btn'
     ) {
-      // let id = Object.values(e.target.closest('[data-exerciseId]').dataset)[0];
       try {
         if (isExerciseInFavorite(id)) {
           removeExerciseFromFavoriteById(id);
@@ -61,22 +59,3 @@ const handleRemoveExercise = listFavorites.addEventListener(
     }
   }
 );
-// example function for buttons with listener
-
-// const buttonRemoveFavotites = document.querySelector('.class');
-
-// function clickButton() {
-
-// }
-
-// buttonRemoveFavotites.addEventListener('click', clickButton);
-
-//******************************************************************* */
-
-// const buttonStart = document.querySelector('.class');
-
-// function clickButton() {
-
-// }
-
-// buttonStart.addEventListener('click', clickButton);
