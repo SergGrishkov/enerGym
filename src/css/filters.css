@@ -1,6 +1,8 @@
 .home-filters {
   max-width: 1440px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin-left: auto;
+  margin-right: auto;
 }
 .filters-container {
   background: #e8e8e8;
