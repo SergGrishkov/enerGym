@@ -48,7 +48,7 @@ async function createMarkupModalEx(exerciseId) {
                     aria-label="modal favorite icon"
                   >
                     <use
-                      href='./assets/sprite.svg#icon-remove-favorites'
+                      href='./sprite.svg#icon-remove-favorites'
                     ></use>
                   </svg>
                 </p>
@@ -68,7 +68,7 @@ async function createMarkupModalEx(exerciseId) {
                     aria-label="modal favorite icon"
                   >
                     <use
-                      href='./assets/sprite.svg#icon-add-favorites'
+                      href='./sprite.svg#icon-add-favorites'
                     ></use>
                   </svg>
                 </p>
