@@ -294,8 +294,8 @@ document.addEventListener('click', function (event) {
 // ========= UPDATE BUTTON ADD TO REMOVE
 function updateButtonUI(isFavorite) {
   const urlIcon = isFavorite
-    ? './img/sprite/sprite.svg#icon-remove-favorites'
-    : './img/sprite/sprite.svg#icon-add-favorites';
+    ? './sprite.svg#icon-remove-favorites'
+    : './sprite.svg#icon-add-favorites';
   const textBtn = isFavorite ? 'Remove from favorites' : 'Add to favorites';
   const updatedAddFavBtn = modalEl.querySelector('.js-add-remove-btn');
   console.log('isFavorite', isFavorite);
