@@ -1,48 +1,50 @@
-/* Основні стилі для всіх розмірів екрану */
-.hero {
-  width: 100%;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .hero-container {
-  box-sizing: content-box;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 20px;
   flex-direction: column;
+  align-items: center;
+  padding: 20px 20px 0;
+  max-width: 375px;
+}
+
+.hero-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .static {
-  width: 335px;
   position: relative;
-  display: inline-block;
-  margin-bottom: 20px;
 }
 
-.image-hero-girl {
+.hero-bg-img {
+  display: flex;
   width: 335px;
-  flex-shrink: 0;
+  height: 387px;
   border-radius: 30px;
-  background: lightgray -9.01px 54.435px / 81.557% 97.596% no-repeat, #e8e8e8;
+  background-image: url(../img/hero/girl-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .overlay-teg {
   position: absolute;
   bottom: 20px;
   left: 10px;
-}
-
-.hero-teg-list-container {
-  display: flex;
   width: 141px;
-  align-items: center;
-  align-content: center;
-  gap: 4px;
-  flex-wrap: wrap;
+  height: 48px;
 }
 
 .hero-teg-list {
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
@@ -51,181 +53,180 @@
 .hero-teg {
   display: flex;
   padding: 4px 10px;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
+  height: 22px;
   color: #f6f6f6;
   font-size: 12px;
-  font-style: normal;
-  line-height: 14px; /* 116.667% */
+  line-height: 1.16;
   border-radius: 30px;
   border: 1px solid rgba(246, 246, 246, 0.3);
-  margin: 0 0px 4px 0;
-}
-
-.container-text {
-  width: 335px;
-  flex-shrink: 0;
-  border-radius: 30px;
-  background: hsl(0, 0%, 100%);
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 .title-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 20px;
-  margin-left: 20px; /* Додано відступ зліва */
-  margin-right: 20px; /* Додано відступ справа */
-  margin-top: 60px; /* Додано відступ зверху */
-  margin-bottom: 81px; /* Додано відступ знизу */
+  width: 335px;
+  height: 365px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  padding: 60px 20px 81px;
 }
 
-.title {
+.hero-title,
+.another-color-text {
   color: #1b1b1b;
-  font-family: 'DM Sans';
   font-size: 56px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 50px;
-  letter-spacing: -1.12px;
-  width: 100%;
-  margin: 0;
+  line-height: 0.89;
+  letter-spacing: -0.02em;
+}
+
+.hero-title {
+  animation: fadeIn 2s ease-in 1;
 }
 
 .another-color-text {
   color: #7e847f;
-  font-family: 'DM Sans';
-  font-size: 56px;
   font-style: italic;
-  font-weight: 400;
-  line-height: 50px;
-  letter-spacing: -1.12px;
 }
 
-.hero-text {
+#hero-text {
   color: #1b1b1b;
-  font-family: 'DM Sans';
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 18px;
-  letter-spacing: -0.14px;
-  margin-left: 0;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  width: 265px;
 }
 
-/* Медіазапит для планшетів */
+/* bg-image 2x+ for mobile */
+
+@media screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px),
+  screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
+  .hero-bg-img {
+    background-image: url('../img/hero/girl-mobile@2x.jpg');
+  }
+}
+
+/* TABLET */
+
 @media screen and (min-width: 768px) {
   .hero-container {
-    width: 736px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    max-width: 768px;
+    padding: 16px 16px 0;
+  }
+
+  .hero-box {
     flex-direction: row;
-    align-items: center;
+    gap: 0;
   }
 
-  .static {
-    width: 50%;
-    margin-bottom: 0;
-  }
-
-  .image-hero-girl {
+  .hero-bg-img {
+    background-image: url(../img/hero/girl-tablet.jpg);
     width: 248px;
     height: 900px;
-    flex-shrink: 0;
     border-radius: 50px 0px 50px 50px;
-    background: lightgray -77.155px 246.761px / 209.216% 76.867% no-repeat,
-      #e8e8e8;
   }
 
-  .overlay-teg {
-    bottom: 64px;
-    left: 20px;
-  }
+  /* bg-image 2x+ for tablet */
 
-  .hero-teg-list-container {
-    width: 196px;
-    gap: 8px;
+  @media screen and (min-resolution: 192dpi) and (min-width: 768px),
+    screen and (min-resolution: 2dppx) and (min-width: 768px),
+    screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
+    .hero-bg-img {
+      background-image: url('../img/hero/girl-tablet@2x.jpg');
+    }
   }
 
   .hero-teg-list {
     gap: 8px;
   }
 
-  .hero-teg {
-    font-size: 16px;
-    line-height: 24px; /* 116.667% */
+  .overlay-teg {
+    bottom: 64px;
+    left: 20px;
+    width: 200px;
+    height: 72px;
   }
 
-  .container-text {
-    width: 488px;
-    height: 900px;
-    flex-shrink: 0;
-    border-radius: 0px 50px 50px 50px;
-    background: #fff;
-    display: flex;
-    align-items: center;
+  .hero-teg {
+    padding: 4px 16px;
+    height: 32px;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   .title-container {
-    width: 100%;
-    padding-top: 231px;
-    padding-right: 32px;
-    padding-bottom: 192px;
-    padding-left: 32px;
+    gap: 25px;
+    width: 488px;
+    height: 900px;
+    border-radius: 0px 50px 50px 50px;
+    background-color: #ffffff;
+    padding: 231px 32px 192px;
+  }
+
+  .hero-title,
+  .another-color-text {
+    font-size: 98px;
+    font-weight: 400;
+    line-height: 0.96;
+  }
+
+  #hero-text {
+    font-size: 18px;
+    line-height: 1.33;
+    width: 342px;
   }
 }
 
-/* Медіазапит для десктопів */
+/* DESKTOP */
+
 @media screen and (min-width: 1280px) {
   .hero-container {
     width: 1408px;
+    max-width: 1440px;
+  }
+
+  .hero-box {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .hero-bg-img {
+    background-image: url(../img/hero/girl-desktop.jpg);
+    width: 704px;
+    height: 884px;
+  }
+
+  /* bg-image 2x+ for desktop */
+
+  @media screen and (min-resolution: 192dpi) and (min-width: 1280px),
+    screen and (min-resolution: 2dppx) and (min-width: 1280px),
+    screen and (min-device-pixel-ratio: 2) and (min-width: 1280px) {
+    .hero-bg-img {
+      background-image: url('../img/hero/girl-desktop@2x.jpg');
+    }
+  }
+
+  .overlay-teg {
+    bottom: 32px;
+    left: 48px;
   }
 
   .title-container {
-    width: 640px; /* Змінено ширину title-container */
-  }
-
-  .image-hero-girl {
     width: 704px;
     height: 884px;
-    border-radius: 50px 0px 50px 50px;
-    background: lightgray 0.472px 110.245px / 94.27% 100.099% no-repeat, #e8e8e8;
+    padding: 225px 32px 241px;
   }
 
-  .container-text {
-    width: 704px;
-    height: 884px;
-    flex-shrink: 0;
-    border-radius: 0px 50px 50px 50px;
-    background: #fff;
-    display: flex;
-    align-items: center;
-  }
-
-  .title {
-    font-size: 120px;
-    line-height: 115px;
-    letter-spacing: -2.4px;
-  }
-
-  .title-container {
-    width: 100%;
-    padding-top: 225px;
-    padding-right: 32px;
-    padding-bottom: 241px;
-    padding-left: 32px;
-  }
-
+  .hero-title,
   .another-color-text {
     font-size: 120px;
-    line-height: 115px;
-    letter-spacing: -2.4px;
+    line-height: 0.95;
   }
 
-  .hero-text {
-    width: 528px;
+  #hero-text {
+    width: 515px;
   }
 }
