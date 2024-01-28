@@ -59,7 +59,7 @@ async function createMarkupModalEx(exerciseId) {
     } else {
       patternBtn = `
       <button class="ex-modal-btn add-favorite js-add-remove-btn" type="button">
-                'Add to favorites'
+                Add to favorites
                 <p class="btn-icon-add-remove-favorite">
                   <svg
                     class="modal-icon-favorite"
