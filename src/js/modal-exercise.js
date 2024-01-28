@@ -36,10 +36,10 @@ async function createMarkupModalEx(exerciseId) {
     let urlIconAddRemove = '';
     let textBtn = '';
     if (exercise && isExerciseInFavorites(exercise, getFavoriteExercises())) {
-      urlIconAddRemove = '../img/sprite/sprite.svg#icon-remove-favorites';
+      urlIconAddRemove = './assets/sprite.svg#icon-remove-favorites';
       textBtn = 'Remove from favorites';
     } else {
-      urlIconAddRemove = '../img/sprite/sprite.svg#icon-add-favorites';
+      urlIconAddRemove = './assets/sprite.svg#icon-add-favorites';
       textBtn = 'Add to favorites';
     }
 
