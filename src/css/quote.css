@@ -17,8 +17,8 @@
   }
   
 .quote-container {
-max-width: 1440px;
-  margin: 0;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .quote-icon {
@@ -133,8 +133,9 @@ line-height: 1.5;
     background-size: 736px;
   }
 }
+
    
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
     .quote-block {
         width: 704px;
         height: 304px; 
@@ -146,8 +147,10 @@ line-height: 1.5;
         background-image: url(../img/quote/quote-desktop.jpg);
         }   
     .quote-container {
+      width: 1248px;
         display: flex;
-    }
+        justify-content: center;
+      
 }
 @media screen and (min-resolution: 192dpi) and (min-width: 1280px),
   screen and (min-resolution: 2dppx) and (min-width: 1280px),
@@ -156,4 +159,6 @@ line-height: 1.5;
     background-image: url(../img/quote/quote-desktop@2.jpg);
     background-size: 704px;
   }
-}
+} }
+
+
