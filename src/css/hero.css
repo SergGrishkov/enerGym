@@ -1,3 +1,4 @@
+/* Основні стилі для всіх розмірів екрану */
 .hero {
   width: 100%;
 }
@@ -7,25 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
   padding-top: 20px;
-  padding-bottom: 20px;
   flex-direction: column;
-}
-
-@media screen and (min-width: 768px) {
-  .hero-container {
-    width: 736px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .hero-container {
-    width: 1408px;
-  }
 }
 
 .static {
@@ -39,8 +23,7 @@
   width: 335px;
   flex-shrink: 0;
   border-radius: 30px;
-  background: url(./img/hero/girl-mobile.jpg) no-repeat,
-    lightgray -9.01px 54.435px / 81.557% 97.596% no-repeat, #e8e8e8;
+  background: lightgray -9.01px 54.435px / 81.557% 97.596% no-repeat, #e8e8e8;
 }
 
 .overlay-teg {
@@ -87,12 +70,10 @@
   background: hsl(0, 0%, 100%);
   flex-direction: column;
   align-items: flex-start;
-  margin: 60px 20px 81px;
 }
 
 .title-container {
   display: flex;
-  width: 295px;
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
@@ -135,11 +116,14 @@
   margin-left: 0;
 }
 
-/* Добавлені медіа-запити для планшетів і більших екранів */
+/* Медіазапит для планшетів */
 @media screen and (min-width: 768px) {
   .hero-container {
+    width: 736px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .static {
@@ -147,12 +131,101 @@
     margin-bottom: 0;
   }
 
+  .image-hero-girl {
+    width: 248px;
+    height: 900px;
+    flex-shrink: 0;
+    border-radius: 50px 0px 50px 50px;
+    background: lightgray -77.155px 246.761px / 209.216% 76.867% no-repeat,
+      #e8e8e8;
+  }
+
+  .overlay-teg {
+    bottom: 64px;
+    left: 20px;
+  }
+
+  .hero-teg-list-container {
+    width: 196px;
+    gap: 8px;
+  }
+
+  .hero-teg-list {
+    gap: 8px;
+  }
+
+  .hero-teg {
+    font-size: 16px;
+    line-height: 24px; /* 116.667% */
+  }
+
   .container-text {
-    width: 50%;
-    margin: 20px 20px 20px;
+    width: 488px;
+    height: 900px;
+    flex-shrink: 0;
+    border-radius: 0px 50px 50px 50px;
+    background: #fff;
+    display: flex;
+    align-items: center;
   }
 
   .title-container {
-    width: 100%; /* Змінено ширину на 100% для забезпечення повної ширини блока */
+    width: 100%;
+    padding-top: 231px;
+    padding-right: 32px;
+    padding-bottom: 192px;
+    padding-left: 32px;
+  }
+}
+
+/* Медіазапит для десктопів */
+@media screen and (min-width: 1280px) {
+  .hero-container {
+    width: 1408px;
+  }
+
+  .title-container {
+    width: 640px; /* Змінено ширину title-container */
+  }
+
+  .image-hero-girl {
+    width: 704px;
+    height: 884px;
+    border-radius: 50px 0px 50px 50px;
+    background: lightgray 0.472px 110.245px / 94.27% 100.099% no-repeat, #e8e8e8;
+  }
+
+  .container-text {
+    width: 704px;
+    height: 884px;
+    flex-shrink: 0;
+    border-radius: 0px 50px 50px 50px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 120px;
+    line-height: 115px;
+    letter-spacing: -2.4px;
+  }
+
+  .title-container {
+    width: 100%;
+    padding-top: 225px;
+    padding-right: 32px;
+    padding-bottom: 241px;
+    padding-left: 32px;
+  }
+
+  .another-color-text {
+    font-size: 120px;
+    line-height: 115px;
+    letter-spacing: -2.4px;
+  }
+
+  .hero-text {
+    width: 528px;
   }
 }

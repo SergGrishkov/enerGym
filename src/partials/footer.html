@@ -1,9 +1,7 @@
 <footer class="footer">
   <div class="footer-container container">
     <div class="footer-navigation">
-      <a class="footer-logo" href="https://serggrishkov.github.io/enerGym/"
-        >energy.flow</a
-      >
+      <a class="footer-logo" href="./index.html">energy.flow</a>
       <ul class="footer-social-list">
         <li class="footer-social-item">
           <a
@@ -12,7 +10,7 @@
             target="_blank"
           >
             <svg class="footer-social-icon" width="20" height="20">
-              <use href="../img/sprite/sprite.svg#icon-facebook"></use>
+              <use href="./img/sprite/sprite.svg#icon-facebook"></use>
             </svg>
           </a>
         </li>
@@ -23,7 +21,7 @@
             target="_blank"
           >
             <svg class="footer-social-icon" width="20" height="20">
-              <use href="../img/sprite/sprite.svg#icon-instagram"></use>
+              <use href="./img/sprite/sprite.svg#icon-instagram"></use>
             </svg>
           </a>
         </li>
@@ -34,7 +32,7 @@
             target="_blank"
           >
             <svg class="footer-social-icon" width="20" height="20">
-              <use href="../img/sprite/sprite.svg#icon-youtube"></use>
+              <use href="./img/sprite/sprite.svg#icon-youtube"></use>
             </svg>
           </a>
         </li>
@@ -48,10 +46,11 @@
       <p class="footer-subscription-title">
         Subscribe and learn about new exercises!
       </p>
-      <form class="footer-form">
-        <label class="footer-label" aria-label="email">
+      <form id="subscriptionForm" class="footer-form">
+        <label for="email" class="footer-label" aria-label="email">
           <input
             type="email"
+            id="email"
             name="footer-email"
             class="footer-input"
             placeholder="Email"

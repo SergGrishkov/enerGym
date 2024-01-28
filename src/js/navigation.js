@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', event => {
   let path = window.location.pathname;
-  const page = path === '/' ? 'index.html' : path.split('/').pop();
+  const page =
+    path === '/' || path === '/enerGym/' ? 'index.html' : path.split('/').pop();
 
   function setActiveLink(selector) {
     let links = document.querySelectorAll(selector);
