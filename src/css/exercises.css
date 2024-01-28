@@ -116,7 +116,7 @@
 .list-item {
   border-radius: 15px;
   background-color: #fff;
-  width: 295px;
+  /* width: 295px; */
   padding: 16px;
 }
 
@@ -226,6 +226,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 216px;
 }
 
 .indicators-cont {
@@ -337,10 +338,12 @@
   }
 
   .list-item {
-    width: 313px;
+    /* width: 313px; */
+    max-width: calc(50% - 8px);
   }
 
   .training-name {
+    max-width: 225px;
     font-size: 24px;
     line-height: 1.5;
   }
@@ -363,6 +366,9 @@
   }
 
   .list-item {
-    width: 424px;
+    max-width: calc(33.3% - 14px);
+  }
+  .training-name {
+    max-width: 320px;
   }
 }
