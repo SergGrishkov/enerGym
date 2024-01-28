@@ -7,6 +7,8 @@
 //   removeExerciseFromFavoriteById,
 //   getQuote,
 //   isExerciseInFavorite,
+//   getFavoritCardsFromLocalStorage,
+//   getFavoritCardFromLocalStorageById,
 // } from './locatStorage';
 
 // let exerciseCntrl = new ExercisesController();
@@ -27,10 +29,11 @@
 
 // const ratingEx = await exerciseCntrl.addRating('64f389465ae26083f39b17b3', {
 //   rate: 5,
-//   email: 'test@gmail4.com',
+//   email: 'te77s777878t@gmail4.com',
 //   review: 'My best exercise',
 // });
 // console.log(ratingEx.json());
+// console.log(ratingEx.info());
 
 // const exercise2 = await exerciseCntrl.getExerciseById(
 //   '64f389465ae26083f39b17b3'
@@ -51,15 +54,17 @@
 // console.log(listEx.json());
 
 // const paramsSub = {
-//   bodypart: 'back',
-//   muscles: 'lats',
-//   equipment: 'barbell',
-//   keyword: 'pull',
+//   // bodypart: 'back',
+//   muscles: 'abs',
+//   // equipment: 'barbell',
+//   // keyword: 'pull',
 //   page: 1,
 //   limit: 100,
 // };
 
-// const listExSub = await exerciseCntrl.getListExercisesBySubspecies(paramsSub);
+// paramsSub.keyword = input
+
+// const listExSub = await exercise.getListExercisesBySubspecies(paramsSub);
 // console.log(listExSub.json());
 
 // const subscrEmail = {
@@ -72,12 +77,12 @@
 // console.log(firstLetterToUpper('test qa'));
 
 // addExerciseToFavorite({
-//   _id: '64f389465ae26083f39b1',
+//   _id: '64f389465ae26083f39b17a4',
 //   bodyPart: 'waist',
 //   equipment: 'body weight',
 //   gifUrl: 'https://ftp.goit.study/img/power-pulse/gifs/0001.gif',
-//   name: '3/4 sit-up',
-//   target: 'abs',
+//   name: 'Dumbbell Seated One Leg Calf Raise - Palm Up',
+//   target: '2222222222',
 //   description:
 //     "This refers to your core muscles, which include the rectus abdominis, obliques, and transverse abdominis. They're essential for maintaining posture, stability, and generating force in many movements. Exercises that target the abs include crunches, leg raises, and planks.",
 //   rating: 3.18,
@@ -86,6 +91,10 @@
 //   popularity: 7640,
 // });
 
-// removeExerciseFromFavoriteById('64f389465ae26083f39b1');
+// removeExerciseFromFavoriteById('64f389465ae26083f39b5');
 
 // console.log(isExerciseInFavorite('64f389465ae26083f39b1'));
+
+// console.log(getFavoritCardsFromLocalStorage());
+
+// console.log(getFavoritCardFromLocalStorageById('64f389465ae26083f39b17a4'));
