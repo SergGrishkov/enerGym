@@ -58,7 +58,7 @@
   margin-bottom: 20px;
 }
 
-.input-container {
+.form {
   margin-bottom: 40px;
   position: relative;
 }
@@ -207,6 +207,9 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .indicators-cont {
@@ -276,7 +279,7 @@
     padding: 10px 20px;
   }
 
-  .input-container {
+  .form {
     margin-bottom: 0;
     width: 246px;
   }

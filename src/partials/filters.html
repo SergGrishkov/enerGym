@@ -1,24 +1,31 @@
 <section class="home-filters" id="filters">
   <div class="container filters-container">
-    <h2 class="home-filters-title">Exercises</h2>
-    <div class="filters-box">
-      <button
-        class="filters-list-item active_item"
-        type="button"
-        data-filter="Muscles"
-      >
-        Muscles
-      </button>
-      <button
-        class="filters-list-item"
-        type="button"
-        data-filter="Body%20parts"
-      >
-        Body parts
-      </button>
-      <button class="filters-list-item" type="button" data-filter="Equipment">
-        Equipment
-      </button>
+    <div class="title-filter-wrapper">
+      <h2 class="home-filters-title">Exercises</h2>
+      <span class="home-filters-title"></span>
+      <span class="home-filters-subtitle"></span>
+    </div>
+    <div class="filter-box-wrapper">
+      <div class="filters-box">
+        <button
+          class="filters-list-item active_item"
+          type="button"
+          data-filter="Muscles"
+        >
+          Muscles
+        </button>
+        <button
+          class="filters-list-item"
+          type="button"
+          data-filter="Body parts"
+        >
+          Body parts
+        </button>
+        <button class="filters-list-item" type="button" data-filter="Equipment">
+          Equipment
+        </button>
+      </div>
+      <div class="search-container"></div>
     </div>
     <div class="filters-cards-container">
       <ul class="cards-list" id="cards-list">
@@ -27,8 +34,8 @@
     </div>
     <div class="filters-pagination">
       <ul class="pagination-list">
-        <li class="pagination-element active_pag_item" value="1">1</li>
-        <li class="pagination-element" value="2">2</li>
+        <!-- <li class="pagination-element active_pag_item" value="1">1</li>
+        <li class="pagination-element" value="2">2</li> -->
       </ul>
     </div>
   </div>
