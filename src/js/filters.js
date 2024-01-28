@@ -3,6 +3,7 @@ import { ExercisesController } from '../api/controllers/ExercisesController';
 import { getExerciseFromApi } from './exercises';
 import { renderPagination } from './pagination';
 
+const filterSection = document.querySelector('.home-filters');
 export const inputSearch = document.querySelector('.search-container');
 const filtersBox = document.querySelector('.filters-box');
 export const cardsContainer = document.getElementById('cards-list');
@@ -16,6 +17,20 @@ let limit = null;
 let page = 1;
 limitPerScreenWidth(screenWidth);
 
+// onScroll----
+// ------------
+function onScroll() {
+  filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // const { top } = filterSection.getBoundingClientRect();
+
+  // window.scrollBy({
+  //   top: top,
+  //   behavior: 'smooth',
+  // });
+}
+
+// ------------
+// ----onScroll
 // contr
 
 let exerciseCntrl = new ExercisesController();
@@ -67,9 +82,8 @@ function limitPerScreenWidth(screenWidth) {
 async function onPageClick(event) {
   const pageNumber = parseInt(event.target.getAttribute('value'));
   filterParams.page = pageNumber;
-  console.log(pageNumber);
-  console.log(filterParams);
   await fetchDynamicApiUrl(event);
+  onScroll();
 }
 
 // -------------
@@ -119,13 +133,12 @@ async function getExercisesByName(event) {
   const selectedFilter = event.target.dataset.filter;
 
   if (targetExercises && selectedFilter) {
-    let filterToSend = selectedFilter; // Значення, що буде відправлене в функцію
+    let filterToSend = selectedFilter;
     if (selectedFilter === 'body parts') {
-      filterToSend = 'bodypart'; // Змінюємо значення фільтра для 'Body parts'
+      filterToSend = 'bodypart';
     }
 
     await getExerciseFromApi(filterToSend, targetExercises);
-    // console.log(filterToSend, targetExercises);
   }
 }
 
