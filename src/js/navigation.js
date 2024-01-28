@@ -2,9 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', event => {
   let path = window.location.pathname;
-  console.log(path);
   const page =
-    path === '/' || path === '/enerGym/index.html' ? 'index.html' : path.split('/').pop();
+    path === '/index.html' || path === '/enerGym/index.html' ? 'index.html' : path.split('/').pop();
 
   function setActiveLink(selector) {
     let links = document.querySelectorAll(selector);
@@ -33,7 +32,7 @@ let text =
 let hero = 0;
 
 function typeWriter() {
-  if (hero < text.length) {
+  if (hero && hero < text.length) {
     document.getElementById('hero-text').innerHTML += text.charAt(hero);
     hero++;
     setTimeout(typeWriter, 100);
