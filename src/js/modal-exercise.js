@@ -30,6 +30,9 @@ async function fetchExerciseData(id) {
  
 // fetchExerciseData(exerciseID)
 async function createMarkupModalEx(exerciseId) {
+  
+
+  
   try {
     const exercise = await fetchExerciseData(exerciseId);
     const addFavBtn = modalEl.querySelector('.js-add-remove-btn');
@@ -63,7 +66,7 @@ if (exercise && isExerciseInFavorites(exercise, getFavoriteExercises())) {
           <h2 class="title-modal-exercise">${exercise.name}</h2>
           
 
-        <div class="rating">
+        <div class="modal-ex-rating-container rating">
           <div class="rating-value">${exercise.rating}</div>
           <div class="rating-body">
             <div id="rating-active" class="rating-active"></div>
@@ -131,7 +134,7 @@ if (exercise && isExerciseInFavorites(exercise, getFavoriteExercises())) {
               </button>
             </li>
             <li class="ex-modal-btn-list-item">
-              <button class="ex-modal-btn rating-btn" type="button">
+              <button data-rating="${exercise._id}" class="ex-modal-btn rating-btn" type="button">
                 Give a rating
               </button>
             </li>
@@ -175,43 +178,61 @@ createMarkupModalEx(inputExID);
 
 // createMarkupModalEx('64f389465ae26083f39b17a5');
 
+
+
 // ======== CLOSE MODAL WINDOW ========
 
 function closeModalOnEscape(event){
     if (event.key === 'Escape') {
       modalWindow.classList.remove('is-open');
       window.removeEventListener('keydown', closeModalOnEscape);
-    }
-  };
-
-window.addEventListener('keydown', closeModalOnEscape);
-
-   function closeModalOnMouse(e) {
-    if ((e.target.classList.value === "modal-close-icon") || (e.target.classList.value === "backdrop is-open")) {
-      modalWindow.classList.remove('is-open');
       window.removeEventListener('click', closeModalOnMouse);
     }
   };
 
+function closeModalOnMouse(e) {
+     console.log(e.target.classList.value);
+    if ((e.target.classList.value === "modal-close-icon") || (e.target.classList.value === "backdrop is-open")) {
+      modalWindow.classList.remove('is-open');
+      window.removeEventListener('click', closeModalOnMouse);
+      window.removeEventListener('keydown', closeModalOnEscape);
+    }
+
+  if (e.target.classList.value.includes("rating-btn")) {
+      modalWindow.classList.remove('is-open');
+      window.removeEventListener('click', closeModalOnMouse);
+      window.removeEventListener('keydown', closeModalOnEscape);
+    }
+     
+  };
+window.addEventListener('keydown', closeModalOnEscape);
 window.addEventListener('click', closeModalOnMouse);
 
-// ===============++++++++++
+// =============== FOR FAVORITE ===========
+
+//favorite-exercise -> favoriteExercises
 
 function getFavoriteExercises() {
-  const storedExercisesString = localStorage.getItem('favoriteExercises');
+  const storedExercisesString = localStorage.getItem('favorite-exercise');
   return storedExercisesString ? JSON.parse(storedExercisesString) : [];
 }
 function updateFavoriteExercises(newExercises) {
-  localStorage.setItem('favoriteExercises', JSON.stringify(newExercises));
+  if (newExercises.length === 0) {
+    // Видаляємо ключ якщо масив порожній
+    localStorage.removeItem('favorite-exercise');
+  } else {
+    localStorage.setItem('favorite-exercise', JSON.stringify(newExercises));
+  }
 }
+
+
 
 function isExerciseInFavorites(exercise, favoriteExercises) {
   return favoriteExercises.some(favExercise => favExercise._id === exercise._id);
 }
+
+
 // =============== ADD TO FAVORITE ===========
-
-
-
 
 async function toggleFavorites() {
   try {
@@ -245,7 +266,7 @@ async function toggleFavorites() {
 }
 
 
-// -------- CLICK BUTTON 
+// -------- CLICK BUTTON FAVORITE
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('add-favorite')) {
     // Check if the button was clicked
@@ -265,41 +286,7 @@ function updateButtonUI(isFavorite) {
     updatedAddFavBtn.innerHTML = `<button class="ex-modal-btn add-favorite" type="button">${textBtn}<p class="btn-icon-add-remove-favorite js-add-remove-btn"><svg class="modal-icon-favorite" width="18" height="18" aria-label="modal favorite icon"><use href='${urlIcon}'></use></svg></p></button>`;
 }
   
-
-// const ratings = document.querySelectorAll('.rating');
-// if (ratings.length > 0) {
-//   initRatings();
-// }
-
-//   function initRatings() {
-//     let ratingActive, ratingValue;
-//     for (let index = 0; index < ratings.length; index++) {
-//       const rating = ratings[index];
-//       initRating(rating);
-//     }
-
-//     function initRating(rating) {
-//       initRatingVars(rating);
-//       setRatingActiveWidth();
-//     }
-    
-    
-//   function initRatingVars(rating) {
-//     ratingActive = rating.querySelector('#rating-active');
-//     console.log("value", ratingValue.innerHTML);
-//     ratingValue =  rating.querySelector('.rating-value');
-//   }
-
-//     function setRatingActiveWidth(index = ratingValue.innerHTML) {
-//     console.log(ratingValue.innerHTML);
-//     const ratingActiveWidth = index / 0.05;
-//     ratingActive.style.width = `${ratingActiveWidth}%`;
-
-//   }
-// }
-
-
-
+// ========== Paint stars ================
 
  let ratingActive, ratingValue; // оголошуємо тут
 
@@ -326,5 +313,12 @@ function updateButtonUI(isFavorite) {
   }
 
 
+// ============= OPEN MODAL WINDOW ==========
 
+// window.addEventListener('keydown', function (e) {
+//   if (e.key === 'm')
+//     modalWindow.classList.add('is-open');
+//     window.addEventListener('keydown', closeModalOnEscape);
+//     window.addEventListener('click', closeModalOnMouse);
+// });
 
