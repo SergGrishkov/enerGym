@@ -64,12 +64,11 @@ function limitPerScreenWidth(screenWidth) {
 // pagination------
 // ----------------
 
-async function onPageClick(event) {
+function onPageClick(event) {
   const pageNumber = parseInt(event.target.getAttribute('value'));
   filterParams.page = pageNumber;
   console.log(pageNumber);
-  console.log(filterParams);
-  await fetchDynamicApiUrl(event);
+  fetchDynamicApiUrl(event);
 }
 
 // -------------
@@ -81,66 +80,32 @@ function togleActiveBtnClass(event) {
   event.target.classList.add('active_item');
 }
 
-// async function fetchDynamicApiUrl(event) {
-//   if (event.target.classList.contains('filters-list-item')) {
-//     togleActiveBtnClass(event);
-//     const filter = event.target.dataset.filter;
-// комент// const apiUrl = `https://energyflow.b.goit.study/api/filters?filter=${filter}&page=1&limit=${limit}`;
-//     filterParams.filter = filter;
-//     console.log(filterParams);
-//     let cardsFilterResp = await exerciseCntrl.init();
-
-//     try {
-//       const response = await cardsFilterResp.getListExercises(filterParams);
-//       const data = await response.json();
-
-//       if (data.results && data.results.length > 0) {
-//         cardsContainer.innerHTML = renderCards(data.results);
-//         paginationList.innerHTML = '';
-//         let paginationElements = renderPagination(
-//           data.totalPages,
-//           filterParams.page
-//         );
-//         paginationList.innerHTML = paginationElements;
-//       } else {
-//         console.error('No exercises found.');
-//       }
-//     } catch (error) {
-//       console.error('Error fetching exercises:', error);
-//     }
-//   }
-// }
-
-async function fetchDynamicApiUrl(event, source) {
-  if (
-    source === 'filter' ||
-    event.target.classList.contains('filters-list-item')
-  ) {
+async function fetchDynamicApiUrl(event) {
+  if (event.target.classList.contains('filters-list-item')) {
     togleActiveBtnClass(event);
     const filter = event.target.dataset.filter;
+    // const apiUrl = `https://energyflow.b.goit.study/api/filters?filter=${filter}&page=1&limit=${limit}`;
     filterParams.filter = filter;
-    filterParams.page = 1; // Оновлюємо значення сторінки до першої
-  }
+    let cardsFilterResp = await exerciseCntrl.init();
 
-  let cardsFilterResp = await exerciseCntrl.init();
+    try {
+      const response = await cardsFilterResp.getListExercises(filterParams);
+      const data = await response.json();
 
-  try {
-    const response = await cardsFilterResp.getListExercises(filterParams);
-    const data = await response.json();
-
-    if (data.results && data.results.length > 0) {
-      cardsContainer.innerHTML = renderCards(data.results);
-      paginationList.innerHTML = '';
-      let paginationElements = renderPagination(
-        data.totalPages,
-        filterParams.page
-      );
-      paginationList.innerHTML = paginationElements;
-    } else {
-      console.error('No exercises found.');
+      if (data.results && data.results.length > 0) {
+        cardsContainer.innerHTML = renderCards(data.results);
+        paginationList.innerHTML = '';
+        let paginationElements = renderPagination(
+          data.totalPages,
+          filterParams.page
+        );
+        paginationList.innerHTML = paginationElements;
+      } else {
+        console.error('No exercises found.');
+      }
+    } catch (error) {
+      console.error('Error fetching exercises:', error);
     }
-  } catch (error) {
-    console.error('Error fetching exercises:', error);
   }
 }
 
@@ -182,15 +147,7 @@ function renderCards(cards) {
   );
 }
 
-// document.addEventListener('DOMContentLoaded', fetchDefaultApiUrl);
-// filtersBox.addEventListener('click', fetchDynamicApiUrl);
-// cardsContainer.addEventListener('click', getExercisesByName);
-// paginationList.addEventListener('click', onPageClick);
 document.addEventListener('DOMContentLoaded', fetchDefaultApiUrl);
-filtersBox.addEventListener('click', event =>
-  fetchDynamicApiUrl(event, 'filter')
-);
+filtersBox.addEventListener('click', fetchDynamicApiUrl);
 cardsContainer.addEventListener('click', getExercisesByName);
-paginationList.addEventListener('click', event =>
-  onPageClick(event, 'pagination')
-);
+paginationList.addEventListener('click', onPageClick);
