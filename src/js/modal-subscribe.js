@@ -12,13 +12,17 @@ let isModalOpen = false;
 
 function closeSubscribeModal() {
   confirmationModal.classList.remove('is-open');
-  const newTextStart = 'You will receive notifications about new exercises.';
+  const newTextStart = '⭐You will receive notifications about new exercises!';
   modalSubscribeTextElement.textContent = newTextStart;
   isModalOpen = false;
 }
+const closeModalButtons = document.querySelectorAll(
+  '.modal-subscribe-close-btn, .modal-subscribe-close-button'
+);
 
-closeModalBtn.addEventListener('click', closeSubscribeModal);
-modalCloseButton.addEventListener('click', closeSubscribeModal);
+closeModalButtons.forEach(button => {
+  button.addEventListener('click', closeSubscribeModal);
+});
 
 document.addEventListener('keydown', function (event) {
   if (isModalOpen && event.key === 'Escape') {
@@ -48,37 +52,60 @@ function changeTextSubscribeModal() {
     console.error('Element with id "modalSubscribeText" not found.');
   }
 }
-
+function changeTextSubscribeModal1() {
+  if (modalSubscribeTextElement) {
+    const newText400 =
+      '☝ But you entered a bad or invalid email ✉.  Please try another one! ';
+    modalSubscribeTextElement.textContent = newText400;
+  } else {
+    console.error('Element with id "modalSubscribeText" not found.');
+  }
+}
 // ----post----
 
-footerForm.addEventListener('submit', function (event) {
+async function handleFormSubmission(event) {
   event.preventDefault();
 
   const emailInput = document.querySelector('[name="footer-email"]');
   const email = emailInput.value.trim();
 
-  fetch('https://energyflow.b.goit.study/api/subscription', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email: email }),
-  })
-    .then(response => {
-      emailInput.value = '';
-      if (response.ok) {
-        openSubscribeModal();
-      } else {
-        console.error(
-          'An error occurred when sending a request to the server:',
-          response.statusText
-        );
-        changeTextSubscribeModal();
-        openSubscribeModal();
+  try {
+    const response = await fetch(
+      'https://energyflow.b.goit.study/api/subscription',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
       }
-    })
-    .catch(error => {
-      console.error('An error occurred while executing the request:', error);
-      alert('An error occurred while executing the request');
-    });
-});
+    );
+
+    emailInput.value = '';
+
+    if (response.ok) {
+      openSubscribeModal();
+    } else {
+      const errorMessage =
+        response.status === 400
+          ? '☝ But you entered a bad or invalid email ✉. Please try another one!'
+          : `An error occurred when sending a request to the server: ${response.statusText}`;
+
+      console.error(errorMessage);
+
+      if (response.status === 400) {
+        changeTextSubscribeModal1(errorMessage);
+      } else {
+        changeTextSubscribeModal(errorMessage);
+      }
+
+      openSubscribeModal();
+    }
+  } catch (error) {
+    console.error(`An error occurred while executing the request: ${error}`);
+    alert('An error occurred while executing the request');
+  }
+}
+
+// Event listener for form submission
+footerForm.addEventListener('submit', handleFormSubmission);
