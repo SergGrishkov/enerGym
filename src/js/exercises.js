@@ -67,7 +67,7 @@ function renderExercises(exercises) {
               <div class="star-cont">
                 <p class="rating-num">${exercise.rating}</p>
                 <svg class="star-icon" width="18" height="18">
-                  <use href="./img/sprite/sprite.svg#icon-modal-rating-star"></use>
+                  <use href="./sprite.svg#icon-modal-rating-star"></use>
                 </svg>
               </div>
             </div>
@@ -75,14 +75,14 @@ function renderExercises(exercises) {
               <button class="arrow-btn" type="button">
                 Start
                 <svg class="arrow" width="14" height="14">
-                  <use href="./img/sprite/sprite.svg#icon-exercises-arrow"></use>
+                  <use href="./sprite.svg#icon-exercises-arrow"></use>
                 </svg>
               </button>
             </div>
           </div>
           <div class="training-title">
             <svg class="icon-man" width="24" height="24">
-              <use href="./img/sprite/sprite.svg#icon-exercises-man"></use>
+              <use href="./sprite.svg#icon-exercises-man"></use>
             </svg>
             <p class="training-name">${firstLetterToUpper(exercise.name)}</p>
           </div>
