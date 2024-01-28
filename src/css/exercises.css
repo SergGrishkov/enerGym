@@ -1,7 +1,3 @@
-.exercises {
-  display: none;
-}
-
 .header-exercises {
   color: #1b1b1b;
   font-family: 'DM Sans', sans-serif;
@@ -226,7 +222,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 340px;
 }
 
 .indicators-cont {

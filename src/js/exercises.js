@@ -49,13 +49,13 @@ export async function getExerciseFromApi(filter, name) {
       const elems = responseJson.results;
       cardsContainer.innerHTML = renderExercises(elems);
       inputSearch.insertAdjacentElement('beforeEnd', formSearch);
+      //   console.log(responseJson);
     }
   } catch (error) {
     console.log(error);
   }
 }
 // Рендер карток
-
 function renderExercises(exercises) {
   return exercises.reduce(
     (html, exercise) =>
@@ -108,4 +108,5 @@ function renderExercises(exercises) {
 
 formSearch.addEventListener('submit', event => {
   event.preventDefault();
+  const inputValue = event.target.value.trim();
 });
