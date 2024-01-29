@@ -1,89 +1,114 @@
 import { ExercisesController } from '../api/controllers/ExercisesController';
+import { createMarkupModalEx } from './modal-exercise';
 
-async function renderExerciseRatingModal(exerciseId) {
-  const modalRating = document.querySelector('.js-modal');
-  const btnCloseRating = document.querySelector('.js-close');
-  const rating = document.querySelector('.mrating');
-  const formEl = document.querySelector('.rating-form');
+export function createRatingModal(exId) {
+  openModalRating();
+  renderExerciseRatingModal(exId);
+}
 
+function renderExerciseRatingModal(exId) {
+  sendRatingBtn.dataset.exerciseId = exId;
+}
+
+const modalRating = document.querySelector('.js-modal');
+const btnCloseRating = document.querySelector('.js-close');
+const mrating = document.querySelector('.mrating');
+const formEl = document.querySelector('.rating-form');
+const sendRatingBtn = document.querySelector('.js-sbutton');
+const message = document.querySelector('.message');
+
+function openModalRating() {
   modalRating.classList.add('is-open');
+}
+openModalRating();
 
-  function closeModal() {
-    modalRating.classList.remove('is-open');
+function closeModalRating() {
+  modalRating.classList.remove('is-open');
+}
+
+btnCloseRating.addEventListener('click', closeModalRating);
+
+let mratingActive, mratingValue;
+
+initMrating(mrating);
+
+function initMrating(mrating) {
+  initMratingVars(mrating);
+  setMratingActiveWidth();
+
+  if (mrating.classList.contains('rating-set')) {
+    setMrating(mrating);
   }
+}
 
-  let exerciseCntrl = new ExercisesController();
-  let exercise = await exerciseCntrl.init();
+function initMratingVars(mrating) {
+  mratingActive = mrating.querySelector('.mrating-active');
+  mratingValue = mrating.querySelector('.mrating-value');
+}
 
-  btnCloseRating.addEventListener('click', closeModal);
+function setMratingActiveWidth(index = mratingValue.innerHTML) {
+  const mratingActiveWidth = index / 0.05;
+  mratingActive.style.width = `${mratingActiveWidth}%`;
+}
 
-  let ratingActive, ratingValue;
+function setMrating(mrating) {
+  const mratingItems = mrating.querySelectorAll('.mrating-item');
+  for (let index = 0; index < mratingItems.length; index += 1) {
+    const mratingItem = mratingItems[index];
+    mratingItem.addEventListener('mouseenter', function (e) {
+      initMratingVars(mrating);
 
-  initRating(rating);
+      setMratingActiveWidth(mratingItem.value);
+    });
 
-  function initRating(rating) {
-    initRatingVars(rating);
-    setRatingActiveWidth();
+    mratingItem.addEventListener('mouseleave', function (e) {
+      setMratingActiveWidth();
+    });
 
-    if (rating.classList.contains('rating-set')) {
-      setRating(rating);
-    }
+    mratingItem.addEventListener('click', function (e) {
+      initMratingVars(mrating);
+      const rate = index + 1;
+      mratingValue.innerHTML = rate;
+      setMratingActiveWidth();
+    });
   }
+}
 
-  function initRatingVars(rating) {
-    ratingActive = rating.querySelector('.rating-active');
-    ratingValue = rating.querySelector('.rating-value');
-  }
+let exerciseCntrl = new ExercisesController();
+let exercise = await exerciseCntrl.init();
 
-  function setRatingActiveWidth(index = ratingValue.innerHTML) {
-    const ratingActiveWidth = index / 0.05;
-    ratingActive.style.width = `${ratingActiveWidth}%`;
-  }
+formEl.addEventListener('click', onSubmit);
 
-  function setRating(rating) {
-    const ratingItems = rating.querySelectorAll('.rating-item');
-    for (let index = 0; index < ratingItems.length; index += 1) {
-      const ratingItem = ratingItems[index];
-      ratingItem.addEventListener('mouseenter', function (e) {
-        initRatingVars(rating);
+async function onSubmit(event) {
+  event.preventDefault();
 
-        setRatingActiveWidth(ratingItem.value);
-      });
+  if (!event.target.tagName === 'BUTTON') return;
 
-      ratingItem.addEventListener('mouseleave', function (e) {
-        setRatingActiveWidth();
-      });
+  if (event.target.tagName === 'BUTTON') {
+    if (+event.currentTarget.children[0].innerText.trim() <= 0) return;
+    const exer = event.currentTarget.elements.ratbtn.dataset.exerciseId;
+    console.log(exer);
 
-      ratingItem.addEventListener('click', function (e) {
-        initRatingVars(rating);
-        const rate = index + 1;
-        ratingValue.innerHTML = rate;
-        setRatingActiveWidth();
-      });
-    }
-  }
-
-  formEl.addEventListener('click', onSubmit);
-
-  async function onSubmit(event) {
-    event.preventDefault();
-
-    if (event.target.tagName === 'BUTTON') {
-      if (+event.currentTarget.children[0].innerText.trim() <= 0) return;
-
-      const ratingComment = {};
-      ratingComment.rate = +event.currentTarget.children[0].innerText.trim();
-      ratingComment.email = event.currentTarget.elements.email.value;
-      ratingComment.review = event.currentTarget.elements.comment.value;
-      console.log(ratingComment);
-      try {
-        const ratingEx = await exercise.addRating(exerciseId, ratingComment);
-        console.log(ratingEx.json());
-        closeModal();
-      } catch (error) {
-        console.error(error);
+    const ratingComment = {};
+    ratingComment.rate = +event.currentTarget.children[0].innerText.trim();
+    ratingComment.email = event.currentTarget.elements.email.value;
+    ratingComment.review = event.currentTarget.elements.comment.value;
+    console.log(ratingComment);
+    try {
+      const ratingEx = await exercise.addRating(exer, ratingComment);
+      console.log(ratingEx.json());
+      console.log(ratingEx.info());
+      const infoRating = ratingEx.info();
+      if (infoRating.status === 200) {
+        closeModalRating();
+        createMarkupModalEx(ratingEx.json());
+      } else {
+        message.textContent = infoRating.message;
       }
+    } catch (error) {
+      console.error(error);
     }
   }
 }
-// renderExerciseRatingModal('64f389465ae26083f39b17b3');
+
+// renderExerciseRatingModal(exId);
