@@ -66,7 +66,13 @@
   background: #7e847f;
   color: #f6f6f6;
 }
-
+.animated-card {
+  transition: opacity 0.5s ease-in, box-shadow 0.8s ease, transform 0.8s ease;
+}
+.animated-card:hover {
+  box-shadow: 0 0 30px rgba(15, 14, 14, 0.7);
+  transform: scale(1.06);
+}
 .cards-list {
   width: 100%;
   display: flex;
@@ -158,6 +164,12 @@
     padding: 10px 20px;
     font-size: 16px;
     line-height: 1.5; /* 150% */
+    transition: background-color 0.8s ease, transform 0.8s ease, color 0.8s ease;
+  }
+  .filters-list-item:hover {
+    background-color: #7e847f;
+    transform: scale(1.03);
+    color: #f6f6f6;
   }
   .cards-list {
     width: 100%;
@@ -180,6 +192,11 @@
     line-height: 1.333; /* 133.333% */
     letter-spacing: 0.06em;
     cursor: pointer;
+    transition: color 0.8s ease, transform 0.8s ease;
+  }
+  .pagination-element:hover {
+    color: #141414;
+    transform: scale(1.06);
   }
 }
 

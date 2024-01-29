@@ -21,12 +21,6 @@ limitPerScreenWidth(screenWidth);
 // ------------
 function onScroll() {
   filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  // const { top } = filterSection.getBoundingClientRect();
-
-  // window.scrollBy({
-  //   top: top,
-  //   behavior: 'smooth',
-  // });
 }
 
 // ------------
@@ -100,6 +94,20 @@ function togleActiveBtnClass(event) {
 // ---------------
 // ----togleActive
 
+// animation-----
+export function collectCardsAnimated() {
+  const cards = document.querySelectorAll('.animated-card');
+  cards.forEach(card => {
+    card.style.opacity = '0';
+  });
+  cards.forEach((card, index) => {
+    setTimeout(() => {
+      card.style.opacity = '1';
+    }, index * 100);
+  });
+}
+// -----animation
+
 async function fetchDynamicApiUrl(event, source) {
   if (
     source === 'filter' ||
@@ -108,7 +116,7 @@ async function fetchDynamicApiUrl(event, source) {
     togleActiveBtnClass(event);
     const filter = event.target.dataset.filter;
     filterParams.filter = filter;
-    filterParams.page = 1; // Оновлюємо значення сторінки до першої
+    filterParams.page = 1;
   }
 
   let cardsFilterResp = await exerciseCntrl.init();
@@ -119,6 +127,7 @@ async function fetchDynamicApiUrl(event, source) {
 
     if (data.results && data.results.length > 0) {
       cardsContainer.innerHTML = renderCards(data.results);
+      inputSearch.innerHTML = '';
       paginationList.innerHTML = '';
       let paginationElements = renderPagination(
         data.totalPages,
@@ -133,24 +142,7 @@ async function fetchDynamicApiUrl(event, source) {
     console.error('Error fetching exercises:', error);
   }
 }
-// animation-----
-function collectCardsAnimated() {
-  const cards = document.querySelectorAll('.cards-list-item');
 
-  // Спочатку приховуємо всі картки
-  cards.forEach(card => {
-    card.style.opacity = '0';
-    card.style.transition = 'opacity 0.5s ease-in'; // Додаємо анімацію з'явлення
-  });
-
-  // Показуємо картки з анімацією
-  cards.forEach((card, index) => {
-    setTimeout(() => {
-      card.style.opacity = '1';
-    }, index * 100); // Додайте затримку для кожної картки
-  });
-}
-// -----animation
 async function getExercisesByName(event) {
   const targetExercises = event.target.dataset.name;
   const selectedFilter = event.target.dataset.filter;
@@ -169,7 +161,7 @@ function renderCards(cards) {
   return cards.reduce(
     (html, card) =>
       html +
-      `<li class="cards-list-item" data-filter="${card.filter.toLowerCase()}" data-name="${
+      `<li class="cards-list-item animated-card" data-filter="${card.filter.toLowerCase()}" data-name="${
         card.name
       }" style="background:linear-gradient(
       0deg,
