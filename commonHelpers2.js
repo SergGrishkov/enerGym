@@ -1,4 +1,4 @@
-import{E as M,f as A}from"./assets/quote-0d9668c5.js";import"./assets/vendor-0fffa566.js";const h=document.querySelector(".backdrop"),y=document.querySelector(".js-modal-container");document.querySelector(".close-btn");let N="64f389465ae26083f39b17a9",w="",a={},O=new M;async function B(e){return w=e,await(await O.getExerciseById(w)).json()}async function U(e){try{const t=await B(e),i=y.querySelector(".js-add-remove-btn");let n="",o="",s;t&&I(t,C())?s=`
+import{E as M,f as A}from"./assets/quote-8910200f.js";import"./assets/vendor-0fffa566.js";const h=document.querySelector(".backdrop"),y=document.querySelector(".js-modal-container");document.querySelector(".close-btn");let N="64f389465ae26083f39b17a9",w="",a={},O=new M;async function B(e){return w=e,await(await O.getExerciseById(w)).json()}async function U(e){try{const t=await B(e),i=y.querySelector(".js-add-remove-btn");let n="",o="",s;t&&I(t,C())?s=`
       <button class="ex-modal-btn add-favorite js-add-remove-btn" type="button">
                 Remove from favorites
                 <p class="btn-icon-add-remove-favorite">
