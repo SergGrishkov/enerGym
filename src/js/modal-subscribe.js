@@ -1,111 +1,81 @@
-const confirmationModal = document.getElementById('confirmationModal');
-const closeModalBtn = document.querySelector('.modal-subscribe-close-btn');
-const modalCloseButton = document.querySelector(
-  '.modal-subscribe-close-button'
-);
-const footerForm = document.querySelector('.footer-form');
-const modalSubscribeTextElement = document.getElementById('modalSubscribeText');
+import { ExercisesController } from '../api/controllers/ExercisesController';
 
-let isModalOpen = false;
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('.footer-form');
+  const modal = document.getElementById('confirmationModal');
+  const modalText = document.getElementById('modalSubscribeText');
+  let exercisesController = new ExercisesController();
+  let closeModalTimeout;
 
-// -----close modal-----
+  function displayError(messages) {
+    const errorElement = document.createElement('div');
+    errorElement.classList.add('error-message');
+    errorElement.textContent = messages;
 
-function closeSubscribeModal() {
-  confirmationModal.classList.remove('is-open');
-  const newTextStart = '⭐You will receive notifications about new exercises!';
-  modalSubscribeTextElement.textContent = newTextStart;
-  isModalOpen = false;
-}
-const closeModalButtons = document.querySelectorAll(
-  '.modal-subscribe-close-btn, .modal-subscribe-close-button'
-);
+    form.parentNode.insertBefore(errorElement, form.nextSibling);
 
-closeModalButtons.forEach(button => {
-  button.addEventListener('click', closeSubscribeModal);
-});
-
-document.addEventListener('keydown', function (event) {
-  if (isModalOpen && event.key === 'Escape') {
-    closeSubscribeModal();
+    setTimeout(function () {
+      errorElement.remove();
+    }, 2000);
   }
-});
 
-window.addEventListener('click', function (event) {
-  if (isModalOpen && event.target === confirmationModal) {
-    closeSubscribeModal();
-  }
-});
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-// -----open modal-----
+    const emailInput = form.querySelector("input[name='footer-email']").value;
 
-function openSubscribeModal() {
-  confirmationModal.classList.add('is-open');
-  isModalOpen = true;
-  setTimeout(closeSubscribeModal, 8000);
-}
-
-function changeTextSubscribeModal() {
-  if (modalSubscribeTextElement) {
-    const newText = 'You are already subscribed';
-    modalSubscribeTextElement.textContent = newText;
-  } else {
-    console.error('Element with id "modalSubscribeText" not found.');
-  }
-}
-function changeTextSubscribeModal1() {
-  if (modalSubscribeTextElement) {
-    const newText400 =
-      '☝ But you entered a bad or invalid email ✉.  Please try another one! ';
-    modalSubscribeTextElement.textContent = newText400;
-  } else {
-    console.error('Element with id "modalSubscribeText" not found.');
-  }
-}
-// ----post----
-
-async function handleFormSubmission(event) {
-  event.preventDefault();
-
-  const emailInput = document.querySelector('[name="footer-email"]');
-  const email = emailInput.value.trim();
-
-  try {
-    const response = await fetch(
-      'https://energyflow.b.goit.study/api/subscription',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      }
-    );
-
-    emailInput.value = '';
-
-    if (response.ok) {
-      openSubscribeModal();
-    } else {
-      const errorMessage =
-        response.status === 400
-          ? '☝ But you entered a bad or invalid email ✉. Please try another one!'
-          : `An error occurred when sending a request to the server: ${response.statusText}`;
-
-      console.error(errorMessage);
-
-      if (response.status === 400) {
-        changeTextSubscribeModal1(errorMessage);
-      } else {
-        changeTextSubscribeModal(errorMessage);
-      }
-
-      openSubscribeModal();
+    const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+    if (!emailRegex.test(emailInput)) {
+      displayError('Email format is incorrect');
+      return;
     }
-  } catch (error) {
-    console.error(`An error occurred while executing the request: ${error}`);
-    alert('An error occurred while executing the request');
-  }
-}
 
-// Event listener for form submission
-footerForm.addEventListener('submit', handleFormSubmission);
+    try {
+      const response = await exercisesController.createSubscription({
+        email: emailInput,
+      });
+
+      // Extract the message from the response
+      const message =
+        response && response.data ? JSON.parse(response.data).message : '';
+
+      console.log('Server Response:', response);
+
+      //  message in the modal
+
+      modalText.textContent = message;
+      modal.classList.add('is-open');
+      form.querySelector("input[name='footer-email']").value = '';
+
+      closeModalTimeout = setTimeout(function () {
+        modal.classList.remove('is-open');
+      }, 8000);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  });
+
+  const closeModalBtns = document.querySelectorAll(
+    '.modal-subscribe-close-btn, .modal-subscribe-close-button'
+  );
+  closeModalBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      modal.classList.remove('is-open');
+      clearTimeout(closeModalTimeout);
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+      modal.classList.remove('is-open');
+      clearTimeout(closeModalTimeout);
+    }
+  });
+
+  window.addEventListener('click', function (e) {
+    if (e.target === modal) {
+      modal.classList.remove('is-open');
+      clearTimeout(closeModalTimeout);
+    }
+  });
+});

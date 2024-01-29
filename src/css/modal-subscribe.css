@@ -48,7 +48,6 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   width: 335px;
-  min-height: 180px;
   padding: 40px 20px;
   border-radius: 20px;
   background: #f6f6f6;
@@ -76,18 +75,11 @@
   font-family: 'DM Sans';
   font-size: 20px;
   font-weight: 500;
-}
-.modal-subscribe-text-span {
-  text-align: center;
-  color: rgba(27, 27, 27, 0.6);
-  font-family: 'DM Sans';
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 24px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
 .modal-subscribe-icon {
   fill: #7e847f;
 }
@@ -113,4 +105,16 @@
     width: 28px;
     height: 28px;
   }
+}
+
+.error-message {
+  border-radius: 20px;
+  background: white;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+  width: 296px;
+  text-align: center;
+  margin: -47px auto;
+  padding: 20px;
+
 }
