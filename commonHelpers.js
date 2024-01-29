@@ -1,4 +1,4 @@
-import{f as r,g as o,i as n,r as c,E as l}from"./assets/quote-914720b8.js";import"./assets/vendor-ebddff4e.js";function d(e){return e?e.reduce((a,t)=>a+`
+import{f as r,g as o,i as n,r as c,E as l}from"./assets/quote-290f6346.js";import"./assets/vendor-ebddff4e.js";function d(e){return e?e.reduce((a,t)=>a+`
     <li class="favorite-item" data-exerciseId="${t._id}">
                 <div class="favorite-label-drop-start">
                     <p class="favorite-label-workout">WORKOUT</p>
