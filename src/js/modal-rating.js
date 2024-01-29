@@ -75,7 +75,6 @@ function setMrating(mrating) {
 }
 
 let exerciseCntrl = new ExercisesController();
-let exercise = await exerciseCntrl.init();
 
 formEl.addEventListener('click', onSubmit);
 
@@ -87,17 +86,15 @@ async function onSubmit(event) {
   if (event.target.tagName === 'BUTTON') {
     if (+event.currentTarget.children[0].innerText.trim() <= 0) return;
     const exer = event.currentTarget.elements.ratbtn.dataset.exerciseId;
-    console.log(exer);
 
     const ratingComment = {};
     ratingComment.rate = +event.currentTarget.children[0].innerText.trim();
     ratingComment.email = event.currentTarget.elements.email.value;
     ratingComment.review = event.currentTarget.elements.comment.value;
-    console.log(ratingComment);
+
     try {
-      const ratingEx = await exercise.addRating(exer, ratingComment);
-      console.log(ratingEx.json());
-      console.log(ratingEx.info());
+      const ratingEx = await exerciseCntrl.addRating(exer, ratingComment);
+
       const infoRating = ratingEx.info();
       if (infoRating.status === 200) {
         closeModalRating();
@@ -110,5 +107,3 @@ async function onSubmit(event) {
     }
   }
 }
-
-// renderExerciseRatingModal(exId);
