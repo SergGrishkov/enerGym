@@ -13,6 +13,7 @@ export class AxiosResponseWrapper {
     return {
       status: JSON.parse(this.#response.status),
       message: JSON.parse(this.#response.data).message,
+      data: JSON.parse(this.#response.data),
     };
   }
   
