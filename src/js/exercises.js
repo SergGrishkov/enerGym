@@ -1,11 +1,11 @@
 import { firstLetterToUpper } from '../helpers/utils';
-import { ExercisesController } from '../api/controllers/ExercisesController';
 import { cardsContainer } from './filters';
 import { inputSearch } from './filters';
 
 const formSearch = document.querySelector('.form');
 const modalWindow = document.querySelector('.modal-exercise');
 const screenWidth = window.innerWidth;
+const inputToFill = formSearch.elements.delay;
 
 // Запит на серв та параметри
 
@@ -36,25 +36,21 @@ limitPerScreenWidth(screenWidth);
 export async function getExerciseFromApi(filter, name) {
   parameters.filter = filter;
   parameters.name = name;
-  // let exercise = await exerciseCntrl.init();
 
   const apiUrl = `https://energyflow.b.goit.study/api/exercises?${parameters.filter}=${parameters.name}&page=${parameters.page}&limit=${parameters.limit}`;
   try {
-    // const response = (
-    //   await exercise.getListExercisesBySubspecies(parameters)
-    // ).json();
     const response = await fetch(apiUrl);
     const responseJson = await response.json();
     if (responseJson.results) {
       const elems = responseJson.results;
       cardsContainer.innerHTML = renderExercises(elems);
       inputSearch.insertAdjacentElement('beforeEnd', formSearch);
-      //   console.log(responseJson);
     }
   } catch (error) {
     console.log(error);
   }
 }
+
 // Рендер карток
 function renderExercises(exercises) {
   return exercises.reduce(
@@ -106,7 +102,18 @@ function renderExercises(exercises) {
   );
 }
 
-formSearch.addEventListener('submit', event => {
+async function getSortedExercise(value) {
+  parameters.filter = filter;
+  parameters.name = value;
+}
+
+formSearch.addEventListener('submit', async event => {
   event.preventDefault();
-  const inputValue = event.target.value.trim();
+  const inputFilling = formSearch.elements.delay;
+  await getSortedExercise(inputFilling);
+  if (inputFilling.value.trim() === parameters.name) {
+  } else {
+    return;
+  }
+  formSearch.reset();
 });
