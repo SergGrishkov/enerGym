@@ -2,4 +2,4 @@ var D=Object.defineProperty;var J=(t,e,r)=>e in t?D(t,e,{enumerable:!0,configura
   <p id="favorites-text">${e}</p>
   <h3 class="favorites-author">${t}</h3>
   `}export{I as E,z as f,Z as g,K as i,Y as r};
-//# sourceMappingURL=quote-77497648.js.map
+//# sourceMappingURL=quote-624a5b6d.js.map
