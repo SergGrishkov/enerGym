@@ -20,7 +20,6 @@ const message = document.querySelector('.message');
 function openModalRating() {
   modalRating.classList.add('is-open');
 }
-openModalRating();
 
 function closeModalRating() {
   modalRating.classList.remove('is-open');
