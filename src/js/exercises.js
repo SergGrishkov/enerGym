@@ -1,6 +1,11 @@
 import { firstLetterToUpper } from '../helpers/utils';
 import { cardsContainer } from './filters';
 import { inputSearch } from './filters';
+import { ExercisesController } from '../api/controllers/ExercisesController';
+import { result } from 'lodash';
+// import { createMarkupModalEx } from './modal-exercise';
+
+const exCntrl = new ExercisesController();
 
 const formSearch = document.querySelector('.form');
 const modalWindow = document.querySelector('.modal-exercise');
@@ -38,6 +43,7 @@ export async function getExerciseFromApi(filter, name) {
   parameters.name = name;
 
   const apiUrl = `https://energyflow.b.goit.study/api/exercises?${parameters.filter}=${parameters.name}&page=${parameters.page}&limit=${parameters.limit}`;
+
   try {
     const response = await fetch(apiUrl);
     const responseJson = await response.json();
@@ -102,18 +108,40 @@ function renderExercises(exercises) {
   );
 }
 
-async function getSortedExercise(value) {
-  parameters.filter = filter;
-  parameters.name = value;
+// Відповідь на неіснуючий запит
+function responseForNoResult() {
+  return `<p>Unfortunately, <span>no results</span> were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs.</p>`;
 }
 
+// Слухач форми
 formSearch.addEventListener('submit', async event => {
   event.preventDefault();
-  const inputFilling = formSearch.elements.delay;
-  await getSortedExercise(inputFilling);
-  if (inputFilling.value.trim() === parameters.name) {
+  const params = {
+    [parameters.filter]: parameters.name,
+    page: 1,
+    limit: 10,
+  };
+  const inputFilling = formSearch.elements.delay.value.trim();
+  params.keyword = inputFilling;
+  const result = await (
+    await exCntrl.getListExercisesBySubspecies(params)
+  ).json();
+  if (inputFilling && result.results.length > 0) {
+    cardsContainer.innerHTML = renderExercises(result.results);
+    formSearch.reset();
   } else {
-    return;
+    cardsContainer.innerHTML = responseForNoResult();
   }
-  formSearch.reset();
 });
+
+// window.addEventListener('click', async function (e) {
+//   console.log(e.target);
+//   if (e.target.classList.value === 'arrow-btn') {
+//     let exerciseId = e.target.dataset.exerciseid;
+//     let exObj = await (await exCntrl.getExerciseById(exerciseId)).json();
+
+//     console.log('true');
+//     createMarkupModalEx(exObj);
+//     console.log(exObj, 'Maks');
+//   }
+// });
