@@ -2,7 +2,7 @@ import { firstLetterToUpper } from '../helpers/utils';
 import { cardsContainer } from './filters';
 import { inputSearch } from './filters';
 import { ExercisesController } from '../api/controllers/ExercisesController';
-import { result } from 'lodash';
+// import { result } from 'lodash';
 // import { createMarkupModalEx } from './modal-exercise';
 
 const exCntrl = new ExercisesController();
@@ -110,7 +110,7 @@ function renderExercises(exercises) {
 
 // Відповідь на неіснуючий запит
 function responseForNoResult() {
-  return `<p>Unfortunately, <span>no results</span> were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs.</p>`;
+  return `<div class="response-cont"><p class="response-describe">Unfortunately, <span class="describe">no results</span> were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs.</p></div>`;
 }
 
 // Слухач форми
@@ -134,14 +134,11 @@ formSearch.addEventListener('submit', async event => {
   }
 });
 
-// window.addEventListener('click', async function (e) {
-//   console.log(e.target);
-//   if (e.target.classList.value === 'arrow-btn') {
-//     let exerciseId = e.target.dataset.exerciseid;
-//     let exObj = await (await exCntrl.getExerciseById(exerciseId)).json();
-
-//     console.log('true');
-//     createMarkupModalEx(exObj);
-//     console.log(exObj, 'Maks');
-//   }
-// });
+cardsContainer.addEventListener('click', async event => {
+  if (event.target.classList.contains('arrow-btn')) {
+    let exerciseId = event.target.dataset.exerciseid;
+    let exObj = await (await exCntrl.getExerciseById(exerciseId)).json();
+    console.log('true');
+    createMarkupModalEx(exObj);
+  }
+});

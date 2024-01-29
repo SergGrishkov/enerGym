@@ -80,6 +80,26 @@
   height: 18px;
 }
 
+.response-cont {
+  margin: 0 auto;
+}
+
+.response-describe {
+  width: 295px;
+  color: #1b1b1b;
+  text-align: center;
+  font-family: 'DM Sans';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+}
+
+.describe {
+  color: #7e847f;
+  font-weight: 500;
+}
+
 .search {
   padding: 12px 14px;
   display: flex;
@@ -301,6 +321,12 @@
     width: 246px;
   }
 
+  .response-describe {
+    width: 536px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
   .body-parts-container {
     padding: 44px 48px;
     border-radius: 50px;
@@ -359,6 +385,10 @@
 
   .body-parts-container {
     width: 1408px;
+  }
+
+  .response-describe {
+    width: 684px;
   }
 
   .filter-items {
