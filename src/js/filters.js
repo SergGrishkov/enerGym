@@ -127,6 +127,7 @@ async function fetchDynamicApiUrl(event, source) {
 
     if (data.results && data.results.length > 0) {
       cardsContainer.innerHTML = renderCards(data.results);
+      inputSearch.innerHTML = '';
       paginationList.innerHTML = '';
       let paginationElements = renderPagination(
         data.totalPages,
