@@ -34,16 +34,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const response = await exercisesController.createSubscription({
         email: emailInput,
       });
+      const infoDescr = response.info();
 
-      // Extract the message from the response
-      const message =
-        response && response.data ? JSON.parse(response.data).message : '';
+      console.log(infoDescr);
 
-      console.log('Server Response:', response);
-
-      //  message in the modal
-
-      modalText.textContent = message;
+      modalText.textContent = infoDescr.message;
       modal.classList.add('is-open');
       form.querySelector("input[name='footer-email']").value = '';
 
