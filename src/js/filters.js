@@ -6,7 +6,7 @@ import { renderPagination } from './pagination';
 const filterSection = document.querySelector('.home-filters');
 export const inputSearch = document.querySelector('.search-container');
 const filtersBox = document.querySelector('.filters-box');
-export const cardsContainer = document.getElementById('cards-list');
+const cardsContainer = document.getElementById('cards-list');
 const defaultFilterButton = filtersBox.querySelector('.filters-list-item');
 const defaultFilter = defaultFilterButton.dataset.filter;
 const paginationList = document.querySelector('.pagination-list');
