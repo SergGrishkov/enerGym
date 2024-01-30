@@ -26,6 +26,11 @@ let exerciseCntrl = new ExercisesController();
 //   return exercise;
 // }
 
+
+export function openExerciseModal(){
+  modalWindow.classList.add('is-open');
+}
+
 // fetchExerciseData(exerciseID)
 export function createMarkupModalEx(exercise) {
   exerciseIn = exercise;
