@@ -81,7 +81,8 @@
   letter-spacing: -0.02em;
 }
 
-.hero-title {
+.hero-title,
+.hero-text {
   animation: fadeIn 2s ease-in 1;
 }
 
@@ -90,7 +91,7 @@
   font-style: italic;
 }
 
-#hero-text {
+.hero-text {
   color: #1b1b1b;
   font-size: 14px;
   font-weight: 400;
@@ -193,7 +194,7 @@
     line-height: 0.96;
   }
 
-  #hero-text {
+  .hero-text {
     font-size: 18px;
     line-height: 1.33;
     width: 342px;
@@ -246,7 +247,7 @@
     line-height: 0.95;
   }
 
-  #hero-text {
+  .hero-text {
     width: 515px;
   }
 }

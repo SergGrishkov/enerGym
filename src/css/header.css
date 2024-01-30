@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 10;
-  max-width: 335px;
+  width: 335px;
   margin: 20px auto 0;
 }
 
@@ -44,7 +44,7 @@
 @media screen and (min-width: 768px) {
   .header {
     padding: 16px 32px 0 32px;
-    max-width: 736px;
+    width: 736px;
   }
 
   .navbar {
@@ -152,7 +152,6 @@
   .header {
     padding: 24px 48px 0 48px;
     width: 1408px;
-    max-width: 1440px;
     margin-right: auto;
     margin-left: auto;
   }

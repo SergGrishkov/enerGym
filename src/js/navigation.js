@@ -1,4 +1,4 @@
-// Header //
+// Header -> Navigation Links //
 
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
@@ -25,20 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 });
 
-// Hero //
+// Hero -> Paragraph delay 500ms //
 
-const text =
-  'Transform your physique and embrace a healthier lifestyle with our comprehensive fitness and nutrition support.';
-let i = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const heroText = document.querySelector('.hero-text');
 
-function typeWriter() {
-  const heroTextElement = document.getElementById('hero-text');
+  if (heroText) {
+    heroText.style.display = 'none';
 
-  if (heroTextElement && i < text.length) {
-    heroTextElement.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, 40);
+    setTimeout(function () {
+      heroText.style.display = 'block';
+    }, 500);
   }
-}
-
-document.addEventListener('DOMContentLoaded', typeWriter);
+});
