@@ -49,7 +49,8 @@ const observer = new IntersectionObserver(
   { threshold: 0.5 }
 );
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  await getQuote();
   if (quoteInfoEl) {
     observer.observe(quoteInfoEl);
   }
