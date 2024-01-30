@@ -1,146 +1,144 @@
-.about-sport {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 .about-sport-container {
-    padding-left: 0;
-    padding-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .image-about-sport {
-    display: flex;
-    width: 100%;
-    height: 269px;
-    border-radius: 30px;
-    background-image: url(../img/about-sport/rectangle-mobile@2x.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  display: flex;
+  width: 100%;
+  height: 269px;
+  border-radius: 30px;
+  background-image: url(../img/about-sport/rectangle-mobile@2x.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 @media screen and (min-width: 768px) {
-    .image-about-sport {
-        width: 100%;
-        height: 302px;
-        border-radius: 50px;
-        background-image: url(../img/about-sport/rectangle-tablet@2x.jpg);
-    }
+  .image-about-sport {
+    width: 100%;
+    height: 302px;
+    border-radius: 50px;
+    background-image: url(../img/about-sport/rectangle-tablet@2x.jpg);
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .about-sport-container {
-        display: flex;
-        flex-direction: row;
-    }
+  .about-sport-container {
+    display: flex;
+    flex-direction: row;
+    width: 1408px;
+  }
 
-    .image-about-sport {
-        background-image: url(../img/about-sport/rectangle-desktop@2x.jpg);
-    }
+  .image-about-sport {
+    background-image: url(../img/about-sport/rectangle-desktop@2x.jpg);
+    width: 704px;
+  }
 }
 
 .block-about-sport {
-    display: flex;
-    width: 100%;
-    height: 269px;
-    border-radius: 30px;
-    padding-top: 40px;
-    padding-right: 20px;
-    padding-bottom: 40px;
-    padding-left: 20px;
-    background-color: #1B1B1B;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 100%;
+  height: 269px;
+  border-radius: 30px;
+  padding-top: 40px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  background-color: #1b1b1b;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (min-width: 768px) {
-    .block-about-sport {
-        width: 100%;
-        height: 302px;
-        border-radius: 50px;
-        padding-top: 64px;
-        padding-right: 96px;
-        padding-bottom: 64px;
-        padding-left: 64px;
-    }
+  .block-about-sport {
+    width: 100%;
+    height: 302px;
+    border-radius: 50px;
+    padding-top: 64px;
+    padding-right: 96px;
+    padding-bottom: 64px;
+    padding-left: 64px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .block-about-sport {
-        padding-right: 64px;
-    }
+  .block-about-sport {
+    padding-right: 64px;
+    width: 704px;
+  }
 }
 
 .icon-container-about-sport {
-    display: flex;
-    width: 32px;
-    height: 32px;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(246, 246, 246, 0.10);
-    border-radius: 50%;
+  display: flex;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(246, 246, 246, 0.1);
+  border-radius: 50%;
 }
 
 .icon-about-sport {
-    margin: 6px;
-    width: 20px;
-    height: 20px;
-    fill: #f6f6f6;
+  margin: 6px;
+  width: 20px;
+  height: 20px;
+  fill: #f6f6f6;
 }
 
 .text-about-sport {
-    padding-left: 18px;
-    color: rgba(246, 246, 246, 0.60);
+  padding-left: 18px;
+  color: rgba(246, 246, 246, 0.6);
 }
 
 @media screen and (min-width: 1280px) {
-    .text-about-sport {
-        padding-left: 24px;
-    }
+  .text-about-sport {
+    padding-left: 24px;
+  }
 }
 
 .title-about-sport {
-    color: #f6f6f6;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: "DM Sans";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4;
+  color: #f6f6f6;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: 'DM Sans';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 @media screen and (min-width: 768px) {
-    .title-about-sport {
-        font-size: 24px;
-        line-height: 1.33;
-    }
+  .title-about-sport {
+    font-size: 24px;
+    line-height: 1.33;
+  }
 }
 
 .subtitle-about-sport {
-    font-family: "DM Sans";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.286;
+  font-family: 'DM Sans';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.286;
 }
 
 .content-about-sport {
-    width: 245px;
-    height: 127px;
-    flex-shrink: 0;
-    padding-right: 20px;
-    font-family: "DM Sans";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.28;
+  width: 245px;
+  height: 127px;
+  flex-shrink: 0;
+  padding-right: 20px;
+  font-family: 'DM Sans';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
 }
 
 @media screen and (min-width: 768px) {
-    .content-about-sport {
-        width: 526px;
-        height: 97px;
-        margin-top: 25px;
-        font-size: 16px;
-        line-height: 1.5;
-    }
+  .content-about-sport {
+    width: 526px;
+    height: 97px;
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
