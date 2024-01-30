@@ -30,7 +30,7 @@ import{f as r,g as o,i as n,r as c,E as l}from"./assets/quote-e74d49c2.js";impor
             </li>
     `,""):`
     <div class="missing-cards">
-            <img src="./img/favorites/dumbbell@1x.png" alt="dumbbell">
+            <img src="./dumbbell@1x.png" alt="dumbbell-img">
             <p>It appears that you haven't added any exercises to your favorites yet. To get started, you can add
                 exercises that you
                 like to your favorites for easier access in the future.</p>
