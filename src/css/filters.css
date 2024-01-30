@@ -110,13 +110,11 @@
   line-height: 1.5; /* 150% */
 }
 
-.pagination-list,
-.exercsise-pagination-list {
+.pagination-list {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  flex-wrap: wrap;
 }
 .pagination-element {
   color: rgba(27, 27, 27, 0.4);
