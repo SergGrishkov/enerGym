@@ -1,32 +1,56 @@
 import { getQuote } from '../helpers/locatStorage.js';
-const quoteContainerEl = document.querySelector('.favorites-info-container');
 const quoteInfoEl = document.querySelector('.quote-info-content');
 
-document.addEventListener('DOMContentLoaded', async () => {
+async function renderQuote() {
+  const { author, quote } = await getQuote();
+  await typeWriter(quote, 'favorites-text');
+  await typeWriter(author, 'favorites-author');
+}
+
+function typeWriter(text, elementId) {
+  return new Promise(resolve => {
+    let i = 0;
+    const element = document.createElement(
+      elementId === 'favorites-text' ? 'p' : 'h3'
+    );
+    element.id = elementId;
+
+    if (elementId === 'favorites-text') {
+      element.classList.add('quote-text');
+    } else {
+      element.classList.add('quote-author');
+    }
+
+    quoteInfoEl.appendChild(element);
+
+    function typing() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(typing, 40);
+      } else {
+        resolve();
+      }
+    }
+
+    typing();
+  });
+}
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        renderQuote();
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
+
+document.addEventListener('DOMContentLoaded', () => {
   if (quoteInfoEl) {
-    try {
-      await getQuote();
-      quoteInfoEl.insertAdjacentHTML('beforeend', await renderFavoriteQuote());
-    } catch (error) {
-      console.error('Error fetching or updating the quote:', error);
-    }
-  } else if (quoteContainerEl) {
-    try {
-      await getQuote();
-      quoteContainerEl.insertAdjacentHTML(
-        'beforeend',
-        await renderFavoriteQuote()
-      );
-    } catch (error) {
-      console.error('Error fetching or updating the quote:', error);
-    }
+    observer.observe(quoteInfoEl);
   }
 });
-
-async function renderFavoriteQuote() {
-  const { author, quote } = await getQuote();
-  return `
-  <p id="favorites-text">${quote}</p>
-  <h3 class="favorites-author">${author}</h3>
-  `;
-}
