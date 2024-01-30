@@ -1,5 +1,6 @@
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { createMarkupModalEx } from './modal-exercise';
+import { openExerciseModal } from './modal-exercise';
 
 export function createRatingModal(exId) {
   openModalRating();
@@ -17,15 +18,22 @@ const formEl = document.querySelector('.rating-form');
 const sendRatingBtn = document.querySelector('.js-sbutton');
 const message = document.querySelector('.message');
 
+btnCloseRating.addEventListener('click', closeModalRating);
+window.addEventListener('click', function (event) {
+  if (event.target === modalRating) {
+    closeModalRating();
+  }
+});
+
 function openModalRating() {
   modalRating.classList.add('is-open');
 }
 
 function closeModalRating() {
   modalRating.classList.remove('is-open');
+  formEl.reset();
+  openExerciseModal();
 }
-
-btnCloseRating.addEventListener('click', closeModalRating);
 
 let mratingActive, mratingValue;
 
@@ -66,7 +74,7 @@ function setMrating(mrating) {
 
     mratingItem.addEventListener('click', function (e) {
       initMratingVars(mrating);
-      const rate = index + 1;
+      const rate = (index + 1).toFixed(1);
       mratingValue.innerHTML = rate;
       setMratingActiveWidth();
     });
@@ -96,7 +104,8 @@ async function onSubmit(event) {
 
       const infoRating = ratingEx.info();
       if (infoRating.status === 200) {
-        closeModalRating();
+        modalRating.classList.remove('is-open');
+        formEl.reset();
         createMarkupModalEx(ratingEx.json());
       } else {
         message.textContent = infoRating.message;
