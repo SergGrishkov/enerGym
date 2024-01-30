@@ -3,7 +3,7 @@ import{E as g,c as B,f as E,r as L}from"./assets/pagination-19965e0a.js";import"
             <div class="workout-container">
               <p class="workout-bubble">Workout</p>
               <div class="star-cont">
-                <p class="rating-num">${t.rating}</p>
+                <p class="rating-num">${t.rating.toFixed(1)}</p>
                 <svg class="star-icon" width="18" height="18">
                   <use href="./sprite.svg#icon-modal-rating-star"></use>
                 </svg>
