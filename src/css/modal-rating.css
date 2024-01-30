@@ -37,12 +37,16 @@
   position: absolute;
   top: 14px;
   right: 14px;
-  width: 24px;
-  height: 24px;
   line-height: 0;
   border: none;
   background-color: #f6f6f6;
   padding: 0;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  transform: scale(1.2) rotate(90deg);
 }
 
 .close-btn-icon {
@@ -123,7 +127,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  color: #920811;
+  color: #5f6560;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: 'DM Sans';
   font-size: 16px;
@@ -167,13 +171,19 @@
   gap: 8px;
   border: none;
   border-radius: 30px;
-  background: #7e847f;
+  background-color: #7e847f;
   color: #f6f6f6;
   font-family: 'DM Sans';
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.29;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rating-button:hover,
+.rating-button:focus {
+  background-color: #5f6560;
 }
 
 @media screen and (min-width: 768px) {
