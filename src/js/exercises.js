@@ -1,15 +1,13 @@
 import { firstLetterToUpper } from '../helpers/utils';
-import { cardsContainer } from './filters';
 import { inputSearch } from './filters';
 import { collectCardsAnimated } from './filters';
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { createMarkupModalEx } from './modal-exercise';
-// import { result } from 'lodash';
 
 const exCntrl = new ExercisesController();
 
 export const formSearch = document.querySelector('.form');
-const header = document.querySelector('.home-filters-title');
+const cardsContainer = document.getElementById('cards-list');
 const screenWidth = window.innerWidth;
 
 // Запит на серв та параметри
