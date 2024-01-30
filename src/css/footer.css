@@ -128,6 +128,7 @@
 .footer-button:hover,
 .footer-button:focus {
   background: #5f6560;
+  transform: scale(1.03);
 }
 .footer-rights {
   color: #f6f6f6;
