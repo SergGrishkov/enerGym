@@ -65,7 +65,7 @@ function renderExercises(exercises) {
             <div class="workout-container">
               <p class="workout-bubble">Workout</p>
               <div class="star-cont">
-                <p class="rating-num">${exercise.rating}</p>
+                <p class="rating-num">${exercise.rating.toFixed(1)}</p>
                 <svg class="star-icon" width="18" height="18">
                   <use href="./sprite.svg#icon-modal-rating-star"></use>
                 </svg>
