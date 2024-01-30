@@ -1,6 +1,7 @@
 import { firstLetterToUpper } from '../helpers/utils';
 import { cardsContainer } from './filters';
 import { inputSearch } from './filters';
+import { collectCardsAnimated } from './filters';
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { createMarkupModalEx } from './modal-exercise';
 // import { result } from 'lodash';
@@ -8,9 +9,8 @@ import { createMarkupModalEx } from './modal-exercise';
 const exCntrl = new ExercisesController();
 
 export const formSearch = document.querySelector('.form');
-const modalWindow = document.querySelector('.modal-exercise');
+const header = document.querySelector('.home-filters-title');
 const screenWidth = window.innerWidth;
-const inputToFill = formSearch.elements.delay;
 
 // Запит на серв та параметри
 
@@ -62,7 +62,7 @@ function renderExercises(exercises) {
   return exercises.reduce(
     (html, exercise) =>
       html +
-      `<li class="list-item" data-exerciseid="${exercise._id}">
+      `<li class="list-item animated-card" data-exerciseid="${exercise._id}">
           <div class="workout-and-icons">
             <div class="workout-container">
               <p class="workout-bubble">Workout</p>
@@ -128,18 +128,27 @@ formSearch.addEventListener('submit', async event => {
   ).json();
   if (inputFilling && result.results.length > 0) {
     cardsContainer.innerHTML = renderExercises(result.results);
+    collectCardsAnimated();
     formSearch.reset();
   } else {
     cardsContainer.innerHTML = responseForNoResult();
   }
 });
 
+// Слухач кліку вправ
 cardsContainer.addEventListener('click', async event => {
   if (event.target.classList.contains('arrow-btn')) {
-    let exerciseId = event.target.dataset.exerciseid;
-    console.log(exerciseId);
-    let exObj = await (await exCntrl.getExerciseById(exerciseId)).json();
-    console.log(exObj);
+    const listItemsArr = Array.from(cardsContainer.children);
+    const itemId = listItemsArr.filter(
+      elem =>
+        elem.dataset.exerciseid ===
+        event.target.closest('.list-item').dataset.exerciseid
+    )[0].dataset.exerciseid;
+    let exObj = await (await exCntrl.getExerciseById(itemId)).json();
     createMarkupModalEx(exObj);
   }
 });
+
+// window.addEventListener('DOMContentLoaded', () => {
+//   header.textContent = `Exercises/<span class="header-filter">${filter}</span>`;
+// });

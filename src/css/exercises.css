@@ -12,6 +12,14 @@
   margin-bottom: 20px;
 }
 
+.header-filter {
+  color: rgba(27, 27, 27, 0.5);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
 .body-parts-container {
   background-color: #e8e8e8;
   border-radius: 30px;
@@ -31,9 +39,8 @@
   color: #1b1b1b;
   font-family: 'DM Snas', sans-serif;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 1.29;
   border: none;
 }
 
@@ -50,7 +57,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 1.29;
   border: none;
 }
 
