@@ -1,13 +1,20 @@
 import { firstLetterToUpper } from '../helpers/utils';
+import { cardsContainer } from './filters';
 import { inputSearch } from './filters';
-import { collectCardsAnimated } from './filters';
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { createMarkupModalEx } from './modal-exercise';
+import { renderPagination } from './pagination';
+import { paginationList } from './filters';
+import { collectCardsAnimated } from './filters';
 
 const exCntrl = new ExercisesController();
 
+export const paginationContainer = document.querySelector(
+  '.exercsise-pagination-list'
+);
+
 export const formSearch = document.querySelector('.form');
-const cardsContainer = document.getElementById('cards-list');
+// const cardsContainer = document.getElementById('cards-list');
 const screenWidth = window.innerWidth;
 
 // Запит на серв та параметри
@@ -36,6 +43,11 @@ function limitPerScreenWidth(width) {
 }
 limitPerScreenWidth(screenWidth);
 
+function onPaginationPageClick(pageNumber = 1) {
+  parameters.page = pageNumber;
+  getExerciseFromApi(parameters.filter, parameters.name);
+}
+
 export async function getExerciseFromApi(filter, name) {
   parameters.filter = filter;
   parameters.name = name;
@@ -48,7 +60,13 @@ export async function getExerciseFromApi(filter, name) {
     if (responseJson.results) {
       const elems = responseJson.results;
       cardsContainer.innerHTML = renderExercises(elems);
+      collectCardsAnimated();
       inputSearch.insertAdjacentElement('beforeEnd', formSearch);
+      paginationList.innerHTML = '';
+      paginationContainer.innerHTML = renderPagination(
+        responseJson.totalPages,
+        parameters.page
+      );
     }
   } catch (error) {
     console.log(error);
@@ -145,6 +163,11 @@ cardsContainer.addEventListener('click', async event => {
     let exObj = await (await exCntrl.getExerciseById(itemId)).json();
     createMarkupModalEx(exObj);
   }
+});
+
+paginationContainer.addEventListener('click', function (event) {
+  const pageNumber = parseInt(event.target.getAttribute('value'));
+  onPaginationPageClick(pageNumber);
 });
 
 // window.addEventListener('DOMContentLoaded', () => {
