@@ -106,6 +106,14 @@
   border: 1px solid #1b1b1b;
   outline: none;
 }
+
+.footer-button:hover,
+.footer-button:focus {
+  background: #5f6560;
+  transform: scale(1.03);
+  transition: 0.8s;
+}
+
 .footer-button {
   display: flex;
   padding: 12px 130px;
