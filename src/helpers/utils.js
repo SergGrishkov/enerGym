@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export function firstLetterToUpper(str) {
   return str
     .split(' ')
@@ -11,4 +13,8 @@ export function compareDateWithToday(timeStamp) {
 
 export function setTime0(date) {
   return new Date(date).setHours(0, 0, 0, 0);
+}
+
+export function splitArraytoParts(arrayData, count) {
+  return _.chunk(arrayData, count);
 }
