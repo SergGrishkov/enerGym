@@ -1,4 +1,4 @@
-import{f as r,s as n,g as c,r as l,i as g,a as f,c as b,E as m}from"./assets/pagination-de7e19ba.js";import"./assets/vendor-6fe7236c.js";function d(e){return e?e.reduce((a,t)=>a+`
+import{f as c,s as l,g as r,r as d,i as v,a as g,c as f,E as m}from"./assets/pagination-03b27d93.js";import"./assets/vendor-6fe7236c.js";function n(e){return e?e.reduce((a,t)=>a+`
     <li class="favorite-item" data-exerciseId="${t._id}">
                 <div class="favorite-label-drop-start">
                     <p class="favorite-label-workout">WORKOUT</p>
@@ -17,15 +17,15 @@ import{f as r,s as n,g as c,r as l,i as g,a as f,c as b,E as m}from"./assets/pag
                     <svg class="favorite-icon-run" width="24" height="24" aria-label="icon-bucket">
                         <use href="./sprite.svg#icon-exercises-man"></use>
                     </svg>
-                    <p>${r(t.name)}</p>
+                    <p>${c(t.name)}</p>
                 </div>
                 <div class="favorite-label-burn">
                     <p>Burned calories:</p>
                     <span>${t.burnedCalories} / ${t.time} min</span>
                     <p>Body part:</p>
-                    <span>${r(t.bodyPart)}</span>
+                    <span>${c(t.bodyPart)}</span>
                     <p>Target:</p>
-                    <span>${r(t.target)}</span>
+                    <span>${c(t.target)}</span>
                 </div>
             </li>
     `,""):`
@@ -35,5 +35,5 @@ import{f as r,s as n,g as c,r as l,i as g,a as f,c as b,E as m}from"./assets/pag
                 exercises that you
                 like to your favorites for easier access in the future.</p>
         </div>
-    `}const p=new m;let u;const v=8,i=document.querySelector(".favorites-container-content-items"),o=document.querySelector(".pagination-list"),s=n(c(),v);document.addEventListener("DOMContentLoaded",async()=>{const e=d(n(c(),v)[0]);i.innerHTML=e,u=await p.init(),window.innerWidth<=767&&(o.innerHTML=l(s.length,1))});i.addEventListener("click",async e=>{if(e.target.ariaLabel!=="icon-bucket"&&e.target.className!=="favorite-remove-btn"&&e.target.className!=="favorite-start-btn"&&e.target.ariaLabel!=="start-arrow")return;let a=Object.values(e.target.closest("[data-exerciseId]").dataset)[0];if(e.target.ariaLabel==="icon-bucket"||e.target.className==="favorite-remove-btn")try{g(a)&&(f(a),document.querySelector(`[data-exerciseId="${a}"]`).remove()),window.location.reload()}catch(t){console.log(`Exercise with ${a} can't be removed`,t)}if(e.target.className==="favorite-start-btn"||e.target.ariaLabel==="start-arrow"){const t=await u.getExerciseById(a);b(t.json())}});o.addEventListener("click",h);function h(e){e.target.tagName==="LI"&&(console.log(e.target.value),o.innerHTML=l(s.length,e.target.value),i.innerHTML=d(s[e.target.value-1]))}
+    `}const b=new m,u=8,s=document.querySelector(".favorites-container-content-items"),i=document.querySelector(".pagination-list"),o=l(r(),u);document.addEventListener("DOMContentLoaded",()=>{if(window.innerWidth<=767){let e=l(r(),u)[0];s.innerHTML=n(e),i.innerHTML=d(o.length,1)}else{const e=n(r());s.innerHTML=e}});window.addEventListener("resize",()=>{if(window.matchMedia("(max-width: 767px)").matches){let e=l(r(),u)[0];s.innerHTML=n(e),i.innerHTML=d(o.length,1)}else{const e=n(r());s.innerHTML=e,i.innerHTML=""}});s.addEventListener("click",async e=>{if(e.target.ariaLabel!=="icon-bucket"&&e.target.className!=="favorite-remove-btn"&&e.target.className!=="favorite-start-btn"&&e.target.ariaLabel!=="start-arrow")return;let a=Object.values(e.target.closest("[data-exerciseId]").dataset)[0];if(e.target.ariaLabel==="icon-bucket"||e.target.className==="favorite-remove-btn")try{v(a)&&(g(a),document.querySelector(`[data-exerciseId="${a}"]`).remove()),r()||(i.innerHTML="",window.location.reload())}catch(t){console.log(`Exercise with ${a} can't be removed`,t)}if(e.target.className==="favorite-start-btn"||e.target.ariaLabel==="start-arrow"){const t=await b.getExerciseById(a);f(t.json())}});i.addEventListener("click",p);function p(e){e.target.tagName==="LI"&&(console.log(e.target.value),i.innerHTML=d(o.length,e.target.value),s.innerHTML=n(o[e.target.value-1]))}
 //# sourceMappingURL=commonHelpers.js.map
