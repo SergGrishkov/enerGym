@@ -4,7 +4,7 @@ import { ExercisesController } from '../api/controllers/ExercisesController.js';
 import {isExerciseInFavorite} from '../helpers/locatStorage.js'
 import {addExerciseToFavorite} from '../helpers/locatStorage.js'
 import {removeExerciseFromFavoriteById} from '../helpers/locatStorage.js'
-
+import {createRatingModal} from "./modal-rating.js"
 
 const body = document.body;
 const modalWindow = document.querySelector('.backdrop');
@@ -42,7 +42,8 @@ export function createMarkupModalEx(exercise) {
 
     // let urlIconAddRemove = '';
     // let textBtn = '';
-    let patternBtn;
+  let patternBtn;
+  // console.log(exerciseIn._id);
     if (isExerciseInFavorite(exercise._id)) {
       patternBtn = `
       <button class="ex-modal-btn add-favorite js-add-remove-btn" type="button">
@@ -218,12 +219,14 @@ function closeModalOnMouse(e) {
     window.removeEventListener('keydown', closeModalOnEscape);
   }
 
-  if (e.target.classList.value.includes('rating-btn')) {
-    modalWindow.classList.remove('is-open');
-    body.style.overflow = 'auto';
-    window.removeEventListener('click', closeModalOnMouse);
-    window.removeEventListener('keydown', closeModalOnEscape);
-  }
+if (e.target.classList.value.includes('rating-btn')) { 
+    // console.log(e.target.dataset.rating); 
+    modalWindow.classList.remove('is-open'); 
+    body.style.overflow = 'auto'; 
+    createRatingModal(e.target.dataset.rating); 
+    window.removeEventListener('keydown', closeModalOnEscape); 
+    document.removeEventListener('click', closeModalOnMouse); 
+  } 
 }
 
 
@@ -299,16 +302,16 @@ function closeModalOnMouse(e) {
 // }
 
 // -------- CLICK BUTTON FAVORITE
-document.addEventListener('click', function (event) {
+modalEl.addEventListener('click', function (event) {
   if (event.target.classList.contains('add-favorite')) {
-console.log(exerciseIn);
+// console.log(exerciseIn);
       if (isExerciseInFavorite(exerciseIn._id)) {
         removeExerciseFromFavoriteById(exerciseIn._id);
-        console.log('Remove exercise from favorites:', exerciseIn, exerciseIn._id);
+        // console.log('Remove exercise from favorites:', exerciseIn, exerciseIn._id);
         updateButtonUI(false);
       } else {
         addExerciseToFavorite(exerciseIn)
-        console.log('Exercise added to favorites:', exerciseIn);
+        // console.log('Exercise added to favorites:', exerciseIn);
         // Add to favorites
         // storedExercises.push(exercise);
         // updateFavoriteExercises(storedExercises);
