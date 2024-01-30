@@ -2,12 +2,12 @@ import { firstLetterToUpper } from '../helpers/utils';
 import { cardsContainer } from './filters';
 import { inputSearch } from './filters';
 import { ExercisesController } from '../api/controllers/ExercisesController';
+import { createMarkupModalEx } from './modal-exercise';
 // import { result } from 'lodash';
-// import { createMarkupModalEx } from './modal-exercise';
 
 const exCntrl = new ExercisesController();
 
-const formSearch = document.querySelector('.form');
+export const formSearch = document.querySelector('.form');
 const modalWindow = document.querySelector('.modal-exercise');
 const screenWidth = window.innerWidth;
 const inputToFill = formSearch.elements.delay;
@@ -137,8 +137,9 @@ formSearch.addEventListener('submit', async event => {
 cardsContainer.addEventListener('click', async event => {
   if (event.target.classList.contains('arrow-btn')) {
     let exerciseId = event.target.dataset.exerciseid;
+    console.log(exerciseId);
     let exObj = await (await exCntrl.getExerciseById(exerciseId)).json();
-    console.log('true');
+    console.log(exObj);
     createMarkupModalEx(exObj);
   }
 });
