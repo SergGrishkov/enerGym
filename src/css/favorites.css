@@ -32,6 +32,7 @@
     flex-wrap: wrap;
     gap: 20px;
     row-gap: 20px;
+    margin-bottom: 20px;
 }
 
 .favorite-label-drop-start {
@@ -102,7 +103,6 @@
 .favorite-item {
     display: block;
     width: 295px;
-    height: 165px;
     justify-content: center;
     align-items: flex-start;
     gap: 32px;
@@ -129,7 +129,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    line-height: 1; 
+    line-height: 1;
     padding-right: 18px;
 }
 
@@ -138,6 +138,10 @@
     fill: #7E847F;
     margin-left: 16px;
     margin-right: 16px;
+}
+
+.favorite-label-icon-run p{
+    max-width: 216px;
 }
 
 .favorite-label-burn {
@@ -152,9 +156,13 @@
     margin-bottom: 6px;
     flex-direction: row;
     justify-content: flex-start;
-    /* align-items: center; */
     flex-wrap: wrap;
     row-gap: 6px;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 6px 16px;
+    padding: 0 16px;
 }
 
 .favorite-label-burn span {
@@ -162,8 +170,6 @@
 }
 
 .favorite-label-burn p {
-    margin-left: 16px;
-    margin-right: 4px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -215,17 +221,21 @@
     .favorites-container-content-items {
         column-gap: 14px;
         row-gap: 20px;
-        /* overflow-y: scroll; */
+        overflow-y: auto;
+        height: 720px;
+    }
 
+    .favorites-container-content-items:hover{
+        overflow-y: auto;
     }
 
     /* ::-webkit-scrollbar {
-         width: 8px;
+         width: 6px;
          height: 53px;
          flex-shrink: 0;
-     }
+     } */
 
-     .favorites-container-content-items::-webkit-scrollbar-track {
+     /* .favorites-container-content-items::-webkit-scrollbar-track {
          border-radius: 12px;
          background: #7E847F;
      } */
@@ -266,7 +276,7 @@
         font-weight: 400;
         line-height: 1.29;
         background-color: #F6F6F6;
-        margin-left: 25px;
+        margin-left: 45px;
     }
 
     .favorites-icon {
@@ -283,8 +293,7 @@
 
     .favorite-item {
         display: block;
-        width: 313px;
-        height: 165px;
+        width: calc(50% - 7px);
         justify-content: center;
         align-items: flex-start;
         gap: 32px;
@@ -294,8 +303,8 @@
     }
 
     .favorite-label-icon-run p {
-        line-height: 1.3; 
-        padding-right: 10px;
+        line-height: 1.3;
+        padding-right: 15px;
     }
 
     .favorite-icon-run {
@@ -303,6 +312,10 @@
         fill: #7E847F;
         margin-left: 16px;
         margin-right: 16px;
+    }
+
+    .favorite-label-icon-run p{
+        max-width: 320px;
     }
 
     .favorite-label-burn {
@@ -314,7 +327,6 @@
         font-style: normal;
         font-weight: 400;
         line-height: 1.5;
-        margin-bottom: 6px;
     }
 
     .missing-cards {
@@ -362,7 +374,14 @@
     .favorites-container-content-items {
         column-gap: 20px;
         row-gap: 28px;
+        overflow-y: auto;
+        height: 520px;
+        
     }
+    .favorites-container-content-items:hover{
+        overflow-y: auto;
+    }
+
 
     .favorites-container h2 {
         padding-left: 0px;
@@ -406,7 +425,7 @@
         font-weight: 400;
         line-height: 1.5;
         background-color: #F6F6F6;
-        margin-left: 125px;
+        margin-left: 130px;
     }
 
     .favorites-icon {
@@ -423,8 +442,7 @@
 
     .favorite-item {
         display: block;
-        width: 424px;
-        height: 141px;
+        width: calc(33.3% - 13px);
         justify-content: center;
         align-items: flex-start;
         gap: 32px;
@@ -446,6 +464,10 @@
         margin-right: 16px;
     }
 
+    .favorite-label-icon-run p{
+        max-width: 420px;
+    }
+
     .favorite-label-burn {
         display: flex;
         color: rgba(27, 27, 27, 0.40);
@@ -455,8 +477,20 @@
         font-style: normal;
         font-weight: 400;
         line-height: 1.5;
-        margin-bottom: 6px;
         row-gap: 0px;
+        padding: 0 16px;
+    }
+
+    
+    .favorites-container-content-items {
+        column-gap: 14px;
+        row-gap: 20px;
+        overflow-y: auto;
+        height: 520px;
+    }
+
+    .favorites-container-content-items:hover{
+        overflow-y: auto;
     }
 
 }
@@ -480,6 +514,17 @@
     .missing-cards {
         height: 470px;
         justify-content: center;
+    }
+
+    .favorites-container-content-items {
+        column-gap: 14px;
+        row-gap: 20px;
+        overflow-y: hidden;
+        height: 500px;
+    }
+
+    .favorites-container-content-items:hover{
+        overflow-y: auto;
     }
 
 }

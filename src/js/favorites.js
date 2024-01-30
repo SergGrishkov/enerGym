@@ -23,16 +23,30 @@ const chunkArrayLs = splitArraytoParts(
   chunk
 );
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const  favoriteInfoLs = renderFavoriteCards(
-    splitArraytoParts(getFavoritCardsFromLocalStorage(), chunk)[0]
-  );
-  listFavorites.innerHTML = favoriteInfoLs;
-  exercise = await exerciseCntrl.init();
+document.addEventListener('DOMContentLoaded', () => {
   if (window.innerWidth <= 767) {
+    let cards = splitArraytoParts(getFavoritCardsFromLocalStorage(), chunk)[0]
+    listFavorites.innerHTML = renderFavoriteCards(cards);
     paginationList.innerHTML = renderPagination(chunkArrayLs.length, 1);
+  } else {
+    const favoriteInfoLs = renderFavoriteCards(getFavoritCardsFromLocalStorage());
+    listFavorites.innerHTML = favoriteInfoLs;
   }
 });
+
+
+window.addEventListener('resize', ()=> {
+  if (window.matchMedia("(max-width: 767px)").matches) {
+    let cards = splitArraytoParts(getFavoritCardsFromLocalStorage(), chunk)[0]
+    listFavorites.innerHTML = renderFavoriteCards(cards);
+    paginationList.innerHTML = renderPagination(chunkArrayLs.length, 1);
+  } else {
+    const favoriteInfoLs = renderFavoriteCards(getFavoritCardsFromLocalStorage());
+    listFavorites.innerHTML = favoriteInfoLs;
+    paginationList.innerHTML = '';
+  }
+ 
+})
 
 listFavorites.addEventListener('click', async e => {
   if (
@@ -54,7 +68,10 @@ listFavorites.addEventListener('click', async e => {
         removeExerciseFromFavoriteById(id);
         document.querySelector(`[data-exerciseId="${id}"]`).remove();
       }
-      window.location.reload();
+      if(!getFavoritCardsFromLocalStorage()) {
+        paginationList.innerHTML = '';
+        window.location.reload();
+      }
     } catch (error) {
       console.log(`Exercise with ${id} can't be removed`, error);
     }
@@ -64,7 +81,7 @@ listFavorites.addEventListener('click', async e => {
     e.target.className === 'favorite-start-btn' ||
     e.target.ariaLabel === 'start-arrow'
   ) {
-    const exerciseInfo = await exercise.getExerciseById(id);
+    const exerciseInfo = await exerciseCntrl.getExerciseById(id);
     createMarkupModalEx(exerciseInfo.json());
   }
 });
@@ -81,13 +98,3 @@ function getCurrentPage(event) {
     listFavorites.innerHTML = renderFavoriteCards(chunkArrayLs[event.target.value - 1]);
   }
 }
-// console.log(splitArraytoParts(getFavoritCardsFromLocalStorage(), 8));
-// const res = splitArraytoParts(getFavoritCardsFromLocalStorage(), 8)
-
-// console.log(renderPagination(res.length))
-
-// document.addEventListener('DOMContentLoaded', putNumeraion);
-
-// filtersBox.addEventListener('click', event =>
-//   fetchDynamicApiUrl(event, 'filter')
-// );
