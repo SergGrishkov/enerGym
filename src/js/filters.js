@@ -2,9 +2,16 @@ import { firstLetterToUpper } from '../helpers/utils';
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { getExerciseFromApi } from './exercises';
 import { renderPagination } from './pagination';
+import { formSearch } from './exercises';
+import { setFilterAndName } from './exercises';
+import { parameters } from './exercises';
 
-const filterSection = document.querySelector('.home-filters');
 export const inputSearch = document.querySelector('.search-container');
+const filterSection = document.querySelector('.home-filters');
+const exerPaginationContainerEl = document.querySelector(
+  '.exercsise-pagination-list'
+);
+
 const filtersBox = document.querySelector('.filters-box');
 const cardsContainer = document.getElementById('cards-list');
 const defaultFilterButton = filtersBox.querySelector('.filters-list-item');
@@ -13,21 +20,14 @@ const paginationList = document.querySelector('.pagination-list');
 
 const screenWidth = window.innerWidth;
 
+// controller----
+// --------------
+let exerciseCntrl = new ExercisesController();
+// --------------
+// ----controller
+
 let limit = null;
 let page = 1;
-limitPerScreenWidth(screenWidth);
-
-// onScroll----
-// ------------
-function onScroll() {
-  filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-// ------------
-// ----onScroll
-// contr
-
-let exerciseCntrl = new ExercisesController();
 
 const filterParams = {
   filter: defaultFilter,
@@ -35,28 +35,15 @@ const filterParams = {
   limit,
 };
 
-async function fetchDefaultApiUrl() {
-  let cardsFilterResp = await exerciseCntrl.init();
-  try {
-    const response = await cardsFilterResp.getListExercises(filterParams);
-    const data = await response.json();
-
-    if (data.results && data.results.length > 0) {
-      cardsContainer.innerHTML = renderCards(data.results);
-      paginationList.innerHTML = '';
-      let paginationElements = renderPagination(
-        data.totalPages,
-        filterParams.page
-      );
-      paginationList.innerHTML = paginationElements;
-    } else {
-      console.error('No exercises found.');
-    }
-  } catch (error) {
-    console.error('Error fetching exercises:', error);
-  }
+// onScroll----
+// ------------
+function onScroll() {
+  filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
-
+// ------------
+// ----onScroll
+// PageCardsLimit---
+// ----------------
 function limitPerScreenWidth(screenWidth) {
   if (screenWidth < 768) {
     // Мобільний
@@ -70,16 +57,17 @@ function limitPerScreenWidth(screenWidth) {
   }
   return limit;
 }
+// ----------------
+// ---PageCardsLimit
+
 // pagination------
 // ----------------
-
 async function onPageClick(event) {
   const pageNumber = parseInt(event.target.getAttribute('value'));
   filterParams.page = pageNumber;
   await fetchDynamicApiUrl(event);
   onScroll();
 }
-
 // -------------
 // ---pagination
 
@@ -95,6 +83,7 @@ function togleActiveBtnClass(event) {
 // ----togleActive
 
 // animation-----
+// --------------
 export function collectCardsAnimated() {
   const cards = document.querySelectorAll('.animated-card');
   cards.forEach(card => {
@@ -106,8 +95,36 @@ export function collectCardsAnimated() {
     }, index * 100);
   });
 }
+// --------------
 // -----animation
 
+// Functions for fetch data from Api
+// Default cards fetching--
+// ------------------------
+async function fetchDefaultApiUrl() {
+  try {
+    const response = await exerciseCntrl.getListExercises(filterParams);
+    const data = await response.json();
+    if (data.results && data.results.length > 0) {
+      limitPerScreenWidth(screenWidth);
+      cardsContainer.innerHTML = renderCards(data.results);
+      collectCardsAnimated();
+      paginationList.innerHTML = renderPagination(
+        data.totalPages,
+        filterParams.page
+      );
+    } else {
+      console.error('No exercises found.');
+    }
+  } catch (error) {
+    console.error('Error fetching exercises:', error);
+  }
+}
+// ------------------------
+// --Default cards fetching
+
+// Fetching after clicking----
+// ---------------------------
 async function fetchDynamicApiUrl(event, source) {
   if (
     source === 'filter' ||
@@ -117,23 +134,22 @@ async function fetchDynamicApiUrl(event, source) {
     const filter = event.target.dataset.filter;
     filterParams.filter = filter;
     filterParams.page = 1;
+    limitPerScreenWidth(screenWidth);
   }
-
-  let cardsFilterResp = await exerciseCntrl.init();
-
   try {
-    const response = await cardsFilterResp.getListExercises(filterParams);
+    const response = await exerciseCntrl.getListExercises(filterParams);
     const data = await response.json();
 
     if (data.results && data.results.length > 0) {
       cardsContainer.innerHTML = renderCards(data.results);
       inputSearch.innerHTML = '';
+      formSearch.reset();
+      exerPaginationContainerEl.innerHTML = '';
       paginationList.innerHTML = '';
-      let paginationElements = renderPagination(
+      paginationList.innerHTML = renderPagination(
         data.totalPages,
         filterParams.page
       );
-      paginationList.innerHTML = paginationElements;
       collectCardsAnimated();
     } else {
       console.error('No exercises found.');
@@ -142,21 +158,11 @@ async function fetchDynamicApiUrl(event, source) {
     console.error('Error fetching exercises:', error);
   }
 }
+// ---------------------------
+// ----Fetching after clicking
 
-async function getExercisesByName(event) {
-  const targetExercises = event.target.dataset.name;
-  const selectedFilter = event.target.dataset.filter;
-
-  if (targetExercises && selectedFilter) {
-    let filterToSend = selectedFilter;
-    if (selectedFilter === 'body parts') {
-      filterToSend = 'bodypart';
-    }
-
-    await getExerciseFromApi(filterToSend, targetExercises);
-  }
-}
-
+// Cards Render----
+// ----------------
 function renderCards(cards) {
   return cards.reduce(
     (html, card) =>
@@ -179,7 +185,30 @@ function renderCards(cards) {
     ''
   );
 }
+// ----------------
+// ----Cards Render
 
+// CAll for exerscises cards---
+// ----------------------------
+async function getExercisesByName(event) {
+  const targetExercises = event.target.dataset.name;
+  const selectedFilter = event.target.dataset.filter;
+
+  if (targetExercises && selectedFilter) {
+    let filterToSend = selectedFilter;
+    if (selectedFilter === 'body parts') {
+      filterToSend = 'bodypart';
+    }
+    parameters.page = 1;
+    await getExerciseFromApi(filterToSend, targetExercises);
+    setFilterAndName(filterToSend, targetExercises);
+  }
+}
+// ----------------------------
+// ---CAll for exerscises cards
+
+// listeners---
+// ------------
 document.addEventListener('DOMContentLoaded', fetchDefaultApiUrl);
 filtersBox.addEventListener('click', event =>
   fetchDynamicApiUrl(event, 'filter')
@@ -188,3 +217,5 @@ cardsContainer.addEventListener('click', getExercisesByName);
 paginationList.addEventListener('click', event =>
   onPageClick(event, 'pagination')
 );
+// ------------
+// ---listeners
