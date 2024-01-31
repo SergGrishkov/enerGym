@@ -69,7 +69,6 @@ export async function getExerciseFromApi(filter, name) {
     if (responseJson.results) {
       const elems = responseJson.results;
       headerSlash.textContent = 'Exercises/';
-      headerWaist.textContent = `${elems[0].target}`;
       cardsContainer.innerHTML = renderExercises(elems);
       collectCardsAnimated();
       inputSearch.insertAdjacentElement('beforeEnd', formSearch);
@@ -140,7 +139,6 @@ function responseForNoResult() {
   return `<div class="response-cont"><p class="response-describe">Unfortunately, <span class="describe">no results</span> were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs.</p></div>`;
 }
 
-// Слухач форми
 async function getExercisesFromFormSearch(event, pageNumber) {
   event.preventDefault();
   inputFilling = formSearch.elements.delay.value.trim();
@@ -172,8 +170,14 @@ async function getExercisesFromFormSearch(event, pageNumber) {
 
 // Слухач кліку вправ
 cardsContainer.addEventListener('click', async event => {
+  const listItemsArr = Array.from(cardsContainer.children);
+  if (event.target.classList.contains('cards-list-item')) {
+    headerWaist.textContent = firstLetterToUpper(
+      `${event.target.dataset.name}`
+    );
+    console.log(headerWaist.textContent);
+  }
   if (event.target.classList.contains('arrow-btn')) {
-    const listItemsArr = Array.from(cardsContainer.children);
     const itemId = listItemsArr.filter(
       elem =>
         elem.dataset.exerciseid ===
