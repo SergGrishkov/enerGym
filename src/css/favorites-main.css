@@ -3,18 +3,18 @@
   width: 335px;
   height: 272px;
   border-radius: 30px;
-  background-image: url(../img/favorites-main/favorites-mobile.png);
+  background-image: url(../img/favorites-main/favorites-mobile.jpg);
   background-repeat: no-repeat;
 }
+
 @media screen and (min-resolution: 192dpi) and (min-width: 375px),
   screen and (min-resolution: 2dppx) and (min-width: 375px),
   screen and (min-device-pixel-ratio: 2) and (min-width: 375px) {
   .favorites-img {
-    background-image: url(../img/favorites-main/favorites-mobile@2.png);
+    background-image: url(../img/favorites-main/favorites-mobile@2.jpg);
     background-size: 335px;
   }
 }
-
 .favorites-container-header {
   padding-left: 0;
   padding-right: 0;
@@ -130,7 +130,7 @@
     width: 368px;
     height: 302px;
     border-radius: 50px;
-    background-image: url(../img/favorites-main/favorites-tablet.png);
+    background-image: url(../img/favorites-main/favorites-tablet.jpg);
   }
 
   .favorites-quote-block {
@@ -185,7 +185,7 @@
   screen and (min-resolution: 2dppx) and (min-width: 768px),
   screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
   .favorites-img {
-    background-image: url(../img/favorites-main/favorites-tablet@2.png);
+    background-image: url(../img/favorites-main/favorites-tablet@2.jpg);
     background-size: 368px;
   }
 }
@@ -203,7 +203,8 @@
   }
   .favorites-img {
     width: 352px;
-    background-image: url(../img/favorites-main/favorites-desktop.png);
+    background-image: url(../img/favorites-main/favorites-desktop.jpg);
+    background-size: 352px;
   }
 
   .favorites-info-block {
@@ -214,6 +215,6 @@
   screen and (min-resolution: 2dppx) and (min-width: 1280px),
   screen and (min-device-pixel-ratio: 2) and (min-width: 1280px) {
   .favorites-img {
-    background-image: url(../img/favorites-main/favorites-desktop@2.png);
+    background-image: url(../img/favorites-main/favorites-desktop@2.jpg);
   }
 }
