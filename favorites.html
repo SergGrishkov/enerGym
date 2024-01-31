@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/enerGym/ener-gym.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EnerGYM</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
-        integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
-        rel="stylesheet" />
-  <script type="module" crossorigin src="/enerGym/commonHelpers.js"></script>
-  <link rel="modulepreload" crossorigin href="/enerGym/assets/vendor-6fe7236c.js">
-  <link rel="modulepreload" crossorigin href="/enerGym/assets/pagination-e606f0a5.js">
-  <link rel="stylesheet" href="/enerGym/assets/pagination-6285abf4.css">
-</head>
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
 
-<body>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script type="module" crossorigin src="/enerGym/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/enerGym/assets/vendor-6fe7236c.js">
+    <link rel="modulepreload" crossorigin href="/enerGym/assets/pagination-50633e01.js">
+    <link rel="stylesheet" href="/enerGym/assets/pagination-eb29bf5f.css">
+  </head>
+
+  <body>
     <header class="header">
   <div class="navbar">
     <a class="header-logo" href="./index.html">energy.flow</a>
@@ -108,9 +114,13 @@
 
 
     <main class="main-favorites">
-        <section class="favorites-box">
+      <section class="favorites-box">
   <div class="favorites-container-header container">
-    <div class="quote-block quote-block-retreat">
+    <div
+      class="quote-block quote-block-retreat"
+      data-aos="fade-right"
+      data-aos-duration="2000"
+    >
       <div class="quote-man-container">
         <svg
           class="quote-man-icon"
@@ -134,11 +144,19 @@
     </div>
 
     <div class="favorites-main-box">
-      <div class="favorites-img-container">
+      <div
+        class="favorites-img-container"
+        data-aos="fade-down"
+        data-aos-duration="2000"
+      >
         <div class="favorites-img"></div>
       </div>
 
-      <div class="favorites-info-block">
+      <div
+        class="favorites-info-block"
+        data-aos="fade-left"
+        data-aos-duration="2000"
+      >
         <div class="favorites-info-content">
           <svg
             class="favorites-info-icon"
@@ -157,12 +175,16 @@
 </section>
 
 
-        <section class="favorites">
-            <div class="favorites-container container">
-                <div class="favorites-container-content">
-                    <h2>Favorites</h2>
-                    <ul class="favorites-container-content-items">
-                        <!-- <li class="favorite-item" data-exerciseId="12123ssss">
+      <section class="favorites">
+        <div
+          class="favorites-container container"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          <div class="favorites-container-content">
+            <h2>Favorites</h2>
+            <ul class="favorites-container-content-items">
+              <!-- <li class="favorite-item" data-exerciseId="12123ssss">
                             <div class="favorite-label-drop-start">
                                 <p class="favorite-label-workout">WORKOUT</p>
                                 <button id="qawsed" class="favorite-remove-btn" name="button-bucket">
@@ -198,16 +220,16 @@
                         <li class="favorite-item"></li>
                         <li class="favorite-item"></li>
                         <li class="favorite-item"></li> -->
-                    </ul>
-                </div>
-                <div class="filters-pagination">
-                    <ul class="pagination-list">
-                        <!-- <li class="pagination-element active_pag_item" value="1">1</li>
+            </ul>
+          </div>
+          <div class="filters-pagination">
+            <ul class="pagination-list">
+              <!-- <li class="pagination-element active_pag_item" value="1">1</li>
         <li class="pagination-element" value="2">2</li> -->
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
 
     <div class="backdrop">
@@ -396,7 +418,7 @@
 
 
 
- 
+
     <div class="mobile-menu js-menu">
   <div class="mobile-menu-header">
     <a class="mobile-menu-logo" href="./index.html">energy.flow</a>
@@ -557,6 +579,10 @@
     
     
     
-</body>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
 </html>

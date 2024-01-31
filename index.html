@@ -19,10 +19,12 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
       rel="stylesheet"
     />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script type="module" crossorigin src="/enerGym/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/enerGym/assets/vendor-6fe7236c.js">
-    <link rel="modulepreload" crossorigin href="/enerGym/assets/pagination-e606f0a5.js">
-    <link rel="stylesheet" href="/enerGym/assets/pagination-6285abf4.css">
+    <link rel="modulepreload" crossorigin href="/enerGym/assets/pagination-50633e01.js">
+    <link rel="stylesheet" href="/enerGym/assets/pagination-eb29bf5f.css">
   </head>
 
   <body>
@@ -151,7 +153,7 @@
 
       <section class="quote">
   <div class="quote-container container">
-    <div class="quote-block">
+    <div class="quote-block" data-aos="fade-right" data-aos-duration="2000">
       <div class="quote-man-container">
         <svg
           class="quote-man-icon"
@@ -174,14 +176,22 @@
       </div>
     </div>
 
-    <div class="quote-img-container">
+    <div
+      class="quote-img-container"
+      data-aos="fade-left"
+      data-aos-duration="2000"
+    >
       <div class="quote-img"></div>
     </div>
   </div>
 </section>
 
       <section class="home-filters" id="home-filters">
-  <div class="container filters-container">
+  <div
+    class="container filters-container"
+    data-aos="fade-up"
+    data-aos-duration="2000"
+  >
     <div class="title-filter-wrapper">
       <h2 class="home-filters-title">Exercises</h2>
       <span class="home-filters-title"></span>
@@ -549,27 +559,38 @@
 </section>
 
       <section class="about-sport">
-    <div class="about-sport-container container">
-        <div class="image-about-sport"></div>
-        <div class="block-about-sport">
-            <div class="icon-container-about-sport">
-                <div class="icon-about-sport">
-                    <svg width="20" height="20" aria-label="icon-dumbbell">
-                        <use href="/enerGym/assets/sprite-b81046ef.svg#icon-dumbbell"></use>
-                    </svg>
-                </div>
-            </div>
-            <div class="text-about-sport">
-                <h2 class="title-about-sport">110 min</h2>
-                <h3 class="subtitle-about-sport">Daily norm of sports</h3>
-                <p class="content-about-sport">
-                    The World Health Organization recommends at least 150 minutes of moderate-intensity aerobic physical
-                    activity throughout the week for adults aged 18-64. However, what happens if we adjust that number
-                    to 110 minutes every day?</p>
-            </div>
+  <div class="about-sport-container container">
+    <div
+      class="image-about-sport"
+      data-aos="fade-right"
+      data-aos-duration="3000"
+    ></div>
+    <div
+      class="block-about-sport"
+      data-aos="fade-left"
+      data-aos-duration="3000"
+    >
+      <div class="icon-container-about-sport">
+        <div class="icon-about-sport">
+          <svg width="20" height="20" aria-label="icon-dumbbell">
+            <use href="/enerGym/assets/sprite-b81046ef.svg#icon-dumbbell"></use>
+          </svg>
         </div>
+      </div>
+      <div class="text-about-sport">
+        <h2 class="title-about-sport">110 min</h2>
+        <h3 class="subtitle-about-sport">Daily norm of sports</h3>
+        <p class="content-about-sport">
+          The World Health Organization recommends at least 150 minutes of
+          moderate-intensity aerobic physical activity throughout the week for
+          adults aged 18-64. However, what happens if we adjust that number to
+          110 minutes every day?
+        </p>
+      </div>
     </div>
+  </div>
 </section>
+
     </main>
 
     <footer class="footer">
@@ -1050,5 +1071,10 @@
     
     
     
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
