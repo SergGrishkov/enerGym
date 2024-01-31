@@ -3,6 +3,8 @@ import { ExercisesController } from '../api/controllers/ExercisesController';
 import { getExerciseFromApi } from './exercises';
 import { renderPagination } from './pagination';
 import { formSearch } from './exercises';
+import { setFilterAndName } from './exercises';
+import { parameters } from './exercises';
 
 export const inputSearch = document.querySelector('.search-container');
 const filterSection = document.querySelector('.home-filters');
@@ -197,7 +199,9 @@ async function getExercisesByName(event) {
     if (selectedFilter === 'body parts') {
       filterToSend = 'bodypart';
     }
+    parameters.page = 1;
     await getExerciseFromApi(filterToSend, targetExercises);
+    setFilterAndName(filterToSend, targetExercises);
   }
 }
 // ----------------------------
