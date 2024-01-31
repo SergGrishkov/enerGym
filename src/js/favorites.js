@@ -62,12 +62,13 @@ listFavorites.addEventListener('click', async e => {
     e.target.ariaLabel !== 'start-arrow'
   )
     return;
+    
+    let id = Object.values(e.target.closest('[data-exerciseId]').dataset)[0];
 
   if (
     e.target.ariaLabel === 'icon-bucket' ||
     e.target.className === 'favorite-remove-btn'
   ) {
-    let id = Object.values(e.target.closest('[data-exerciseId]').dataset)[0];
     let allstorage;
     try {
       if (isExerciseInFavorite(id)) {
