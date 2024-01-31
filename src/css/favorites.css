@@ -6,7 +6,7 @@
 .favorites-container {
     background-color: #E8E8E8;
     border-radius: 30px;
-    padding-bottom: 92px;
+    padding-bottom: 60px;
     margin-bottom: 32px;
     width: 335px;
 }
@@ -212,9 +212,9 @@
 
     .favorites-container {
         width: 736px;
-        height: 928px;
+        height: 910px;
         border-radius: 50px;
-        padding-bottom: 64px;
+        padding-bottom: 60px;
         margin-top: 16px;
         margin-bottom: 16px;
     }
@@ -355,9 +355,9 @@
     .favorites-container {
         display: block;
         width: 1408px;
-        height: 687px;
+        height: 740px;
         border-radius: 50px;
-        padding-bottom: 64px;
+        padding-bottom: 60px;
         margin-top: 16px;
         margin-bottom: 16px;
     }
@@ -482,7 +482,7 @@
     .favorites-container {
         display: block;
         width: 1408px;
-        height: 687px;
+        height: 740px;
         border-radius: 50px;
         padding-bottom: 64px;
         margin-top: 16px;
