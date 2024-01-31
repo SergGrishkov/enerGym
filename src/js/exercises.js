@@ -43,7 +43,6 @@ function limitPerScreenWidth(width) {
   }
   return parameters.limit;
 }
-limitPerScreenWidth(screenWidth);
 
 export function setFilterAndName(filter, name) {
   filterAndName.filter = filter;
@@ -61,6 +60,7 @@ function onPaginationPageClick(event, paginationSource, pageNumber) {
 }
 
 export async function getExerciseFromApi(filter, name) {
+  limitPerScreenWidth(screenWidth);
   const newParameters = { [filter]: name, ...parameters };
   try {
     const responseJson = await (
@@ -136,12 +136,14 @@ function renderExercises(exercises) {
 
 // Відповідь на неіснуючий запит
 function responseForNoResult() {
+  exerPaginationList.innerHTML = '';
   return `<div class="response-cont"><p class="response-describe">Unfortunately, <span class="describe">no results</span> were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs.</p></div>`;
 }
 
 async function getExercisesFromFormSearch(event, pageNumber) {
   event.preventDefault();
   inputFilling = formSearch.elements.delay.value.trim();
+  limitPerScreenWidth(screenWidth);
   const params = {};
   if (!inputFilling) {
     params[filterAndName.filter] = filterAndName.name;
@@ -171,11 +173,10 @@ async function getExercisesFromFormSearch(event, pageNumber) {
 // Слухач кліку вправ
 cardsContainer.addEventListener('click', async event => {
   const listItemsArr = Array.from(cardsContainer.children);
-  if (event.target.classList.contains('cards-list-item')) {
+  if (event.target.dataset.name) {
     headerWaist.textContent = firstLetterToUpper(
       `${event.target.dataset.name}`
     );
-    console.log(headerWaist.textContent);
   }
   if (event.target.classList.contains('arrow-btn')) {
     const itemId = listItemsArr.filter(
