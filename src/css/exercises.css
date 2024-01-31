@@ -89,6 +89,8 @@
 
 .response-cont {
   margin: 0 auto;
+  padding-top: 165px;
+  padding-bottom: 265px;
 }
 
 .response-describe {
@@ -378,6 +380,10 @@
     font-size: 24px;
     line-height: 1.5;
   }
+  .response-cont {
+    padding-top: 215px;
+    padding-bottom: 410px;
+  }
 }
 
 /* Screen-стилі */
@@ -406,5 +412,8 @@
   }
   .training-name {
     max-width: 320px;
+  }
+  .response-cont {
+    padding-bottom: 320px;
   }
 }
