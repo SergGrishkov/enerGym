@@ -25,28 +25,34 @@ const chunkArrayLs = splitArraytoParts(
 
 document.addEventListener('DOMContentLoaded', () => {
   if (window.innerWidth <= 767) {
-    let cards = splitArraytoParts(getFavoritCardsFromLocalStorage(), chunk)[0]
+    let cards = splitArraytoParts(getFavoritCardsFromLocalStorage(), chunk)[0];
     listFavorites.innerHTML = renderFavoriteCards(cards);
     paginationList.innerHTML = renderPagination(chunkArrayLs.length, 1);
   } else {
-    const favoriteInfoLs = renderFavoriteCards(getFavoritCardsFromLocalStorage());
+    const favoriteInfoLs = renderFavoriteCards(
+      getFavoritCardsFromLocalStorage()
+    );
     listFavorites.innerHTML = favoriteInfoLs;
   }
 });
 
-
-window.addEventListener('resize', ()=> {
-  if (window.matchMedia("(max-width: 767px)").matches) {
-    let cards = splitArraytoParts(getFavoritCardsFromLocalStorage(), chunk)[0]
+window.addEventListener('resize', () => {
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    let chunkArrayLocal = splitArraytoParts(
+      getFavoritCardsFromLocalStorage(),
+      chunk
+    );
+    let cards = splitArraytoParts(getFavoritCardsFromLocalStorage(), chunk)[0];
     listFavorites.innerHTML = renderFavoriteCards(cards);
-    paginationList.innerHTML = renderPagination(chunkArrayLs.length, 1);
+    paginationList.innerHTML = renderPagination(chunkArrayLocal.length, 1);
   } else {
-    const favoriteInfoLs = renderFavoriteCards(getFavoritCardsFromLocalStorage());
+    const favoriteInfoLs = renderFavoriteCards(
+      getFavoritCardsFromLocalStorage()
+    );
     listFavorites.innerHTML = favoriteInfoLs;
     paginationList.innerHTML = '';
   }
- 
-})
+});
 
 listFavorites.addEventListener('click', async e => {
   if (
@@ -57,20 +63,30 @@ listFavorites.addEventListener('click', async e => {
   )
     return;
 
-  let id = Object.values(e.target.closest('[data-exerciseId]').dataset)[0];
-
   if (
     e.target.ariaLabel === 'icon-bucket' ||
     e.target.className === 'favorite-remove-btn'
   ) {
+    let id = Object.values(e.target.closest('[data-exerciseId]').dataset)[0];
+    let allstorage;
     try {
       if (isExerciseInFavorite(id)) {
         removeExerciseFromFavoriteById(id);
         document.querySelector(`[data-exerciseId="${id}"]`).remove();
-      }
-      if(!getFavoritCardsFromLocalStorage()) {
-        paginationList.innerHTML = '';
-        window.location.reload();
+        allstorage = getFavoritCardsFromLocalStorage()
+          ? getFavoritCardsFromLocalStorage().length 
+          : 0;
+        if (
+          allstorage % chunk ===
+          0
+        ) {
+          paginationList.innerHTML = renderPagination(chunkArrayLs.length, 1);
+          window.location.reload();
+        }
+        if (allstorage === 0) {
+          paginationList.innerHTML = '';
+          window.location.reload();
+        }
       }
     } catch (error) {
       console.log(`Exercise with ${id} can't be removed`, error);
@@ -90,11 +106,12 @@ paginationList.addEventListener('click', getCurrentPage);
 
 function getCurrentPage(event) {
   if (event.target.tagName === 'LI') {
-    console.log(event.target.value);
     paginationList.innerHTML = renderPagination(
       chunkArrayLs.length,
       event.target.value
     );
-    listFavorites.innerHTML = renderFavoriteCards(chunkArrayLs[event.target.value - 1]);
+    listFavorites.innerHTML = renderFavoriteCards(
+      chunkArrayLs[event.target.value - 1]
+    );
   }
 }

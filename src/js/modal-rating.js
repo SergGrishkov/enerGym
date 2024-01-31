@@ -106,6 +106,7 @@ async function onSubmit(event) {
       if (infoRating.status === 200) {
         modalRating.classList.remove('is-open');
         formEl.reset();
+        setMratingActiveWidth(0);
         createMarkupModalEx(ratingEx.json());
       } else {
         message.textContent = infoRating.message;
