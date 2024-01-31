@@ -3,26 +3,32 @@ import { inputSearch } from './filters';
 import { collectCardsAnimated } from './filters';
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { createMarkupModalEx } from './modal-exercise';
+import { renderPagination } from './pagination';
+const cardsContainer = document.getElementById('cards-list');
+const filterPaginationList = document.querySelector('.pagination-list');
+const exerPaginationList = document.querySelector('.exercsise-pagination-list');
 
 const exCntrl = new ExercisesController();
 
 const headerWaist = document.querySelector('.home-filters-subtitle');
 export const formSearch = document.querySelector('.form');
-const cardsContainer = document.getElementById('cards-list');
+
 const screenWidth = window.innerWidth;
 
 // Запит на серв та параметри
 
-let filter;
-let name;
 let page = 1;
 let limit;
+let paginationSource = '';
+let inputFilling;
 
-const parameters = {
-  filter,
-  name,
+export const parameters = {
   page,
   limit,
+};
+const filterAndName = {
+  filter: '',
+  name: '',
 };
 
 function limitPerScreenWidth(width) {
@@ -37,20 +43,38 @@ function limitPerScreenWidth(width) {
 }
 limitPerScreenWidth(screenWidth);
 
+export function setFilterAndName(filter, name) {
+  filterAndName.filter = filter;
+  filterAndName.name = name.toLowerCase();
+}
+
+function onPaginationPageClick(event, paginationSource, pageNumber) {
+  parameters.page = pageNumber;
+  if (paginationSource === 'formSearch') {
+    getExercisesFromFormSearch(event, parameters.page);
+  } else {
+    // Виклик функції, яка відповідає за пагінацію з основного запиту
+    getExerciseFromApi(filterAndName.filter, filterAndName.name);
+  }
+}
+
 export async function getExerciseFromApi(filter, name) {
-  parameters.filter = filter;
-  parameters.name = name;
-
-  const apiUrl = `https://energyflow.b.goit.study/api/exercises?${parameters.filter}=${parameters.name}&page=${parameters.page}&limit=${parameters.limit}`;
-
+  const newParameters = { [filter]: name, ...parameters };
   try {
-    const response = await fetch(apiUrl);
-    const responseJson = await response.json();
+    const responseJson = await (
+      await exCntrl.getListExercisesBySubspecies(newParameters)
+    ).json();
     if (responseJson.results) {
       const elems = responseJson.results;
       headerWaist.textContent = `${elems[0].target}`;
       cardsContainer.innerHTML = renderExercises(elems);
+      collectCardsAnimated();
       inputSearch.insertAdjacentElement('beforeEnd', formSearch);
+      filterPaginationList.innerHTML = '';
+      exerPaginationList.innerHTML = renderPagination(
+        responseJson.totalPages,
+        parameters.page
+      );
     }
   } catch (error) {
     console.log(error);
@@ -114,26 +138,34 @@ function responseForNoResult() {
 }
 
 // Слухач форми
-formSearch.addEventListener('submit', async event => {
+async function getExercisesFromFormSearch(event, pageNumber) {
   event.preventDefault();
-  const params = {
-    [parameters.filter]: parameters.name,
-    page: 1,
-    limit: 10,
-  };
-  const inputFilling = formSearch.elements.delay.value.trim();
-  params.keyword = inputFilling;
+  inputFilling = formSearch.elements.delay.value.trim();
+  const params = {};
+  if (!inputFilling) {
+    params[filterAndName.filter] = filterAndName.name;
+    params.page = pageNumber;
+    params.limit = parameters.limit;
+  } else {
+    params[filterAndName.filter] = filterAndName.name;
+    params.keyword = inputFilling;
+    params.page = pageNumber;
+    params.limit = parameters.limit;
+  }
   const result = await (
     await exCntrl.getListExercisesBySubspecies(params)
   ).json();
-  if (inputFilling && result.results.length > 0) {
+  if (result.results.length > 0) {
     cardsContainer.innerHTML = renderExercises(result.results);
     collectCardsAnimated();
-    formSearch.reset();
+    exerPaginationList.innerHTML = renderPagination(
+      result.totalPages,
+      result.page
+    );
   } else {
     cardsContainer.innerHTML = responseForNoResult();
   }
-});
+}
 
 // Слухач кліку вправ
 cardsContainer.addEventListener('click', async event => {
@@ -152,3 +184,14 @@ cardsContainer.addEventListener('click', async event => {
 // window.addEventListener('DOMContentLoaded', () => {
 //   header.textContent = `Exercises/<span class="header-filter">${filter}</span>`;
 // });
+
+exerPaginationList.addEventListener('click', event => {
+  const pageNumber = parseInt(event.target.getAttribute('value'));
+  paginationSource = 'formSearch';
+  onPaginationPageClick(event, paginationSource, pageNumber);
+});
+formSearch.addEventListener('submit', event => {
+  event.preventDefault();
+  paginationSource = 'formSearch';
+  onPaginationPageClick(event, paginationSource, 1);
+});
