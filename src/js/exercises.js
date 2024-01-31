@@ -10,9 +10,9 @@ const filterPaginationList = document.querySelector('.pagination-list');
 const exerPaginationList = document.querySelector('.exercsise-pagination-list');
 
 const exCntrl = new ExercisesController();
-const headerSlash = document.querySelector('.home-filters-title');
-const headerWaist = document.querySelector('.home-filters-subtitle');
-const filtersContainer = document.querySelector('.filters-box');
+export const headerSlash = document.querySelector('.slash');
+export const headerWaist = document.querySelector('.home-filters-subtitle');
+// const filtersContainer = document.querySelector('.filters-box');
 export const formSearch = document.querySelector('.form');
 
 const screenWidth = window.innerWidth;
@@ -68,7 +68,7 @@ export async function getExerciseFromApi(filter, name) {
     ).json();
     if (responseJson.results) {
       const elems = responseJson.results;
-      headerSlash.textContent = 'Exercises/';
+      headerSlash.textContent = '/';
       cardsContainer.innerHTML = renderExercises(elems);
       collectCardsAnimated();
       inputSearch.insertAdjacentElement('beforeEnd', formSearch);
@@ -197,9 +197,4 @@ formSearch.addEventListener('submit', event => {
   event.preventDefault();
   paginationSource = 'formSearch';
   onPaginationPageClick(event, paginationSource, 1);
-});
-
-filtersContainer.addEventListener('click', () => {
-  headerSlash.textContent = 'Exercises';
-  headerWaist.textContent = '';
 });
