@@ -145,6 +145,8 @@ async function fetchDynamicApiUrl(event, source) {
     if (data.results && data.results.length > 0) {
       cardsContainer.innerHTML = renderCards(data.results);
       inputSearch.innerHTML = '';
+      headerSlash.classList.remove('opacity-animating');
+      headerWaist.classList.remove('opacity-animating');
       headerSlash.textContent = '';
       headerWaist.textContent = '';
       formSearch.reset();

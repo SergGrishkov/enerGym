@@ -24,6 +24,15 @@
   line-height: 1; /* 100% */
   /* letter-spacing: -0.64px; */
 }
+.slash,
+.home-filters-subtitle {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+.opacity-animating {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
 .home-filters-subtitle {
   display: block;
   color: rgba(27, 27, 27, 0.5);
