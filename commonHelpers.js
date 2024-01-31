@@ -1,5 +1,5 @@
-import{f as c,s as l,g as r,r as d,i as v,a as g,c as f,E as m}from"./assets/pagination-af153fe0.js";import"./assets/vendor-6fe7236c.js";function n(e){return e?e.reduce((a,t)=>a+`
-    <li class="favorite-item" data-exerciseId="${t._id}">
+import{f as u,s as c,g as r,r as d,i as g,a as f,c as m,E as b}from"./assets/pagination-e5c47ec1.js";import"./assets/vendor-6fe7236c.js";function n(e){return e?e.reduce((t,a)=>t+`
+    <li class="favorite-item" data-exerciseId="${a._id}">
                 <div class="favorite-label-drop-start">
                     <p class="favorite-label-workout">WORKOUT</p>
                     <button class="favorite-remove-btn">
@@ -17,15 +17,15 @@ import{f as c,s as l,g as r,r as d,i as v,a as g,c as f,E as m}from"./assets/pag
                     <svg class="favorite-icon-run" width="24" height="24" aria-label="icon-bucket">
                         <use href="./sprite.svg#icon-exercises-man"></use>
                     </svg>
-                    <p>${c(t.name)}</p>
+                    <p>${u(a.name)}</p>
                 </div>
                 <div class="favorite-label-burn">
                     <p>Burned calories:</p>
-                    <span>${t.burnedCalories} / ${t.time} min</span>
+                    <span>${a.burnedCalories} / ${a.time} min</span>
                     <p>Body part:</p>
-                    <span>${c(t.bodyPart)}</span>
+                    <span>${u(a.bodyPart)}</span>
                     <p>Target:</p>
-                    <span>${c(t.target)}</span>
+                    <span>${u(a.target)}</span>
                 </div>
             </li>
     `,""):`
@@ -35,5 +35,5 @@ import{f as c,s as l,g as r,r as d,i as v,a as g,c as f,E as m}from"./assets/pag
                 exercises that you
                 like to your favorites for easier access in the future.</p>
         </div>
-    `}const b=new m,u=8,s=document.querySelector(".favorites-container-content-items"),i=document.querySelector(".pagination-list"),o=l(r(),u);document.addEventListener("DOMContentLoaded",()=>{if(window.innerWidth<=767){let e=l(r(),u)[0];s.innerHTML=n(e),i.innerHTML=d(o.length,1)}else{const e=n(r());s.innerHTML=e}});window.addEventListener("resize",()=>{if(window.matchMedia("(max-width: 767px)").matches){let e=l(r(),u)[0];s.innerHTML=n(e),i.innerHTML=d(o.length,1)}else{const e=n(r());s.innerHTML=e,i.innerHTML=""}});s.addEventListener("click",async e=>{if(e.target.ariaLabel!=="icon-bucket"&&e.target.className!=="favorite-remove-btn"&&e.target.className!=="favorite-start-btn"&&e.target.ariaLabel!=="start-arrow")return;let a=Object.values(e.target.closest("[data-exerciseId]").dataset)[0];if(e.target.ariaLabel==="icon-bucket"||e.target.className==="favorite-remove-btn")try{v(a)&&(g(a),document.querySelector(`[data-exerciseId="${a}"]`).remove()),r()||(i.innerHTML="",window.location.reload())}catch(t){console.log(`Exercise with ${a} can't be removed`,t)}if(e.target.className==="favorite-start-btn"||e.target.ariaLabel==="start-arrow"){const t=await b.getExerciseById(a);f(t.json())}});i.addEventListener("click",p);function p(e){e.target.tagName==="LI"&&(console.log(e.target.value),i.innerHTML=d(o.length,e.target.value),s.innerHTML=n(o[e.target.value-1]))}
+    `}const h=new b,o=8,s=document.querySelector(".favorites-container-content-items"),i=document.querySelector(".pagination-list"),l=c(r(),o);document.addEventListener("DOMContentLoaded",()=>{if(window.innerWidth<=767){let e=c(r(),o)[0];s.innerHTML=n(e),i.innerHTML=d(l.length,1)}else{const e=n(r());s.innerHTML=e}});window.addEventListener("resize",()=>{if(window.matchMedia("(max-width: 767px)").matches){let e=c(r(),o),t=c(r(),o)[0];s.innerHTML=n(t),i.innerHTML=d(e.length,1)}else{const e=n(r());s.innerHTML=e,i.innerHTML=""}});s.addEventListener("click",async e=>{if(!(e.target.ariaLabel!=="icon-bucket"&&e.target.className!=="favorite-remove-btn"&&e.target.className!=="favorite-start-btn"&&e.target.ariaLabel!=="start-arrow")){if(e.target.ariaLabel==="icon-bucket"||e.target.className==="favorite-remove-btn"){let t=Object.values(e.target.closest("[data-exerciseId]").dataset)[0],a;try{g(t)&&(f(t),document.querySelector(`[data-exerciseId="${t}"]`).remove(),a=r()?r().length:0,a%o===0&&(i.innerHTML=d(l.length,1),window.location.reload()),a===0&&(i.innerHTML="",window.location.reload()))}catch(v){console.log(`Exercise with ${t} can't be removed`,v)}}if(e.target.className==="favorite-start-btn"||e.target.ariaLabel==="start-arrow"){const t=await h.getExerciseById(id);m(t.json())}}});i.addEventListener("click",p);function p(e){e.target.tagName==="LI"&&(i.innerHTML=d(l.length,e.target.value),s.innerHTML=n(l[e.target.value-1]))}
 //# sourceMappingURL=commonHelpers.js.map
