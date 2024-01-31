@@ -4,12 +4,13 @@ import { collectCardsAnimated } from './filters';
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { createMarkupModalEx } from './modal-exercise';
 import { renderPagination } from './pagination';
+
 const cardsContainer = document.getElementById('cards-list');
 const filterPaginationList = document.querySelector('.pagination-list');
 const exerPaginationList = document.querySelector('.exercsise-pagination-list');
 
 const exCntrl = new ExercisesController();
-
+const headerSlash = document.querySelector('.home-filters-title');
 const headerWaist = document.querySelector('.home-filters-subtitle');
 export const formSearch = document.querySelector('.form');
 
@@ -66,6 +67,7 @@ export async function getExerciseFromApi(filter, name) {
     ).json();
     if (responseJson.results) {
       const elems = responseJson.results;
+      headerSlash.textContent = 'Exercises/';
       headerWaist.textContent = `${elems[0].target}`;
       cardsContainer.innerHTML = renderExercises(elems);
       collectCardsAnimated();
@@ -180,10 +182,6 @@ cardsContainer.addEventListener('click', async event => {
     createMarkupModalEx(exObj);
   }
 });
-
-// window.addEventListener('DOMContentLoaded', () => {
-//   header.textContent = `Exercises/<span class="header-filter">${filter}</span>`;
-// });
 
 exerPaginationList.addEventListener('click', event => {
   const pageNumber = parseInt(event.target.getAttribute('value'));
