@@ -1,4 +1,4 @@
-import{f as c,s as l,g as r,r as d,i as v,a as g,c as f,E as m}from"./assets/pagination-e08e4f08.js";import"./assets/vendor-6fe7236c.js";function n(e){return e?e.reduce((a,t)=>a+`
+import{f as c,s as l,g as r,r as d,i as v,a as g,c as f,E as m}from"./assets/pagination-af153fe0.js";import"./assets/vendor-6fe7236c.js";function n(e){return e?e.reduce((a,t)=>a+`
     <li class="favorite-item" data-exerciseId="${t._id}">
                 <div class="favorite-label-drop-start">
                     <p class="favorite-label-workout">WORKOUT</p>
