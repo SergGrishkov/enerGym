@@ -142,3 +142,9 @@
     line-height: 1.5;
   }
 }
+
+@media screen and (min-width: 1440px) {
+  .about-sport {
+    overflow: hidden;
+  }
+}

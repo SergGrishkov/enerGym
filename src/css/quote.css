@@ -1,4 +1,5 @@
 /* mobile */
+
 .quote-img {
   width: 335px;
   height: 272px;
@@ -165,5 +166,11 @@
       background-image: url(../img/quote/quote-desktop@2.jpg);
       background-size: 704px;
     }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .quote {
+    overflow: hidden;
   }
 }
