@@ -32,6 +32,9 @@ function openModalRating() {
 function closeModalRating() {
   modalRating.classList.remove('is-open');
   formEl.reset();
+  mratingValue.innerHTML = 0.0;
+  setMratingActiveWidth(0);
+  message.textContent = '';
   openExerciseModal();
 }
 
@@ -107,6 +110,8 @@ async function onSubmit(event) {
         modalRating.classList.remove('is-open');
         formEl.reset();
         setMratingActiveWidth(0);
+        mratingValue.innerHTML = 0.0;
+        message.textContent = '';
         createMarkupModalEx(ratingEx.json());
       } else {
         message.textContent = infoRating.message;

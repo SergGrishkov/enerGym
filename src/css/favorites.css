@@ -9,7 +9,6 @@
     padding-bottom: 92px;
     margin-bottom: 32px;
     width: 335px;
-    /* height: 450px; */
 }
 
 .favorites-container h2 {
@@ -104,6 +103,7 @@
 .favorite-item {
     display: block;
     width: 295px;
+    height: 165px;
     justify-content: center;
     align-items: flex-start;
     gap: 32px;
@@ -141,7 +141,7 @@
     margin-right: 16px;
 }
 
-.favorite-label-icon-run p{
+.favorite-label-icon-run p {
     max-width: 216px;
 }
 
@@ -226,20 +226,9 @@
         height: 720px;
     }
 
-    .favorites-container-content-items:hover{
+    .favorites-container-content-items:hover {
         overflow-y: auto;
     }
-
-    /* ::-webkit-scrollbar {
-         width: 6px;
-         height: 53px;
-         flex-shrink: 0;
-     } */
-
-     /* .favorites-container-content-items::-webkit-scrollbar-track {
-         border-radius: 12px;
-         background: #7E847F;
-     } */
 
     .favorites-container h2 {
         display: block;
@@ -295,6 +284,7 @@
     .favorite-item {
         display: block;
         width: calc(50% - 7px);
+        height: 165px;
         justify-content: center;
         align-items: flex-start;
         gap: 32px;
@@ -315,7 +305,7 @@
         margin-right: 16px;
     }
 
-    .favorite-label-icon-run p{
+    .favorite-label-icon-run p {
         max-width: 320px;
     }
 
@@ -372,18 +362,6 @@
         margin-bottom: 16px;
     }
 
-    .favorites-container-content-items {
-        column-gap: 20px;
-        row-gap: 28px;
-        overflow-y: auto;
-        height: 520px;
-        
-    }
-    .favorites-container-content-items:hover{
-        overflow-y: auto;
-    }
-
-
     .favorites-container h2 {
         padding-left: 0px;
     }
@@ -437,7 +415,6 @@
     .remove-favorites {
         fill: none;
         stroke: #1B1B1B;
-        /* margin-right: 90px; */
     }
 
 
@@ -465,7 +442,7 @@
         margin-right: 16px;
     }
 
-    .favorite-label-icon-run p{
+    .favorite-label-icon-run p {
         max-width: 420px;
     }
 
@@ -482,7 +459,7 @@
         padding: 0 16px;
     }
 
-    
+
     .favorites-container-content-items {
         column-gap: 14px;
         row-gap: 20px;
@@ -490,7 +467,7 @@
         height: 520px;
     }
 
-    .favorites-container-content-items:hover{
+    .favorites-container-content-items:hover {
         overflow-y: auto;
     }
 
@@ -520,11 +497,11 @@
     .favorites-container-content-items {
         column-gap: 14px;
         row-gap: 20px;
-        overflow-y: hidden;
-        height: 500px;
+        overflow-y: auto;
+        height: 540px;
     }
 
-    .favorites-container-content-items:hover{
+    .favorites-container-content-items:hover {
         overflow-y: auto;
     }
 

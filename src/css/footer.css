@@ -45,10 +45,7 @@
   line-height: 1.12;
   letter-spacing: -0.02em;
 }
-/* .footer-logo:hover,
-.footer-logo:focus {
-  color: #1b1b1b;
-} */
+
 .footer-social-list {
   display: flex;
   gap: 12px;
@@ -67,10 +64,7 @@
   transition: 700ms, fill 400ms cubic-bezier(0.4, 0, 0.2, 1),
     border 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* .footer-social-icon {
-  fill: #f6f6f6;
-  opacity: 0.8;
-} */
+
 .footer-social-link:hover,
 .footer-social-link:focus {
   transform: scale(1.2);
@@ -82,7 +76,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1;
-  /* letter-spacing: -0.02em; */
   margin-bottom: 20px;
 }
 .footer-slogan-item {
@@ -92,11 +85,8 @@
   font-style: italic;
   font-weight: 400;
   line-height: 1;
-  /* letter-spacing: -0.02em; */
 }
-/* .subscription-container {
-  margin-left: 0;
-} */
+
 .footer-subscription-title {
   margin-bottom: 20px;
   color: #f6f6f6;
@@ -108,6 +98,7 @@
 }
 .footer-label {
   display: flex;
+  margin-bottom: 12px;
 }
 .footer-input {
   display: flex;
@@ -115,7 +106,6 @@
   width: 295px;
   padding: 12px 14px;
   align-items: center;
-  margin-bottom: 12px;
   border-radius: 30px;
   border: 1px solid #f6f6f6;
   color: rgba(246, 246, 246, 0.6);
@@ -152,7 +142,6 @@
 .footer-button:hover,
 .footer-button:focus {
   background-color: #5f6560;
-  /* transform: scale(1.03); */
 }
 .footer-rights {
   color: #f6f6f6;
@@ -206,13 +195,6 @@
     }
   }
 
-  /* @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .footer {
-      background-image: url(../img/footer/tablet-footer2x.jpg);
-    }
-  } */
   .footer-container {
     display: flex;
     flex-wrap: wrap;
@@ -220,10 +202,7 @@
     padding-right: 0;
     width: 640px;
   }
-  .footer-navigation {
-    /* margin-right: 145px; */
-    /* margin-left: 48px; */
-  }
+
   .footer-logo {
     font-size: 28px;
     line-height: 1;
@@ -255,16 +234,16 @@
     margin-left: 293px;
   }
   .footer-subscription-title {
-    /* margin-bottom: 20px; */
     font-size: 18px;
     line-height: 1.33;
   }
   .footer-button {
     width: 100%;
-    /* padding: 12px 157px; */
+  }
+  .footer-label {
+    margin-bottom: 20px;
   }
   .footer-input {
-    margin-bottom: 20px;
     width: 100%;
   }
   .footer-security {
@@ -314,16 +293,8 @@
     }
   }
 
-  /* @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .footer {
-      background-image: url(../img/footer/desktop-footer2x.jpg);
-    }
-  } */
   .footer-container {
     flex-wrap: nowrap;
-    /* justify-content: space-between; */
     width: 1312px;
   }
   .footer-navigation {
@@ -334,9 +305,6 @@
     margin-right: 0;
   }
 
-  .footer-social-list {
-    /* margin-top: 40px; */
-  }
   .footer-slogan {
     width: 482px;
     margin-right: 160px;
@@ -351,6 +319,5 @@
   .subscription-container {
     margin-left: 0;
     width: 352px;
-    /* margin-right: 48px; */
   }
 }

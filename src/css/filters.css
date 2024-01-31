@@ -110,7 +110,8 @@
   line-height: 1.5; /* 150% */
 }
 
-.pagination-list {
+.pagination-list,
+.exercsise-pagination-list {
   display: flex;
   align-items: center;
   justify-content: center;
