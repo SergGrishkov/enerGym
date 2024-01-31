@@ -143,7 +143,6 @@
 .list-item {
   border-radius: 15px;
   background-color: #fff;
-  /* width: 295px; */
   padding: 16px;
 }
 
@@ -371,7 +370,6 @@
   }
 
   .list-item {
-    /* width: 313px; */
     max-width: calc(50% - 8px);
   }
 
@@ -404,6 +402,7 @@
 
   .list-item {
     width: calc(33.3% - 14px);
+    height: 165px;
   }
   .training-name {
     max-width: 320px;
