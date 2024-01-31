@@ -213,8 +213,9 @@ function closeModalOnEscape(event) {
 }
 
 function closeModalOnMouse(e) {
-  // console.log(e.target.classList.value);
+  console.log(e.target.classList.value);
   if (
+    e.target.classList.value === 'close-btn' ||
     e.target.classList.value === 'modal-close-icon' ||
     e.target.classList.value === 'backdrop is-open'
   ) {
