@@ -6,6 +6,7 @@ import { createMarkupModalEx } from './modal-exercise';
 
 const exCntrl = new ExercisesController();
 
+const headerWaist = document.querySelector('.home-filters-subtitle');
 export const formSearch = document.querySelector('.form');
 const cardsContainer = document.getElementById('cards-list');
 const screenWidth = window.innerWidth;
@@ -47,6 +48,7 @@ export async function getExerciseFromApi(filter, name) {
     const responseJson = await response.json();
     if (responseJson.results) {
       const elems = responseJson.results;
+      headerWaist.textContent = `${elems[0].target}`;
       cardsContainer.innerHTML = renderExercises(elems);
       inputSearch.insertAdjacentElement('beforeEnd', formSearch);
     }
