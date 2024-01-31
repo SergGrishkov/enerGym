@@ -68,7 +68,10 @@ export async function getExerciseFromApi(filter, name) {
     ).json();
     if (responseJson.results) {
       const elems = responseJson.results;
+      headerSlash.classList.add('opacity-animating');
+      headerWaist.classList.add('opacity-animating');
       headerSlash.textContent = '/';
+
       cardsContainer.innerHTML = renderExercises(elems);
       collectCardsAnimated();
       inputSearch.insertAdjacentElement('beforeEnd', formSearch);
