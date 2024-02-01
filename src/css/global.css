@@ -23,6 +23,13 @@ section {
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 1439px) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .container {
     width: 736px;

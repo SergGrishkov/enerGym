@@ -4,12 +4,15 @@ import { collectCardsAnimated } from './filters';
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { createMarkupModalEx } from './modal-exercise';
 import { renderPagination } from './pagination';
+
 const cardsContainer = document.getElementById('cards-list');
 const filterPaginationList = document.querySelector('.pagination-list');
 const exerPaginationList = document.querySelector('.exercsise-pagination-list');
 
 const exCntrl = new ExercisesController();
-
+export const headerSlash = document.querySelector('.slash');
+export const headerWaist = document.querySelector('.home-filters-subtitle');
+// const filtersContainer = document.querySelector('.filters-box');
 export const formSearch = document.querySelector('.form');
 
 const screenWidth = window.innerWidth;
@@ -40,7 +43,6 @@ function limitPerScreenWidth(width) {
   }
   return parameters.limit;
 }
-limitPerScreenWidth(screenWidth);
 
 export function setFilterAndName(filter, name) {
   filterAndName.filter = filter;
@@ -58,6 +60,7 @@ function onPaginationPageClick(event, paginationSource, pageNumber) {
 }
 
 export async function getExerciseFromApi(filter, name) {
+  limitPerScreenWidth(screenWidth);
   const newParameters = { [filter]: name, ...parameters };
   try {
     const responseJson = await (
@@ -65,6 +68,10 @@ export async function getExerciseFromApi(filter, name) {
     ).json();
     if (responseJson.results) {
       const elems = responseJson.results;
+      headerSlash.classList.add('opacity-animating');
+      headerWaist.classList.add('opacity-animating');
+      headerSlash.textContent = '/';
+
       cardsContainer.innerHTML = renderExercises(elems);
       collectCardsAnimated();
       inputSearch.insertAdjacentElement('beforeEnd', formSearch);
@@ -132,13 +139,14 @@ function renderExercises(exercises) {
 
 // Відповідь на неіснуючий запит
 function responseForNoResult() {
+  exerPaginationList.innerHTML = '';
   return `<div class="response-cont"><p class="response-describe">Unfortunately, <span class="describe">no results</span> were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs.</p></div>`;
 }
 
-// Слухач форми
 async function getExercisesFromFormSearch(event, pageNumber) {
   event.preventDefault();
   inputFilling = formSearch.elements.delay.value.trim();
+  limitPerScreenWidth(screenWidth);
   const params = {};
   if (!inputFilling) {
     params[filterAndName.filter] = filterAndName.name;
@@ -167,8 +175,13 @@ async function getExercisesFromFormSearch(event, pageNumber) {
 
 // Слухач кліку вправ
 cardsContainer.addEventListener('click', async event => {
+  const listItemsArr = Array.from(cardsContainer.children);
+  if (event.target.dataset.name) {
+    headerWaist.textContent = firstLetterToUpper(
+      `${event.target.dataset.name}`
+    );
+  }
   if (event.target.classList.contains('arrow-btn')) {
-    const listItemsArr = Array.from(cardsContainer.children);
     const itemId = listItemsArr.filter(
       elem =>
         elem.dataset.exerciseid ===
@@ -178,10 +191,6 @@ cardsContainer.addEventListener('click', async event => {
     createMarkupModalEx(exObj);
   }
 });
-
-// window.addEventListener('DOMContentLoaded', () => {
-//   header.textContent = `Exercises/<span class="header-filter">${filter}</span>`;
-// });
 
 exerPaginationList.addEventListener('click', event => {
   const pageNumber = parseInt(event.target.getAttribute('value'));

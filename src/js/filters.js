@@ -5,6 +5,8 @@ import { renderPagination } from './pagination';
 import { formSearch } from './exercises';
 import { setFilterAndName } from './exercises';
 import { parameters } from './exercises';
+import { headerSlash } from './exercises';
+import { headerWaist } from './exercises';
 
 export const inputSearch = document.querySelector('.search-container');
 const filterSection = document.querySelector('.home-filters');
@@ -143,6 +145,10 @@ async function fetchDynamicApiUrl(event, source) {
     if (data.results && data.results.length > 0) {
       cardsContainer.innerHTML = renderCards(data.results);
       inputSearch.innerHTML = '';
+      headerSlash.classList.remove('opacity-animating');
+      headerWaist.classList.remove('opacity-animating');
+      headerSlash.textContent = '';
+      headerWaist.textContent = '';
       formSearch.reset();
       exerPaginationContainerEl.innerHTML = '';
       paginationList.innerHTML = '';
@@ -193,7 +199,7 @@ function renderCards(cards) {
 async function getExercisesByName(event) {
   const targetExercises = event.target.dataset.name;
   const selectedFilter = event.target.dataset.filter;
-
+  onScroll();
   if (targetExercises && selectedFilter) {
     let filterToSend = selectedFilter;
     if (selectedFilter === 'body parts') {
