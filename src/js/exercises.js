@@ -4,6 +4,7 @@ import { collectCardsAnimated } from './filters';
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { createMarkupModalEx } from './modal-exercise';
 import { renderPagination } from './pagination';
+import { onScroll } from './filters';
 
 const cardsContainer = document.getElementById('cards-list');
 const filterPaginationList = document.querySelector('.pagination-list');
@@ -50,6 +51,7 @@ export function setFilterAndName(filter, name) {
 }
 
 function onPaginationPageClick(event, paginationSource, pageNumber) {
+  onScroll();
   parameters.page = pageNumber;
   if (paginationSource === 'formSearch') {
     getExercisesFromFormSearch(event, parameters.page);
@@ -60,6 +62,7 @@ function onPaginationPageClick(event, paginationSource, pageNumber) {
 }
 
 export async function getExerciseFromApi(filter, name) {
+  onScroll();
   limitPerScreenWidth(screenWidth);
   const newParameters = { [filter]: name, ...parameters };
   try {
