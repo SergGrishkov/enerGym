@@ -129,7 +129,6 @@ function getCurrentPage(event) {
 }
 
 const closeIconUse = document.querySelector('.modal-close-icon use');
-console.log(closeIconUse);
 
 function closeModalOnEscape(event) {
   if (event.key === 'Escape') {
