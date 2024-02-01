@@ -182,8 +182,6 @@ export function createMarkupModalEx(exercise) {
   }
 
 
-
-
 // ======== CLOSE MODAL WINDOW ========
 
 function closeModalOnEscape(event) {
@@ -238,7 +236,6 @@ modalEl.addEventListener('click', function (event) {
 });
 
 
-
 // ========= UPDATE BUTTON ADD TO REMOVE
 
 function updateButtonUI(isFavorite) {
@@ -249,4 +246,3 @@ function updateButtonUI(isFavorite) {
   const updatedAddFavBtn = modalEl.querySelector('.js-add-remove-btn');
   updatedAddFavBtn.innerHTML = `<button class="ex-modal-btn add-favorite" type="button">${textBtn}<p class="btn-icon-add-remove-favorite js-add-remove-btn"><svg class="modal-icon-favorite" width="18" height="18" aria-label="modal favorite icon"><use href='${urlIcon}'></use></svg></p></button>`;
 }
-
