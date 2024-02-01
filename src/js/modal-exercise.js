@@ -29,7 +29,7 @@ export function createMarkupModalEx(exercise) {
 
   exerciseID = exercise._id
   modalWindow.classList.add('is-open');
-  // body.style.overflow = 'hidden';
+  // body.style.overflow = 'hidden'; //для блокування скролу
   window.addEventListener('keydown', closeModalOnEscape);
   window.addEventListener('click', closeModalOnMouse);
 
@@ -195,11 +195,11 @@ const closeIconUse = document.querySelector('.modal-close-icon use');
 
 closeIconUse.addEventListener('click', function() {
   closeExerciseModal();
-
 });
 
 function closeModalOnMouse(e) {
   e.preventDefault();
+  
   if (
     e.target.classList.value === 'close-btn' ||
     e.target.classList.value === 'modal-close-icon' ||
@@ -208,8 +208,10 @@ function closeModalOnMouse(e) {
     closeExerciseModal();
   }
 
-  if (e.target.classList.value.includes('rating-btn')) { 
-      closeExerciseModal();
+  if (e.target.classList.value.includes('rating-btn')) {
+    modalWindow.classList.remove('is-open');
+    body.classList.remove('modal-open');
+    createRatingModal(e.target.dataset.rating); 
   } 
 }
 
