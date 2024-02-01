@@ -39,7 +39,7 @@ const filterParams = {
 
 // onScroll----
 // ------------
-function onScroll() {
+export function onScroll() {
   filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 // ------------
@@ -199,7 +199,6 @@ function renderCards(cards) {
 async function getExercisesByName(event) {
   const targetExercises = event.target.dataset.name;
   const selectedFilter = event.target.dataset.filter;
-  onScroll();
   if (targetExercises && selectedFilter) {
     let filterToSend = selectedFilter;
     if (selectedFilter === 'body parts') {
