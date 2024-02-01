@@ -89,6 +89,8 @@
 
 .response-cont {
   margin: 0 auto;
+  padding-top: 165px;
+  padding-bottom: 265px;
 }
 
 .response-describe {
@@ -130,7 +132,7 @@
   transform: translateY(-50%);
   display: block;
   stroke: #1b1b1b;
-  fill: #ffffff;
+  fill: #f6f6f6;
 }
 
 .workout-list {
@@ -143,7 +145,6 @@
 .list-item {
   border-radius: 15px;
   background-color: #fff;
-  /* width: 295px; */
   padding: 16px;
 }
 
@@ -371,7 +372,6 @@
   }
 
   .list-item {
-    /* width: 313px; */
     max-width: calc(50% - 8px);
   }
 
@@ -379,6 +379,10 @@
     max-width: 225px;
     font-size: 24px;
     line-height: 1.5;
+  }
+  .response-cont {
+    padding-top: 215px;
+    padding-bottom: 410px;
   }
 }
 
@@ -404,8 +408,12 @@
 
   .list-item {
     width: calc(33.3% - 14px);
+    height: 165px;
   }
   .training-name {
     max-width: 320px;
+  }
+  .response-cont {
+    padding-bottom: 320px;
   }
 }

@@ -4,15 +4,16 @@ import { collectCardsAnimated } from './filters';
 import { ExercisesController } from '../api/controllers/ExercisesController';
 import { createMarkupModalEx } from './modal-exercise';
 import { renderPagination } from './pagination';
+import { onScroll } from './filters';
 
 const cardsContainer = document.getElementById('cards-list');
 const filterPaginationList = document.querySelector('.pagination-list');
 const exerPaginationList = document.querySelector('.exercsise-pagination-list');
 
 const exCntrl = new ExercisesController();
-const headerSlash = document.querySelector('.home-filters-title');
-const headerWaist = document.querySelector('.home-filters-subtitle');
-const filtersContainer = document.querySelector('.filters-box');
+export const headerSlash = document.querySelector('.slash');
+export const headerWaist = document.querySelector('.home-filters-subtitle');
+// const filtersContainer = document.querySelector('.filters-box');
 export const formSearch = document.querySelector('.form');
 
 const screenWidth = window.innerWidth;
@@ -43,7 +44,6 @@ function limitPerScreenWidth(width) {
   }
   return parameters.limit;
 }
-limitPerScreenWidth(screenWidth);
 
 export function setFilterAndName(filter, name) {
   filterAndName.filter = filter;
@@ -51,6 +51,7 @@ export function setFilterAndName(filter, name) {
 }
 
 function onPaginationPageClick(event, paginationSource, pageNumber) {
+  onScroll();
   parameters.page = pageNumber;
   if (paginationSource === 'formSearch') {
     getExercisesFromFormSearch(event, parameters.page);
@@ -61,6 +62,8 @@ function onPaginationPageClick(event, paginationSource, pageNumber) {
 }
 
 export async function getExerciseFromApi(filter, name) {
+  onScroll();
+  limitPerScreenWidth(screenWidth);
   const newParameters = { [filter]: name, ...parameters };
   try {
     const responseJson = await (
@@ -68,8 +71,10 @@ export async function getExerciseFromApi(filter, name) {
     ).json();
     if (responseJson.results) {
       const elems = responseJson.results;
-      headerSlash.textContent = 'Exercises/';
-      headerWaist.textContent = `${elems[0].target}`;
+      headerSlash.classList.add('opacity-animating');
+      headerWaist.classList.add('opacity-animating');
+      headerSlash.textContent = '/';
+
       cardsContainer.innerHTML = renderExercises(elems);
       collectCardsAnimated();
       inputSearch.insertAdjacentElement('beforeEnd', formSearch);
@@ -137,13 +142,14 @@ function renderExercises(exercises) {
 
 // Відповідь на неіснуючий запит
 function responseForNoResult() {
+  exerPaginationList.innerHTML = '';
   return `<div class="response-cont"><p class="response-describe">Unfortunately, <span class="describe">no results</span> were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs.</p></div>`;
 }
 
-// Слухач форми
 async function getExercisesFromFormSearch(event, pageNumber) {
   event.preventDefault();
   inputFilling = formSearch.elements.delay.value.trim();
+  limitPerScreenWidth(screenWidth);
   const params = {};
   if (!inputFilling) {
     params[filterAndName.filter] = filterAndName.name;
@@ -172,8 +178,13 @@ async function getExercisesFromFormSearch(event, pageNumber) {
 
 // Слухач кліку вправ
 cardsContainer.addEventListener('click', async event => {
+  const listItemsArr = Array.from(cardsContainer.children);
+  if (event.target.dataset.name) {
+    headerWaist.textContent = firstLetterToUpper(
+      `${event.target.dataset.name}`
+    );
+  }
   if (event.target.classList.contains('arrow-btn')) {
-    const listItemsArr = Array.from(cardsContainer.children);
     const itemId = listItemsArr.filter(
       elem =>
         elem.dataset.exerciseid ===
@@ -193,9 +204,4 @@ formSearch.addEventListener('submit', event => {
   event.preventDefault();
   paginationSource = 'formSearch';
   onPaginationPageClick(event, paginationSource, 1);
-});
-
-filtersContainer.addEventListener('click', () => {
-  headerSlash.textContent = 'Exercises';
-  headerWaist.textContent = '';
 });

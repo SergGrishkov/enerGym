@@ -36,8 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       const infoDescr = response.info();
 
-      console.log(infoDescr);
-
       modalText.textContent = infoDescr.message;
       modal.classList.add('is-open');
       form.querySelector("input[name='footer-email']").value = '';
