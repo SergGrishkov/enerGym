@@ -17,6 +17,9 @@ const listFavorites = document.querySelector(
   '.favorites-container-content-items'
 );
 const paginationList = document.querySelector('.pagination-list');
+const modalWindow = document.querySelector('.backdrop');
+const body = document.body;
+let btnAddRemoveEl;
 
 const chunkArrayLs = splitArraytoParts(
   getFavoritCardsFromLocalStorage(),
@@ -62,8 +65,8 @@ listFavorites.addEventListener('click', async e => {
     e.target.ariaLabel !== 'start-arrow'
   )
     return;
-    
-    let id = Object.values(e.target.closest('[data-exerciseId]').dataset)[0];
+
+  let id = Object.values(e.target.closest('[data-exerciseId]').dataset)[0];
 
   if (
     e.target.ariaLabel === 'icon-bucket' ||
@@ -75,12 +78,9 @@ listFavorites.addEventListener('click', async e => {
         removeExerciseFromFavoriteById(id);
         document.querySelector(`[data-exerciseId="${id}"]`).remove();
         allstorage = getFavoritCardsFromLocalStorage()
-          ? getFavoritCardsFromLocalStorage().length 
+          ? getFavoritCardsFromLocalStorage().length
           : 0;
-        if (
-          allstorage % chunk ===
-          0
-        ) {
+        if (allstorage % chunk === 0) {
           paginationList.innerHTML = renderPagination(chunkArrayLs.length, 1);
           window.location.reload();
         }
@@ -100,6 +100,17 @@ listFavorites.addEventListener('click', async e => {
   ) {
     const exerciseInfo = await exerciseCntrl.getExerciseById(id);
     createMarkupModalEx(exerciseInfo.json());
+    btnAddRemoveEl = document.querySelector('.js-add-remove-btn');
+    btnAddRemoveEl.addEventListener('click', e => {
+      if (
+        window.location.pathname !== '/favorites.html' &&
+        e.target.classList.contains('js-add-remove-btn')
+      )
+        return;
+      if (e.target.innerText.trim() === 'Remove from favorites') {
+        document.querySelector(`[data-exerciseId="${id}"]`).remove();
+      }
+    });
   }
 });
 
@@ -116,3 +127,41 @@ function getCurrentPage(event) {
     );
   }
 }
+
+const closeIconUse = document.querySelector('.modal-close-icon use');
+console.log(closeIconUse);
+
+function closeModalOnEscape(event) {
+  if (event.key === 'Escape') {
+    closeExerciseModal(); 
+  }
+}
+
+function closeExerciseModal() {
+  modalWindow.classList.remove('is-open');
+  body.classList.remove('modal-open');
+  window.removeEventListener('keydown', closeModalOnEscape);
+  window.removeEventListener('click', closeModalOnMouse);
+  const favoriteInfoLs = renderFavoriteCards(getFavoritCardsFromLocalStorage());
+  listFavorites.innerHTML = favoriteInfoLs;
+}
+
+function closeModalOnMouse(e) {
+  e.preventDefault();
+
+  if (
+    e.target.classList.value === 'close-btn' ||
+    e.target.classList.value === 'modal-close-icon' ||
+    e.target.classList.value === 'backdrop is-open'
+  ) {
+    closeExerciseModal();
+  }
+}
+
+closeIconUse.addEventListener('click', function () {
+  closeExerciseModal();
+});
+
+window.addEventListener('keydown', function () {
+  closeExerciseModal();
+});
