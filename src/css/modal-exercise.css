@@ -19,7 +19,10 @@
   opacity: 1;
   visibility: visible;
   pointer-events: all;
+}
 
+.modal-open {
+  overflow: hidden;
 }
 
 .modal-exercise {
@@ -365,3 +368,5 @@
   line-height: 1;
   padding-left: 0px;
 }
+
+
